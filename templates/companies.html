@@ -1,0 +1,1190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SkillBridge - Companies</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+    <style>
+
+        /* =====================================================
+           COMPANY PAGE
+        ===================================================== */
+
+        .company-intro {
+            background: white;
+            padding: 25px;
+            border-radius: 18px;
+            margin-bottom: 25px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+            border: 1px solid #eef0f4;
+        }
+
+        .company-intro h2 {
+            margin: 0 0 8px;
+            color: #111827;
+        }
+
+        .company-intro p {
+            margin: 0;
+            color: #6b7280;
+            line-height: 1.6;
+        }
+
+        /* =====================================================
+           COMPANY GRID
+        ===================================================== */
+
+        .company-grid {
+            display: grid;
+            grid-template-columns:
+                repeat(auto-fit, minmax(300px, 1fr));
+            gap: 22px;
+        }
+
+        .company-card {
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-radius: 18px;
+            padding: 24px;
+
+            box-shadow:
+                0 5px 18px rgba(0,0,0,0.06);
+
+            transition: all 0.25s ease;
+        }
+
+        .company-card:hover {
+            transform: translateY(-5px);
+
+            box-shadow:
+                0 12px 30px rgba(0,0,0,0.10);
+        }
+
+        .company-top {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 18px;
+        }
+
+        .company-icon {
+            width: 58px;
+            height: 58px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 15px;
+
+            background: #eef2ff;
+
+            font-size: 28px;
+        }
+
+        .company-card h2 {
+            margin: 0;
+            color: #111827;
+            font-size: 21px;
+        }
+
+        .company-field {
+            margin: 5px 0 0;
+
+            color: #4f46e5;
+
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        /* =====================================================
+           COMPANY DETAILS
+        ===================================================== */
+
+        .company-details {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+
+            margin-bottom: 20px;
+        }
+
+        .company-detail-box {
+            background: #f8fafc;
+
+            border-radius: 11px;
+
+            padding: 12px 14px;
+        }
+
+        .company-detail-box strong {
+            display: block;
+
+            color: #374151;
+
+            font-size: 13px;
+
+            margin-bottom: 4px;
+        }
+
+        .company-detail-box p {
+            margin: 0;
+
+            color: #6b7280;
+
+            font-size: 14px;
+
+            line-height: 1.5;
+        }
+
+        /* =====================================================
+           VIEW OPPORTUNITY BUTTON
+        ===================================================== */
+
+        .company-btn {
+            width: 100%;
+
+            border: none;
+
+            padding: 13px 16px;
+
+            border-radius: 11px;
+
+            background: #4f46e5;
+
+            color: white;
+
+            font-size: 15px;
+
+            font-weight: 700;
+
+            cursor: pointer;
+
+            transition: 0.2s;
+        }
+
+        .company-btn:hover {
+            background: #3730a3;
+
+            transform: translateY(-1px);
+        }
+
+        /* =====================================================
+           OPPORTUNITY SECTION
+        ===================================================== */
+
+        #opportunitySection {
+            display: none;
+
+            margin-top: 30px;
+
+            background: white;
+
+            border-radius: 18px;
+
+            padding: 28px;
+
+            border: 1px solid #e5e7eb;
+
+            box-shadow:
+                0 6px 25px rgba(0,0,0,0.07);
+        }
+
+        /* =====================================================
+           OPPORTUNITY HEADER
+        ===================================================== */
+
+        .opportunity-header {
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            gap: 20px;
+
+            margin-bottom: 25px;
+
+            padding-bottom: 20px;
+
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .opportunity-header h2 {
+            margin: 0;
+
+            color: #111827;
+
+            font-size: 25px;
+        }
+
+        .opportunity-header p {
+            margin: 7px 0 0;
+
+            color: #6b7280;
+        }
+
+        .back-company-btn {
+            border: none;
+
+            padding: 10px 16px;
+
+            border-radius: 10px;
+
+            background: #f3f4f6;
+
+            color: #374151;
+
+            font-weight: 700;
+
+            cursor: pointer;
+        }
+
+        .back-company-btn:hover {
+            background: #e5e7eb;
+        }
+
+        /* =====================================================
+           OPPORTUNITY GRID
+        ===================================================== */
+
+        .opportunity-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(auto-fit, minmax(280px, 1fr));
+
+            gap: 20px;
+        }
+
+        .opportunity-card {
+            background: #fafafa;
+
+            border: 1px solid #e5e7eb;
+
+            border-radius: 16px;
+
+            padding: 22px;
+
+            transition: 0.2s;
+        }
+
+        .opportunity-card:hover {
+            box-shadow:
+                0 8px 22px rgba(0,0,0,0.07);
+
+            transform: translateY(-3px);
+        }
+
+        .opportunity-card h3 {
+            margin: 0 0 7px;
+
+            color: #111827;
+
+            font-size: 20px;
+        }
+
+        .opportunity-role {
+            color: #4f46e5;
+
+            font-weight: 700;
+
+            margin-bottom: 17px;
+        }
+
+        /* =====================================================
+           OPPORTUNITY INFORMATION
+        ===================================================== */
+
+        .opportunity-info {
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 10px;
+
+            margin-bottom: 18px;
+        }
+
+        .opportunity-info span {
+            color: #4b5563;
+
+            font-size: 14px;
+        }
+
+        /* =====================================================
+           SKILL TAGS
+        ===================================================== */
+
+        .skills-title {
+            display: block;
+
+            margin-bottom: 10px;
+
+            color: #374151;
+
+            font-size: 14px;
+        }
+
+        .skill-tags {
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 8px;
+
+            margin-bottom: 20px;
+        }
+
+        .skill-tag {
+            background: #eef2ff;
+
+            color: #4338ca;
+
+            padding: 6px 11px;
+
+            border-radius: 20px;
+
+            font-size: 12px;
+
+            font-weight: 700;
+        }
+
+        /* =====================================================
+           APPLY BUTTON
+        ===================================================== */
+
+        .apply-btn {
+            width: 100%;
+
+            border: none;
+
+            padding: 12px;
+
+            border-radius: 10px;
+
+            background: #16a34a;
+
+            color: white;
+
+            font-size: 14px;
+
+            font-weight: 700;
+
+            cursor: pointer;
+
+            transition: 0.2s;
+        }
+
+        .apply-btn:hover {
+            background: #15803d;
+
+            transform: translateY(-1px);
+        }
+
+        /* =====================================================
+           EMPTY COMPANY
+        ===================================================== */
+
+        .empty-company {
+            background: white;
+
+            padding: 40px;
+
+            border-radius: 18px;
+
+            text-align: center;
+
+            color: #6b7280;
+
+            border: 1px solid #e5e7eb;
+        }
+
+        /* =====================================================
+           SUCCESS MESSAGE
+        ===================================================== */
+
+        #applicationMessage {
+            display: none;
+
+            margin-top: 20px;
+
+            padding: 15px;
+
+            border-radius: 10px;
+
+            background: #ecfdf5;
+
+            color: #166534;
+
+            border: 1px solid #bbf7d0;
+
+            font-weight: 600;
+        }
+
+        /* =====================================================
+           RESPONSIVE
+        ===================================================== */
+
+        @media (max-width: 700px) {
+
+            .opportunity-header {
+                flex-direction: column;
+
+                align-items: flex-start;
+            }
+
+            .company-grid,
+            .opportunity-grid {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+<div class="app-container">
+
+
+    <!-- =====================================================
+         SIDEBAR
+    ===================================================== -->
+
+    <aside class="sidebar">
+
+        <div class="logo">
+
+            <h2>SkillBridge</h2>
+
+            <p>
+                Career & Skill Platform
+            </p>
+
+        </div>
+
+
+        <nav>
+
+            <a href="/">
+                🏠 Dashboard
+            </a>
+
+            <a href="/profile">
+                👤 Profile
+            </a>
+
+            <a href="/skill-mapping">
+                🔗 Skill Mapping
+            </a>
+
+            <a href="/roadmap">
+                🗺️ Roadmap
+            </a>
+
+            <a href="/internship">
+                💼 Internships
+            </a>
+
+            <a href="/placements">
+                🎯 Placements
+            </a>
+
+            <a href="/companies"
+               class="active">
+
+                🏢 Companies
+
+            </a>
+
+        </nav>
+
+    </aside>
+
+
+    <!-- =====================================================
+         MAIN CONTENT
+    ===================================================== -->
+
+    <main class="main-content">
+
+
+        <!-- =================================================
+             PAGE HEADER
+        ================================================= -->
+
+        <div class="page-header">
+
+            <h1>
+                🏢 Company Opportunities
+            </h1>
+
+            {% if student %}
+
+                <p>
+                    Explore companies and job opportunities
+                    based on your career goal.
+                </p>
+
+                <p>
+
+                    Target Career:
+
+                    <strong>
+                        {{ student["target_field"] }}
+                    </strong>
+
+                </p>
+
+            {% else %}
+
+                <p>
+                    Explore companies offering career
+                    opportunities.
+                </p>
+
+            {% endif %}
+
+        </div>
+
+
+        <!-- =================================================
+             INTRO
+        ================================================= -->
+
+        <section class="company-intro">
+
+            <h2>
+                🚀 Explore Companies
+            </h2>
+
+            <p>
+
+                Find companies related to your selected
+                career field. Click
+                <strong>View Opportunities</strong>
+                to see available roles, salary packages,
+                eligibility and required skills.
+
+            </p>
+
+        </section>
+
+
+        <!-- =================================================
+             COMPANY SECTION
+        ================================================= -->
+
+        <section id="companySection">
+
+            <div class="company-grid">
+
+
+                {% if companies %}
+
+
+                    {% for company in companies %}
+
+
+                    <div class="company-card">
+
+
+                        <!-- COMPANY HEADER -->
+
+                        <div class="company-top">
+
+                            <div class="company-icon">
+                                🏢
+                            </div>
+
+                            <div>
+
+                                <h2>
+                                    {{ company.name }}
+                                </h2>
+
+                                <p class="company-field">
+                                    {{ company.field }}
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- DETAILS -->
+
+                        <div class="company-details">
+
+
+                            <div class="company-detail-box">
+
+                                <strong>
+                                    📍 Locations
+                                </strong>
+
+                                <p>
+                                    {{ company.location }}
+                                </p>
+
+                            </div>
+
+
+                            <div class="company-detail-box">
+
+                                <strong>
+                                    💼 Opportunities
+                                </strong>
+
+                                <p>
+                                    {{ company.opportunities }}
+                                </p>
+
+                            </div>
+
+
+                            <div class="company-detail-box">
+
+                                <strong>
+                                    🛠️ Required Skills
+                                </strong>
+
+                                <p>
+                                    {{ company.skills }}
+                                </p>
+
+                            </div>
+
+
+                        </div>
+
+
+                        <!-- VIEW BUTTON -->
+
+                        <button
+                            type="button"
+                            class="company-btn"
+
+                            onclick="showOpportunities(
+                                '{{ company.name | e }}',
+                                '{{ company.field | e }}',
+                                '{{ company.location | e }}',
+                                '{{ company.opportunities | e }}',
+                                '{{ company.skills | e }}'
+                            )">
+
+                            View Opportunities →
+
+                        </button>
+
+
+                    </div>
+
+
+                    {% endfor %}
+
+
+                {% else %}
+
+
+                    <div class="empty-company">
+
+                        <h3>
+                            🔍 No Companies Found
+                        </h3>
+
+                        <p>
+                            Please complete your profile
+                            and select a career field.
+                        </p>
+
+                    </div>
+
+
+                {% endif %}
+
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             OPPORTUNITY SECTION
+        ================================================= -->
+
+        <section id="opportunitySection">
+
+
+            <!-- HEADER -->
+
+            <div class="opportunity-header">
+
+                <div>
+
+                    <h2 id="opportunityCompany">
+                        💼 Company Opportunities
+                    </h2>
+
+                    <p id="opportunityField">
+                        Available career opportunities
+                    </p>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="back-company-btn"
+                    onclick="hideOpportunities()">
+
+                    ← Back to Companies
+
+                </button>
+
+            </div>
+
+
+            <!-- OPPORTUNITY CARDS -->
+
+            <div
+                id="opportunityGrid"
+                class="opportunity-grid">
+
+            </div>
+
+
+            <!-- SUCCESS MESSAGE -->
+
+            <div id="applicationMessage">
+
+                ✅ Application submitted successfully!
+                Your application has been added to your
+                placement tracking.
+
+            </div>
+
+
+        </section>
+
+
+        <!-- =================================================
+             BOTTOM NAVIGATION
+        ================================================= -->
+
+        <div class="roadmap-action">
+
+
+            <a href="/placements"
+               class="btn">
+
+                ← Placements
+
+            </a>
+
+
+            <a href="/internship"
+               class="btn">
+
+                💼 Internships
+
+            </a>
+
+
+            <a href="/skill-mapping"
+               class="btn">
+
+                🔗 Skill Mapping
+
+            </a>
+
+
+            <a href="/learning-resources"
+               class="btn">
+
+                📚 Learning Resources →
+
+            </a>
+
+
+            <a href="/"
+               class="btn">
+
+                🏠 Dashboard
+
+            </a>
+
+
+        </div>
+
+
+    </main>
+
+</div>
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script>
+
+
+/* =====================================================
+   SHOW OPPORTUNITIES
+===================================================== */
+
+function showOpportunities(
+    companyName,
+    field,
+    location,
+    opportunities,
+    skills
+) {
+
+
+    /*
+       Hide company cards
+    */
+
+    document.getElementById(
+        "companySection"
+    ).style.display = "none";
+
+
+    /*
+       Show opportunity section
+    */
+
+    const section =
+        document.getElementById(
+            "opportunitySection"
+        );
+
+    section.style.display = "block";
+
+
+    /*
+       Company name
+    */
+
+    document.getElementById(
+        "opportunityCompany"
+    ).textContent =
+        "💼 " +
+        companyName +
+        " Opportunities";
+
+
+    /*
+       Field
+    */
+
+    document.getElementById(
+        "opportunityField"
+    ).textContent =
+        field +
+        " • Available Career Opportunities";
+
+
+    /*
+       Opportunity container
+    */
+
+    const grid =
+        document.getElementById(
+            "opportunityGrid"
+        );
+
+
+    /*
+       Convert skills into array
+    */
+
+    let skillArray = skills
+        .split(",")
+        .map(function(skill) {
+            return skill.trim();
+        })
+        .filter(function(skill) {
+            return skill.length > 0;
+        });
+
+
+    /*
+       Create skill HTML
+    */
+
+    let skillHTML = "";
+
+
+    skillArray.forEach(function(skill) {
+
+        skillHTML +=
+            '<span class="skill-tag">' +
+            skill +
+            '</span>';
+
+    });
+
+
+    /*
+       If no skills
+    */
+
+    if (skillHTML === "") {
+
+        skillHTML =
+            '<span class="skill-tag">' +
+            'Skills information not available' +
+            '</span>';
+
+    }
+
+
+    /*
+       Create opportunity cards
+    */
+
+    grid.innerHTML = `
+
+        <div class="opportunity-card">
+
+            <h3>
+                ${field}
+            </h3>
+
+            <div class="opportunity-role">
+
+                💼 Full-Time • Fresher
+
+            </div>
+
+
+            <div class="opportunity-info">
+
+                <span>
+                    📍 <strong>Location:</strong>
+                    ${location}
+                </span>
+
+                <span>
+                    💼 <strong>Company:</strong>
+                    ${companyName}
+                </span>
+
+                <span>
+                    💼 <strong>Available Opportunities:</strong>
+                    ${opportunities}
+                </span>
+
+                <span>
+                    🎓 <strong>Eligibility:</strong>
+                    B.Tech / B.E / B.Sc
+                </span>
+
+                <span>
+                    👤 <strong>Experience:</strong>
+                    Freshers
+                </span>
+
+                <span>
+                    💰 <strong>Package:</strong>
+                    4 - 8 LPA
+                </span>
+
+            </div>
+
+
+            <strong class="skills-title">
+                🛠️ Required Skills
+            </strong>
+
+
+            <div class="skill-tags">
+
+                ${skillHTML}
+
+            </div>
+
+
+            <button
+                type="button"
+                class="apply-btn"
+                onclick="applyOpportunity('${companyName}', '${field}')">
+
+                🚀 Apply for this Opportunity →
+
+            </button>
+
+        </div>
+
+
+        <div class="opportunity-card">
+
+            <h3>
+                Entry-Level Technical Role
+            </h3>
+
+            <div class="opportunity-role">
+
+                💻 Graduate / Fresher
+
+            </div>
+
+
+            <div class="opportunity-info">
+
+                <span>
+                    📍 <strong>Location:</strong>
+                    ${location}
+                </span>
+
+                <span>
+                    💼 <strong>Company:</strong>
+                    ${companyName}
+                </span>
+
+                <span>
+                    🎓 <strong>Eligibility:</strong>
+                    B.Tech / B.E
+                </span>
+
+                <span>
+                    👤 <strong>Experience:</strong>
+                    Freshers
+                </span>
+
+                <span>
+                    💰 <strong>Package:</strong>
+                    5 - 10 LPA
+                </span>
+
+            </div>
+
+
+            <strong class="skills-title">
+                🛠️ Preferred Skills
+            </strong>
+
+
+            <div class="skill-tags">
+
+                ${skillHTML}
+
+            </div>
+
+
+            <button
+                type="button"
+                class="apply-btn"
+                onclick="applyOpportunity('${companyName}', 'Technical Role')">
+
+                🚀 Apply Now →
+
+            </button>
+
+        </div>
+
+    `;
+
+
+    /*
+       Scroll to opportunity section
+    */
+
+    section.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+    });
+
+}
+
+
+/* =====================================================
+   BACK TO COMPANIES
+===================================================== */
+
+function hideOpportunities() {
+
+
+    document.getElementById(
+        "opportunitySection"
+    ).style.display = "none";
+
+
+    document.getElementById(
+        "companySection"
+    ).style.display = "block";
+
+
+    document.getElementById(
+        "applicationMessage"
+    ).style.display = "none";
+
+
+    window.scrollTo({
+
+        top: 0,
+
+        behavior: "smooth"
+
+    });
+
+}
+
+
+/* =====================================================
+   APPLY
+===================================================== */
+
+function applyOpportunity(
+    companyName,
+    role
+) {
+
+
+    const message =
+        document.getElementById(
+            "applicationMessage"
+        );
+
+
+    message.innerHTML =
+        "✅ <strong>Application submitted!</strong><br>" +
+        "Your application for <strong>" +
+        role +
+        "</strong> at <strong>" +
+        companyName +
+        "</strong> has been recorded.";
+
+
+    message.style.display = "block";
+
+
+    message.scrollIntoView({
+
+        behavior: "smooth",
+
+        block: "center"
+
+    });
+
+}
+
+</script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>SkillBridge - Create Account</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+
+<body>
+
+<div class="login-container">
+
+
+    <!-- LEFT SIDE -->
+
+    <div class="login-left">
+
+        <h1>SkillBridge</h1>
+
+        <p>
+            Start your journey towards the right career.
+        </p>
+
+
+        <div class="feature">
+            <span>✓</span>
+            <p>Build your professional profile</p>
+        </div>
+
+
+        <div class="feature">
+            <span>✓</span>
+            <p>Analyze your skills</p>
+        </div>
+
+
+        <div class="feature">
+            <span>✓</span>
+            <p>Find your career path</p>
+        </div>
+
+
+        <div class="feature">
+            <span>✓</span>
+            <p>Discover internships</p>
+        </div>
+
+    </div>
+
+
+
+    <!-- RIGHT SIDE -->
+
+    <div class="login-right">
+
+        <div class="login-box">
+
+
+            <h2>Create Account</h2>
+
+            <p class="subtitle">
+                Register to start using SkillBridge
+            </p>
+
+
+            <!-- ERROR -->
+
+            {% if error %}
+
+            <div class="login-error">
+                {{ error }}
+            </div>
+
+            {% endif %}
+
+
+
+            <form method="POST"
+                  action="{{ url_for('register') }}">
+
+
+                <!-- NAME -->
+
+                <div class="form-group">
+
+                    <label>Full Name</label>
+
+                    <input
+                        type="text"
+                        name="name"
+                        placeholder="Enter your full name"
+                        required
+                    >
+
+                </div>
+
+
+
+                <!-- EMAIL -->
+
+                <div class="form-group">
+
+                    <label>Email</label>
+
+                    <input
+                        type="email"
+                        name="email"
+                        placeholder="Enter your email"
+                        required
+                    >
+
+                </div>
+
+
+
+                <!-- PASSWORD -->
+
+                <div class="form-group">
+
+                    <label>Password</label>
+
+                    <input
+                        type="password"
+                        name="password"
+                        placeholder="Create password"
+                        required
+                    >
+
+                </div>
+
+
+
+                <!-- CONFIRM PASSWORD -->
+
+                <div class="form-group">
+
+                    <label>Confirm Password</label>
+
+                    <input
+                        type="password"
+                        name="confirm_password"
+                        placeholder="Confirm password"
+                        required
+                    >
+
+                </div>
+
+
+
+                <!-- REGISTER BUTTON -->
+
+                <button
+                    type="submit"
+                    class="login-btn">
+
+                    Create Account
+
+                </button>
+
+            </form>
+
+
+
+            <!-- LOGIN LINK -->
+
+            <div class="register-link">
+
+                <span>Already have an account?</span>
+
+                <a href="{{ url_for('login') }}">
+                    Login
+                </a>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>

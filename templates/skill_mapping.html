@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Skill Mapping | SkillBridge</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+    <style>
+
+        .skill-page {
+            width: 100%;
+        }
+
+        .skill-header {
+            margin-bottom: 25px;
+        }
+
+        .skill-header h1 {
+            margin-bottom: 8px;
+            color: #12365f;
+        }
+
+        .skill-header p {
+            color: #64748b;
+            font-size: 16px;
+        }
+
+        /* ================= READINESS ================= */
+
+        .skill-readiness-card {
+            background: white;
+            border-radius: 18px;
+            padding: 25px 30px;
+            margin-bottom: 22px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+        }
+
+        .skill-readiness-card h2 {
+            margin-bottom: 8px;
+            color: #12365f;
+        }
+
+        .skill-readiness-card p {
+            margin: 0;
+            color: #64748b;
+        }
+
+        .readiness-circle {
+            width: 100px;
+            height: 100px;
+
+            border-radius: 50%;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border: 8px solid #22a06b;
+
+            color: #168455;
+            font-size: 24px;
+            font-weight: bold;
+
+            background: #f0fff8;
+        }
+
+        /* ================= SKILL SECTIONS ================= */
+
+        .skill-section {
+            background: white;
+            border-radius: 18px;
+            padding: 25px 30px;
+            margin-bottom: 22px;
+
+            box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+        }
+
+        .skill-section h2 {
+            margin-bottom: 18px;
+            color: #12365f;
+        }
+
+        .skill-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .skill-badge,
+        .required-skill {
+            display: inline-block;
+
+            padding: 10px 18px;
+
+            border-radius: 25px;
+
+            font-weight: 600;
+            font-size: 15px;
+        }
+
+        .skill-badge {
+            background: #e8f3ff;
+            color: #1769aa;
+        }
+
+        .required-skill {
+            background: #f1f1f1;
+            color: #444;
+        }
+
+        /* ================= MATCHED / MISSING ================= */
+
+        .skill-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 22px;
+
+            margin-bottom: 22px;
+        }
+
+        .skill-card {
+            background: white;
+            border-radius: 18px;
+            padding: 25px 30px;
+
+            box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+        }
+
+        .skill-card h2 {
+            margin-bottom: 8px;
+        }
+
+        .skill-card p {
+            color: #64748b;
+            margin-bottom: 18px;
+        }
+
+        .skill-row {
+            padding: 11px 14px;
+            margin-bottom: 8px;
+
+            border-radius: 10px;
+
+            font-weight: 600;
+        }
+
+        .matched .skill-row {
+            background: #eafaf1;
+            color: #168455;
+        }
+
+        .missing .skill-row {
+            background: #fff5e8;
+            color: #c47b00;
+        }
+
+        /* ================= RECOMMENDATION ================= */
+
+        .recommendation-card {
+            background: white;
+            border-radius: 18px;
+            padding: 25px 30px;
+            margin-bottom: 30px;
+
+            box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+
+            border-left: 5px solid #3b82f6;
+        }
+
+        .recommendation-card h2 {
+            margin-bottom: 10px;
+            color: #12365f;
+        }
+
+        .recommendation-card p {
+            color: #64748b;
+            margin-bottom: 10px;
+        }
+
+        .recommendation-card strong {
+            color: #1e40af;
+        }
+
+        .recommendation-button {
+            display: inline-block;
+
+            margin-top: 15px;
+            padding: 11px 20px;
+
+            background: #2563eb;
+            color: white;
+
+            text-decoration: none;
+
+            border-radius: 10px;
+
+            font-weight: 600;
+        }
+
+        .recommendation-button:hover {
+            background: #1d4ed8;
+        }
+
+        /* ================= EMPTY STATE ================= */
+
+        .empty-card {
+            background: white;
+            border-radius: 18px;
+            padding: 50px 30px;
+            text-align: center;
+
+            box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+        }
+
+        .empty-card .empty-icon {
+            font-size: 55px;
+            margin-bottom: 15px;
+        }
+
+        .empty-card h2 {
+            color: #12365f;
+            margin-bottom: 10px;
+        }
+
+        .empty-card p {
+            color: #64748b;
+            margin-bottom: 22px;
+        }
+
+        .profile-button {
+            display: inline-block;
+
+            padding: 12px 22px;
+
+            background: #2563eb;
+            color: white;
+
+            border-radius: 10px;
+
+            font-weight: 600;
+        }
+
+        .profile-button:hover {
+            background: #1d4ed8;
+        }
+
+        /* ================= MOBILE ================= */
+
+        @media (max-width: 900px) {
+
+            .skill-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .skill-readiness-card {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 20px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+<div class="layout">
+
+
+    <!-- ================= SIDEBAR ================= -->
+
+    <aside class="sidebar">
+
+        <div class="logo">
+
+            <div class="logo-icon">
+                🎓
+            </div>
+
+            <div>
+
+                <h2>SkillBridge</h2>
+
+                <p>
+                    Academia–Industry Portal
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="menu">
+
+            <a href="/" class="menu-item">
+                🏠 Dashboard
+            </a>
+
+            <a href="/profile" class="menu-item">
+                👤 My Profile
+            </a>
+
+            <a href="/skill-mapping"
+               class="menu-item active">
+                🔗 Skill Mapping
+            </a>
+
+            <a href="/roadmap" class="menu-item">
+                🗺️ Roadmap
+            </a>
+
+            <a href="#" class="menu-item">
+                💼 Internships
+            </a>
+
+            <a href="#" class="menu-item">
+                🎯 Placements
+            </a>
+
+            <a href="#" class="menu-item">
+                🏢 Companies
+            </a>
+
+            <a href="#" class="menu-item">
+                📚 Learning Resources
+            </a>
+
+            <a href="#" class="menu-item">
+                📊 Assessments
+            </a>
+
+            <a href="#" class="menu-item">
+                📈 Reports
+            </a>
+
+            <a href="#" class="menu-item">
+                ⚙️ Settings
+            </a>
+
+        </div>
+
+
+        <div class="sidebar-bottom">
+
+            <div class="stairs">
+                🚶‍♀️
+            </div>
+
+            <p>
+                Bridging Skills<br>
+                with Opportunities
+            </p>
+
+        </div>
+
+    </aside>
+
+
+    <!-- ================= MAIN ================= -->
+
+    <main class="main">
+
+        <div class="skill-page">
+
+
+            <!-- ================= HEADER ================= -->
+
+            <div class="skill-header">
+
+                <h1>
+                    🔗 Skill Mapping
+                </h1>
+
+                <p>
+                    Compare your current skills with
+                    industry-required skills.
+                </p>
+
+            </div>
+
+
+            <!-- =================================================
+                 IF NO STUDENT DATA
+            ================================================== -->
+
+            {% if student is none %}
+
+            <div class="empty-card">
+
+                <div class="empty-icon">
+                    📊
+                </div>
+
+                <h2>
+                    No Skill Data Available
+                </h2>
+
+                <p>
+                    Please complete your profile and analyze
+                    your skills first to view your Skill Mapping.
+                </p>
+
+                <a href="/profile"
+                   class="profile-button">
+
+                    Go to My Profile →
+
+                </a>
+
+            </div>
+
+
+            <!-- =================================================
+                 IF STUDENT DATA EXISTS
+            ================================================== -->
+
+            {% else %}
+
+
+            <!-- ================= READINESS ================= -->
+
+            <div class="skill-readiness-card">
+
+                <div>
+
+                    <h2>
+                        Career Readiness
+                    </h2>
+
+                    <p>
+
+                        Your current skill readiness for
+
+                        <strong>
+                            {{ student["target_field"] }}
+                        </strong>
+
+                    </p>
+
+                </div>
+
+
+                <div class="readiness-circle">
+
+                    {{ readiness }}%
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= CURRENT SKILLS ================= -->
+
+            <div class="skill-section">
+
+                <h2>
+                    💻 Current Skills
+                </h2>
+
+                <div class="skill-list">
+
+                    {% if current_skills %}
+
+                        {% for skill in current_skills %}
+
+                        <span class="skill-badge">
+                            {{ skill }}
+                        </span>
+
+                        {% endfor %}
+
+                    {% else %}
+
+                        <p>No current skills added.</p>
+
+                    {% endif %}
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= REQUIRED SKILLS ================= -->
+
+            <div class="skill-section">
+
+                <h2>
+                    🎯 Industry Required Skills
+                </h2>
+
+                <div class="skill-list">
+
+                    {% if required_skills %}
+
+                        {% for skill in required_skills %}
+
+                        <span class="required-skill">
+                            {{ skill }}
+                        </span>
+
+                        {% endfor %}
+
+                    {% else %}
+
+                        <p>
+                            No required skills available.
+                        </p>
+
+                    {% endif %}
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= MATCHED + MISSING ================= -->
+
+            <div class="skill-grid">
+
+
+                <!-- MATCHED -->
+
+                <div class="skill-card matched">
+
+                    <h2>
+                        ✅ Matched Skills
+                    </h2>
+
+                    <p>
+                        Skills you already have
+                    </p>
+
+
+                    {% if matched_skills %}
+
+                        {% for skill in matched_skills %}
+
+                        <div class="skill-row">
+                            ✓ {{ skill }}
+                        </div>
+
+                        {% endfor %}
+
+                    {% else %}
+
+                        <div class="skill-row">
+                            No matched skills yet.
+                        </div>
+
+                    {% endif %}
+
+                </div>
+
+
+                <!-- MISSING -->
+
+                <div class="skill-card missing">
+
+                    <h2>
+                        ⚠️ Missing Skills
+                    </h2>
+
+                    <p>
+                        Skills you need to improve
+                    </p>
+
+
+                    {% if missing_skills %}
+
+                        {% for skill in missing_skills %}
+
+                        <div class="skill-row">
+                            + {{ skill }}
+                        </div>
+
+                        {% endfor %}
+
+                    {% else %}
+
+                        <div class="skill-row">
+                            🎉 No missing skills!
+                        </div>
+
+                    {% endif %}
+
+                </div>
+
+
+            </div>
+
+
+            <!-- ================= RECOMMENDATION ================= -->
+
+            <div class="recommendation-card">
+
+                <h2>
+                    💡 Recommendation
+                </h2>
+
+                <p>
+                    Based on your skill gap, you should
+                    focus on:
+                </p>
+
+                <strong>
+
+                    {% if missing_skills %}
+
+                        {{ missing_skills | join(", ") }}
+
+                    {% else %}
+
+                        All required skills completed 🎉
+
+                    {% endif %}
+
+                </strong>
+
+
+                <br>
+
+
+                <a href="/roadmap"
+                   class="recommendation-button">
+
+                    View Personalized Roadmap →
+
+                </a>
+
+            </div>
+
+
+            {% endif %}
+
+
+        </div>
+
+    </main>
+
+</div>
+
+</body>
+
+</html>
