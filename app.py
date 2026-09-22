@@ -620,8 +620,7 @@ def init_db():
 
     # -------------------------------------------------
     # DEMO LOGIN
-    # -------------------------------------------------
-
+    # ------------------------------------------------
     existing_user = conn.execute(
         """
         SELECT id
@@ -2248,7 +2247,7 @@ def init_placement_features():
         """
         CREATE TABLE IF NOT EXISTS placement_drives (
 
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            id INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
 
             company TEXT NOT NULL,
 
