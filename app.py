@@ -1008,7 +1008,7 @@ def api_analyze():
         """
         INSERT INTO students
         (name, skills, target_field)
-        VALUES (?, ?, ?)
+        VALUES (%s, %s, %s)
         """,
         (
             name,
@@ -1071,7 +1071,7 @@ def opportunities():
                 field,
                 skills
             FROM opportunities
-            WHERE field = ?
+            WHERE field = %s
             """,
             (field,)
         ).fetchall()
@@ -1353,7 +1353,7 @@ def internship_detail(company_id):
             field,
             skills
         FROM opportunities
-        WHERE id = ?
+        WHERE id = %s
         """,
         (company_id,)
     ).fetchone()
@@ -1406,7 +1406,7 @@ def get_internship(company_id):
             field,
             skills
         FROM opportunities
-        WHERE id = ?
+        WHERE id = %s
         """,
         (company_id,)
     ).fetchone()
@@ -1583,7 +1583,7 @@ def apply_internship(company_id):
             resume,
             cover_message
         )
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+        VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
         """,
         (
             company_id,
@@ -2273,7 +2273,7 @@ def init_placement_features():
                 location,
                 eligibility
             )
-            VALUES (?, ?, ?, ?, ?)
+            VALUES (%s, %s, %s, %s, %s)
             """,
             (
                 "Accenture",
@@ -2301,7 +2301,7 @@ def init_placement_features():
                 location,
                 eligibility
             )
-            VALUES (?, ?, ?, ?, ?)
+            VALUES (%s, %s, %s, %s, %s)
             """,
             (
                 "Wipro",
@@ -2724,9 +2724,9 @@ def apply_placement():
         """
         SELECT id
         FROM placement_applications
-        WHERE student_id = ?
-        AND company = ?
-        AND role = ?
+        WHERE student_id = %s
+        AND company = %s
+        AND role = %s
         """,
         (
             student_id,
@@ -2757,7 +2757,7 @@ def apply_placement():
             field,
             status
         )
-        VALUES (?, ?, ?, ?, ?)
+        VALUES (%s, %s, %s, %s, %s)
         """,
         (
             student_id,
@@ -2817,7 +2817,7 @@ def placement_applications():
         """
         SELECT *
         FROM placement_applications
-        WHERE student_id = ?
+        WHERE student_id = %s
         ORDER BY applied_at DESC
         """,
         (
