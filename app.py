@@ -23,6 +23,9 @@ import sqlite3
 import os
 import uuid
 
+import psycopg
+from psycopg.rows import dict_row
+
 
 # =====================================================
 # APP CONFIGURATION
@@ -512,13 +515,11 @@ PLACEMENTS = [
 # =====================================================
 # 6. DATABASE CONNECTION
 # =====================================================
-
 def get_db():
-
-    conn = sqlite3.connect(DB)
-
-    conn.row_factory = sqlite3.Row
-
+    conn = psycopg.connect(
+        os.environ["DATABASE_URL"],
+        row_factory=dict_row
+    )
     return conn
 
 
@@ -536,13 +537,12 @@ def init_db():
 
     conn.execute("""
         CREATE TABLE IF NOT EXISTS students (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            id INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
             name TEXT NOT NULL,
             skills TEXT NOT NULL,
             target_field TEXT NOT NULL
         )
     """)
-    
 
     # -------------------------------------------------
     # OPPORTUNITIES
@@ -550,7 +550,7 @@ def init_db():
 
     conn.execute("""
         CREATE TABLE IF NOT EXISTS opportunities (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            id INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
             company TEXT,
             role TEXT,
             field TEXT,
@@ -564,14 +564,12 @@ def init_db():
 
     conn.execute("""
         CREATE TABLE IF NOT EXISTS users (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            id INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
             name TEXT NOT NULL,
             email TEXT UNIQUE NOT NULL,
             password TEXT NOT NULL
         )
     """)
-
-
 
     # -------------------------------------------------
     # APPLICATIONS
@@ -579,7 +577,7 @@ def init_db():
 
     conn.execute("""
         CREATE TABLE IF NOT EXISTS internship_applications (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            id INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
             internship_id INTEGER,
             full_name TEXT NOT NULL,
             email TEXT NOT NULL,
@@ -599,8 +597,8 @@ def init_db():
     # -------------------------------------------------
 
     count = conn.execute(
-        "SELECT COUNT(*) FROM opportunities"
-    ).fetchone()[0]
+        "SELECT COUNT(*) AS count FROM opportunities"
+    ).fetchone()["count"]
 
     if count == 0:
 
@@ -610,7 +608,7 @@ def init_db():
                 """
                 INSERT INTO opportunities
                 (company, role, field, skills)
-                VALUES (?, ?, ?, ?)
+                VALUES (%s, %s, %s, %s)
                 """,
                 (
                     opportunity["company"],
@@ -628,7 +626,7 @@ def init_db():
         """
         SELECT id
         FROM users
-        WHERE email = ?
+        WHERE email = %s
         """,
         ("prachi@skillbridge.com",)
     ).fetchone()
@@ -639,7 +637,7 @@ def init_db():
             """
             INSERT INTO users
             (name, email, password)
-            VALUES (?, ?, ?)
+            VALUES (%s, %s, %s)
             """,
             (
                 "Prachi",
@@ -649,9 +647,7 @@ def init_db():
         )
 
     conn.commit()
-
     conn.close()
-
 
 # =====================================================
 # 8. NORMALIZE SKILLS
@@ -743,7 +739,7 @@ def login():
             """
             SELECT *
             FROM users
-            WHERE email = ?
+            WHERE email = %s
             """,
             (email,)
         ).fetchone()
@@ -2231,7 +2227,7 @@ def init_placement_features():
         """
         CREATE TABLE IF NOT EXISTS placement_applications (
 
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            iid INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
 
             student_id INTEGER,
 
@@ -2269,10 +2265,10 @@ def init_placement_features():
 
     count = conn.execute(
         """
-        SELECT COUNT(*)
+        SELECT COUNT(*) AS count
         FROM placement_drives
         """
-    ).fetchone()[0]
+    ).fetchone()["count"]
 
     if count == 0:
 
@@ -2582,8 +2578,8 @@ def placement_drive():
         """
         SELECT *
         FROM placement_drives
-        WHERE datetime(drive_date) >= datetime('now')
-        ORDER BY datetime(drive_date)
+        WHERE drive_date::timestamp >= CURRENT_TIMESTAMP
+        ORDER BY drive_date::timestamp
         LIMIT 1
         """
     ).fetchone()
@@ -2838,7 +2834,7 @@ def placement_applications():
         SELECT *
         FROM placement_applications
         WHERE student_id = ?
-        ORDER BY datetime(applied_at) DESC
+        ORDER BY applied_at DESC
         """,
         (
             student["id"],
@@ -3106,14 +3102,8 @@ def placement_dashboard():
 # START APPLICATION
 # =====================================================
 
-
-# =====================================================
-# START APPLICATION
-# =====================================================
-# =====================================================
-# START APPLICATION
-# =====================================================
+init_db()
+init_placement_features()
 
 if __name__ == "__main__":
-    init_db()
     app.run(debug=True)
