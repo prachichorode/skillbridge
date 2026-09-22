@@ -777,91 +777,76 @@ def register():
 
     if request.method == "POST":
 
-        name = request.form.get(
-            "name",
-            ""
-        ).strip()
+        name = request.form.get("name", "").strip()
 
-        email = request.form.get(
-            "email",
-            ""
-        ).strip().lower()
+        email = request.form.get("email", "").strip().lower()
 
-        password = request.form.get(
-            "password",
-            ""
-        )
+        password = request.form.get("password", "")
 
-        confirm_password = request.form.get(
-            "confirm_password",
-            ""
-        )
+        confirm_password = request.form.get("confirm_password", "")
 
         if not name or not email or not password:
-
             return render_template(
                 "register.html",
                 error="Please fill all fields."
             )
 
         if len(password) < 6:
-
             return render_template(
                 "register.html",
                 error="Password must be at least 6 characters."
             )
 
         if password != confirm_password:
-
             return render_template(
                 "register.html",
                 error="Passwords do not match."
             )
 
+        # PostgreSQL connection
         conn = get_db()
 
-        existing_user = conn.execute(
-            """
-            SELECT id
-            FROM users
-            WHERE email = ?
-            """,
-            (email,)
-        ).fetchone()
+        try:
 
-        if existing_user:
+            existing_user = conn.execute(
+                """
+                SELECT id
+                FROM users
+                WHERE email = %s
+                """,
+                (email,)
+            ).fetchone()
 
+            if existing_user:
+
+                return render_template(
+                    "register.html",
+                    error="An account with this email already exists."
+                )
+
+            conn.execute(
+                """
+                INSERT INTO users
+                (name, email, password)
+                VALUES (%s, %s, %s)
+                """,
+                (
+                    name,
+                    email,
+                    generate_password_hash(password)
+                )
+            )
+
+            conn.commit()
+
+        finally:
             conn.close()
-
-            return render_template(
-                "register.html",
-                error="An account with this email already exists."
-            )
-
-        conn.execute(
-            """
-            INSERT INTO users
-            (name, email, password)
-            VALUES (?, ?, ?)
-            """,
-            (
-                name,
-                email,
-                generate_password_hash(password)
-            )
-        )
-
-        conn.commit()
-
-        conn.close()
 
         return redirect(
             url_for("login")
         )
 
     return render_template("register.html")
-
-
 # =====================================================
 # 12. LOGOUT
 # =====================================================
