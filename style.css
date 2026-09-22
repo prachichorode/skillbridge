@@ -1,0 +1,8811 @@
+/* =========================================================
+   SKILLBRIDGE - COMPLETE FINAL STYLE
+   ========================================================= */
+
+/* =========================================================
+   GLOBAL RESET
+   ========================================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f4f7fc;
+    color: #17365f;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+/* =========================================================
+   DASHBOARD LAYOUT
+   ========================================================= */
+
+.layout {
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
+}
+
+
+/* =========================================================
+   SIDEBAR
+   ========================================================= */
+
+.sidebar {
+    width: 235px;
+    height: 100vh;
+
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+
+    background: #12365f;
+    color: white;
+
+    padding: 25px 15px;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    z-index: 1000;
+
+    flex-shrink: 0;
+}
+
+
+/* LOGO */
+
+.logo {
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    margin-bottom: 30px;
+
+    padding: 0 8px 20px;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.logo-icon {
+    font-size: 30px;
+    flex-shrink: 0;
+}
+
+.logo h2 {
+    margin: 0;
+
+    color: white;
+
+    font-size: 25px;
+    line-height: 1.2;
+}
+
+.logo p {
+    margin: 3px 0 0;
+
+    color: #b9c9dc;
+
+    font-size: 10px;
+    line-height: 1.3;
+}
+
+
+/* MENU */
+
+.menu {
+    display: flex;
+    flex-direction: column;
+
+    gap: 5px;
+
+    width: 100%;
+}
+
+.menu-item {
+    display: block;
+
+    width: 100%;
+
+    padding: 12px;
+
+    margin: 0;
+
+    border-radius: 9px;
+
+    color: #d3deec;
+
+    background: transparent;
+
+    font-size: 14px;
+
+    text-decoration: none;
+
+    cursor: pointer;
+
+    transition: all 0.2s ease;
+}
+
+.menu-item:hover {
+    background: rgba(255, 255, 255, 0.10);
+
+    color: white;
+
+    text-decoration: none;
+}
+
+.menu-item.active {
+    background: #286bd6;
+
+    color: white;
+
+    font-weight: bold;
+
+    text-decoration: none;
+
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+
+/* SIDEBAR BOTTOM */
+
+.sidebar-bottom {
+    position: absolute;
+
+    left: 15px;
+    bottom: 30px;
+
+    width: 205px;
+
+    text-align: center;
+
+    color: #b9c9dc;
+
+    font-size: 12px;
+}
+
+.stairs {
+    font-size: 45px;
+
+    margin-bottom: 5px;
+}
+
+.sidebar-bottom p {
+    margin: 0;
+
+    color: #b9c9dc;
+
+    line-height: 1.4;
+}
+
+
+/* =========================================================
+   MAIN CONTENT
+   ========================================================= */
+
+.main {
+    width: calc(100% - 235px);
+
+    min-width: 0;
+    min-height: 100vh;
+
+    margin-left: 235px;
+
+    padding: 30px 35px 45px;
+
+    overflow-x: hidden;
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.header {
+    width: 100%;
+
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 20px;
+
+    margin-bottom: 22px;
+}
+
+.header h1 {
+    margin: 0;
+
+    color: #17365f;
+
+    font-size: 26px;
+
+    line-height: 1.3;
+}
+
+.header h1 span {
+    color: #286bd6;
+}
+
+.header p {
+    margin: 7px 0 0;
+
+    color: #78869c;
+
+    font-size: 14px;
+}
+
+
+/* PROFILE */
+
+.profile {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    flex-shrink: 0;
+}
+
+.profile-photo {
+    width: 42px;
+    height: 42px;
+
+    border-radius: 50%;
+
+    background: #e8eefb;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    font-size: 22px;
+}
+
+.profile strong {
+    display: block;
+
+    color: #17365f;
+
+    font-size: 14px;
+}
+
+.profile small {
+    display: block;
+
+    margin-top: 2px;
+
+    color: #8793a7;
+
+    font-size: 11px;
+}
+
+
+/* =========================================================
+   ASSESSMENT BOX
+   ========================================================= */
+
+.assessment-box {
+    width: 100%;
+    max-width: 100%;
+
+    background: white;
+
+    padding: 22px;
+
+    border-radius: 15px;
+
+    box-shadow: 0 4px 20px rgba(30, 60, 100, 0.06);
+
+    margin-bottom: 20px;
+}
+
+.section-title {
+    margin-bottom: 15px;
+}
+
+.section-title h2 {
+    margin: 0;
+
+    color: #17365f;
+
+    font-size: 19px;
+}
+
+.section-title p {
+    margin: 7px 0 0;
+
+    color: #7a879b;
+
+    font-size: 13px;
+}
+
+
+/* INPUT GRID */
+
+.input-grid {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 20px;
+}
+
+.input-group {
+    width: 100%;
+
+    min-width: 0;
+
+    margin-top: 12px;
+}
+
+.input-group label {
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: #304862;
+
+    font-size: 13px;
+
+    font-weight: bold;
+}
+
+.input-group input,
+.input-group select {
+    width: 100%;
+    max-width: 100%;
+
+    padding: 12px;
+
+    border: 1px solid #d9e0ec;
+
+    border-radius: 8px;
+
+    outline: none;
+
+    font-size: 14px;
+
+    color: #26364d;
+
+    background: white;
+}
+
+.input-group input:focus,
+.input-group select:focus {
+    border-color: #286bd6;
+
+    box-shadow: 0 0 0 3px rgba(40, 107, 214, 0.08);
+}
+
+.input-group small {
+    display: block;
+
+    margin-top: 5px;
+
+    color: #8995a7;
+
+    font-size: 11px;
+}
+
+
+/* ANALYZE BUTTON */
+
+.analyze-btn {
+    margin-top: 18px;
+
+    border: none;
+
+    padding: 13px 22px;
+
+    background: #2467d8;
+
+    color: white;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    font-weight: bold;
+
+    font-size: 13px;
+
+    transition: 0.2s ease;
+}
+
+.analyze-btn:hover {
+    background: #1857bd;
+
+    transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   SUMMARY CARDS
+   ========================================================= */
+
+.cards {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+
+    gap: 15px;
+
+    margin-bottom: 20px;
+}
+
+.card {
+    width: 100%;
+    min-width: 0;
+
+    padding: 20px;
+
+    border-radius: 14px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    transition: 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+}
+
+.card.blue {
+    background: #eaf5ff;
+}
+
+.card.purple {
+    background: #f0ebff;
+}
+
+.card.pink {
+    background: #fff0f3;
+}
+
+.card.yellow {
+    background: #fff7df;
+}
+
+.card-icon {
+    width: 45px;
+    height: 45px;
+
+    min-width: 45px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background: white;
+
+    font-size: 21px;
+}
+
+.card span {
+    display: block;
+
+    font-size: 12px;
+
+    color: #74829a;
+}
+
+.card h3 {
+    margin: 7px 0 0;
+
+    color: #17365f;
+
+    font-size: 22px;
+}
+
+
+/* =========================================================
+   TWO COLUMN SECTION
+   ========================================================= */
+
+.two-column {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+
+    gap: 18px;
+
+    margin-bottom: 0;
+}
+
+
+/* =========================================================
+   PANEL
+   ========================================================= */
+
+.panel {
+    width: 100%;
+    min-width: 0;
+
+    background: white;
+
+    border-radius: 14px;
+
+    padding: 20px;
+
+    margin-bottom: 18px;
+
+    box-shadow: 0 4px 20px rgba(30, 60, 100, 0.05);
+
+    overflow: hidden;
+}
+
+.panel-header {
+    width: 100%;
+
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 15px;
+
+    margin-bottom: 18px;
+}
+
+.panel-header h2 {
+    margin: 0;
+
+    color: #17365f;
+
+    font-size: 18px;
+}
+
+.panel-header span {
+    color: #71809a;
+
+    font-size: 12px;
+
+    white-space: nowrap;
+}
+
+.panel-header p {
+    margin: 6px 0 0;
+
+    color: #7c899d;
+
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   SKILL GAP ANALYSIS
+   ========================================================= */
+
+.skill-columns {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 15px;
+}
+
+.skill-box {
+    width: 100%;
+    min-width: 0;
+
+    border: 1px solid #edf0f5;
+
+    border-radius: 10px;
+
+    padding: 15px;
+
+    overflow: hidden;
+}
+
+.skill-box h3 {
+    margin-top: 0;
+
+    font-size: 14px;
+}
+
+.success {
+    color: #149568;
+}
+
+.danger {
+    color: #d94f57;
+}
+
+.skill-box ul {
+    margin: 10px 0 0;
+
+    padding-left: 20px;
+
+    line-height: 1.9;
+
+    word-break: break-word;
+}
+
+#matched li {
+    color: #159568;
+}
+
+#missing li {
+    color: #d84e56;
+}
+
+
+/* =========================================================
+   RECOMMENDATION
+   ========================================================= */
+
+.recommendation {
+    width: 100%;
+
+    margin-top: 15px;
+
+    padding: 13px;
+
+    background: #f5efff;
+
+    border-radius: 9px;
+
+    display: flex;
+
+    gap: 12px;
+
+    color: #6241b5;
+}
+
+.recommendation strong {
+    color: #6241b5;
+
+    font-size: 13px;
+}
+
+.recommendation p {
+    margin: 5px 0;
+
+    font-size: 12px;
+
+    color: #6d6680;
+
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   ROADMAP
+   ========================================================= */
+
+.roadmap {
+    width: 100%;
+
+    margin: 0;
+
+    padding-left: 25px;
+}
+
+.roadmap li {
+    margin-bottom: 12px;
+
+    padding: 9px;
+
+    background: #f5f8ff;
+
+    border-radius: 7px;
+
+    color: #40546f;
+
+    font-size: 13px;
+
+    line-height: 1.5;
+}
+/* =========================================================
+   SKILLBRIDGE - PROFESSIONAL ROADMAP
+========================================================= */
+
+
+/* ---------------------------------------------------------
+   ROADMAP MAIN WRAPPER
+--------------------------------------------------------- */
+
+.roadmap-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 35px 40px 50px;
+}
+
+
+/* ---------------------------------------------------------
+   ROADMAP HEADER
+--------------------------------------------------------- */
+
+.roadmap-top {
+    margin-bottom: 28px;
+}
+
+.roadmap-top h1 {
+    font-size: 32px;
+    font-weight: 750;
+    color: #17365d;
+    margin-bottom: 8px;
+    letter-spacing: -0.5px;
+}
+
+.roadmap-top p {
+    color: #718096;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+
+/* ---------------------------------------------------------
+   CAREER BANNER
+--------------------------------------------------------- */
+
+.career-banner {
+    background: linear-gradient(
+        135deg,
+        #2463c5,
+        #4f7ee8
+    );
+
+    border-radius: 18px;
+    padding: 28px 32px;
+    margin-bottom: 24px;
+
+    box-shadow: 0 10px 30px rgba(36, 99, 197, 0.18);
+
+    position: relative;
+    overflow: hidden;
+}
+
+.career-banner::after {
+    content: "";
+    position: absolute;
+
+    width: 180px;
+    height: 180px;
+
+    right: -50px;
+    top: -70px;
+
+    background: rgba(255, 255, 255, 0.10);
+
+    border-radius: 50%;
+}
+
+.career-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    position: relative;
+    z-index: 2;
+}
+
+.career-label {
+    display: block;
+
+    font-size: 11px;
+    font-weight: 700;
+
+    letter-spacing: 1.5px;
+
+    color: rgba(255, 255, 255, 0.78);
+
+    margin-bottom: 8px;
+}
+
+.career-content h2 {
+    font-size: 27px;
+    color: white;
+    margin-bottom: 7px;
+}
+
+.career-content p {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 14px;
+}
+
+.career-icon {
+    width: 72px;
+    height: 72px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(255, 255, 255, 0.15);
+
+    border: 1px solid rgba(255, 255, 255, 0.2);
+
+    border-radius: 20px;
+
+    font-size: 34px;
+
+    backdrop-filter: blur(8px);
+}
+
+
+/* ---------------------------------------------------------
+   PROGRESS CARD
+--------------------------------------------------------- */
+
+.roadmap-progress {
+    background: #ffffff;
+
+    border: 1px solid #e7edf6;
+
+    border-radius: 16px;
+
+    padding: 24px 26px;
+
+    margin-bottom: 35px;
+
+    box-shadow: 0 5px 20px rgba(30, 55, 90, 0.06);
+}
+
+.progress-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 17px;
+}
+
+.progress-header h3 {
+    color: #17365d;
+
+    font-size: 18px;
+    font-weight: 700;
+
+    margin-bottom: 5px;
+}
+
+.progress-header p {
+    color: #8995a7;
+    font-size: 13px;
+}
+
+#progressText {
+    font-size: 20px;
+    font-weight: 750;
+    color: #286bd6;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 10px;
+
+    background: #edf2f8;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+}
+
+.progress-fill {
+    width: 0%;
+    height: 100%;
+
+    background: linear-gradient(
+        90deg,
+        #286bd6,
+        #5c8ff0
+    );
+
+    border-radius: 20px;
+
+    transition: width 0.5s ease;
+}
+
+
+/* ---------------------------------------------------------
+   SECTION TITLE
+--------------------------------------------------------- */
+
+.roadmap-section-title {
+    margin: 30px 0 24px;
+}
+
+.roadmap-section-title h2 {
+    color: #17365d;
+
+    font-size: 23px;
+    font-weight: 750;
+
+    margin-bottom: 6px;
+}
+
+.roadmap-section-title p {
+    color: #7d899b;
+    font-size: 14px;
+}
+
+
+/* ---------------------------------------------------------
+   ROADMAP TIMELINE
+--------------------------------------------------------- */
+
+.roadmap-timeline {
+    position: relative;
+
+    padding: 5px 0 10px;
+}
+
+
+/* Vertical line */
+
+.roadmap-timeline::before {
+    content: "";
+
+    position: absolute;
+
+    left: 27px;
+    top: 28px;
+    bottom: 28px;
+
+    width: 2px;
+
+    background: #dce5f2;
+}
+
+
+/* ---------------------------------------------------------
+   ROADMAP STEP
+--------------------------------------------------------- */
+
+.roadmap-step {
+    display: flex;
+
+    gap: 22px;
+
+    position: relative;
+
+    margin-bottom: 25px;
+}
+
+.roadmap-step:last-child {
+    margin-bottom: 0;
+}
+
+
+/* ---------------------------------------------------------
+   STEP NUMBER
+--------------------------------------------------------- */
+
+.step-number {
+    width: 56px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    justify-content: center;
+
+    position: relative;
+    z-index: 3;
+}
+
+.step-circle {
+    width: 54px;
+    height: 54px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #ffffff;
+
+    border: 3px solid #286bd6;
+
+    border-radius: 50%;
+
+    color: #286bd6;
+
+    font-size: 17px;
+    font-weight: 750;
+
+    box-shadow:
+        0 4px 12px rgba(40, 107, 214, 0.16);
+}
+
+
+/* ---------------------------------------------------------
+   STEP CARD
+--------------------------------------------------------- */
+
+.step-card {
+    flex: 1;
+
+    background: #ffffff;
+
+    border: 1px solid #e5ebf4;
+
+    border-radius: 16px;
+
+    padding: 23px 25px;
+
+    box-shadow:
+        0 5px 18px rgba(30, 55, 90, 0.055);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
+}
+
+.step-card:hover {
+    transform: translateY(-3px);
+
+    border-color: #c8d8f3;
+
+    box-shadow:
+        0 12px 28px rgba(30, 55, 90, 0.10);
+}
+
+
+/* ---------------------------------------------------------
+   STEP CARD HEADER
+--------------------------------------------------------- */
+
+.step-card-header {
+    display: flex;
+
+    align-items: flex-start;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    margin-bottom: 14px;
+}
+
+.step-label {
+    display: inline-block;
+
+    color: #286bd6;
+
+    font-size: 11px;
+
+    font-weight: 750;
+
+    letter-spacing: 1px;
+
+    margin-bottom: 7px;
+}
+
+.step-card h3 {
+    color: #17365d;
+
+    font-size: 19px;
+
+    font-weight: 700;
+
+    line-height: 1.4;
+}
+
+.step-icon {
+    width: 44px;
+    height: 44px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #edf4ff;
+
+    border-radius: 12px;
+
+    font-size: 21px;
+}
+
+
+/* ---------------------------------------------------------
+   STEP DESCRIPTION
+--------------------------------------------------------- */
+
+.step-card > p {
+    color: #718096;
+
+    font-size: 14px;
+
+    line-height: 1.7;
+
+    margin-bottom: 18px;
+}
+
+
+/* ---------------------------------------------------------
+   STEP FOOTER
+--------------------------------------------------------- */
+
+.step-footer {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    flex-wrap: wrap;
+
+    padding-top: 15px;
+
+    border-top: 1px solid #edf1f6;
+}
+
+.step-status,
+.step-time {
+    display: inline-flex;
+
+    align-items: center;
+
+    padding: 7px 11px;
+
+    border-radius: 8px;
+
+    font-size: 11px;
+
+    font-weight: 650;
+}
+
+.step-status {
+    background: #eef7f1;
+    color: #2d7a4a;
+}
+
+.step-time {
+    background: #fff7e8;
+    color: #a46b13;
+}
+
+
+/* ---------------------------------------------------------
+   EMPTY ROADMAP
+--------------------------------------------------------- */
+
+.empty-roadmap {
+    background: #ffffff;
+
+    border: 1px solid #e5ebf4;
+
+    border-radius: 18px;
+
+    padding: 55px 30px;
+
+    text-align: center;
+
+    box-shadow:
+        0 6px 22px rgba(30, 55, 90, 0.06);
+
+    margin-bottom: 30px;
+}
+
+.empty-icon {
+    width: 72px;
+    height: 72px;
+
+    margin: 0 auto 18px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #edf4ff;
+
+    border-radius: 20px;
+
+    font-size: 32px;
+}
+
+.empty-roadmap h2 {
+    color: #17365d;
+
+    font-size: 22px;
+
+    margin-bottom: 8px;
+}
+
+.empty-roadmap p {
+    color: #7b8798;
+
+    font-size: 14px;
+
+    margin-bottom: 22px;
+}
+
+
+/* ---------------------------------------------------------
+   ROADMAP BUTTONS
+--------------------------------------------------------- */
+
+.roadmap-actions {
+    display: flex;
+
+    justify-content: flex-end;
+
+    align-items: center;
+
+    gap: 12px;
+
+    flex-wrap: wrap;
+
+    margin-top: 30px;
+
+    padding-top: 25px;
+
+    border-top: 1px solid #e5ebf4;
+}
+
+.roadmap-btn {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    min-height: 42px;
+
+    padding: 10px 17px;
+
+    border-radius: 9px;
+
+    text-decoration: none;
+
+    font-size: 13px;
+
+    font-weight: 650;
+
+    transition: all 0.25s ease;
+}
+
+.roadmap-btn.primary {
+    background: #286bd6;
+    color: white;
+
+    box-shadow:
+        0 5px 13px rgba(40, 107, 214, 0.20);
+}
+
+.roadmap-btn.primary:hover {
+    background: #1558b0;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 18px rgba(40, 107, 214, 0.25);
+}
+
+.roadmap-btn.secondary {
+    background: #ffffff;
+
+    color: #2863b9;
+
+    border: 1px solid #d8e2f0;
+}
+
+.roadmap-btn.secondary:hover {
+    background: #f2f6fc;
+
+    border-color: #bfcfe6;
+
+    transform: translateY(-2px);
+}
+
+
+/* ---------------------------------------------------------
+   RESPONSIVE DESIGN
+--------------------------------------------------------- */
+
+@media (max-width: 900px) {
+
+    .roadmap-wrapper {
+        padding: 28px 25px 40px;
+    }
+
+    .roadmap-top h1 {
+        font-size: 28px;
+    }
+
+    .career-content h2 {
+        font-size: 23px;
+    }
+
+}
+
+
+@media (max-width: 650px) {
+
+    .roadmap-wrapper {
+        padding: 22px 15px 35px;
+    }
+
+    .roadmap-top h1 {
+        font-size: 24px;
+    }
+
+    .career-banner {
+        padding: 22px;
+    }
+
+    .career-icon {
+        width: 55px;
+        height: 55px;
+        font-size: 26px;
+    }
+
+    .career-content h2 {
+        font-size: 20px;
+    }
+
+    .roadmap-progress {
+        padding: 20px;
+    }
+
+    .roadmap-step {
+        gap: 12px;
+    }
+
+    .step-number {
+        width: 42px;
+    }
+
+    .step-circle {
+        width: 42px;
+        height: 42px;
+
+        font-size: 14px;
+    }
+
+    .roadmap-timeline::before {
+        left: 20px;
+    }
+
+    .step-card {
+        padding: 18px;
+    }
+
+    .step-card h3 {
+        font-size: 16px;
+    }
+
+    .step-card > p {
+        font-size: 13px;
+    }
+
+    .roadmap-actions {
+        justify-content: stretch;
+    }
+
+    .roadmap-btn {
+        flex: 1;
+    }
+
+}
+
+/* =========================================================
+   JOBS
+   ========================================================= */
+
+.opportunities-panel {
+    width: 100%;
+}
+
+#jobs {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+
+    gap: 16px;
+}
+
+#jobs > div {
+    width: 100%;
+    min-width: 0;
+}
+
+.job {
+    width: 100%;
+
+    padding: 15px;
+
+    border: 1px solid #edf0f5;
+
+    border-radius: 10px;
+
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 12px;
+
+    background: white;
+}
+
+.job strong {
+    display: block;
+
+    color: #17365f;
+
+    font-size: 15px;
+}
+
+.job small {
+    display: block;
+
+    margin-top: 5px;
+
+    color: #78869c;
+
+    font-size: 11px;
+}
+
+.badge {
+    flex-shrink: 0;
+
+    padding: 7px 12px;
+
+    border-radius: 20px;
+
+    background: #e8f7ef;
+
+    color: #16845d;
+
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   COLLEGE REPORT
+   ========================================================= */
+
+.college-panel {
+    width: 100%;
+}
+
+.college-panel p {
+    color: #7c899d;
+
+    font-size: 13px;
+
+    line-height: 1.5;
+}
+
+#collegeGaps {
+    width: 100%;
+}
+
+.gap {
+    display: inline-block;
+
+    padding: 10px 14px;
+
+    margin: 5px;
+
+    background: #fff4df;
+
+    color: #795b20;
+
+    border-radius: 8px;
+
+    font-size: 13px;
+}
+
+.refresh-btn {
+    flex-shrink: 0;
+
+    border: none;
+
+    padding: 10px 15px;
+
+    border-radius: 7px;
+
+    background: #6c52c9;
+
+    color: white;
+
+    cursor: pointer;
+
+    font-size: 12px;
+
+    font-weight: bold;
+}
+
+.refresh-btn:hover {
+    background: #5840ad;
+}
+
+
+/* =========================================================
+   GENERAL BUTTON
+   ========================================================= */
+
+.btn {
+    display: inline-block;
+
+    background: #286bd6;
+
+    color: white;
+
+    border: none;
+
+    padding: 10px 18px;
+
+    border-radius: 7px;
+
+    text-decoration: none;
+
+    font-size: 13px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+.btn:hover {
+    background: #1d5bb8;
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+footer {
+    width: 100%;
+
+    text-align: center;
+
+    color: #8995a7;
+
+    font-size: 12px;
+
+    padding: 15px;
+}
+
+
+/* =========================================================
+   INTERNSHIP PAGE
+   ========================================================= */
+
+.app-container {
+    display: flex;
+
+    width: 100%;
+
+    min-height: 100vh;
+}
+
+.main-content {
+    width: calc(100% - 235px);
+
+    min-width: 0;
+    min-height: 100vh;
+
+    margin-left: 235px;
+
+    padding: 30px 35px;
+
+    background: #f4f7fc;
+
+    overflow-x: hidden;
+}
+
+
+/* PAGE HEADER */
+
+.page-header {
+    width: 100%;
+
+    margin-bottom: 25px;
+}
+
+.page-header h1 {
+    margin: 0 0 10px;
+
+    color: #17365f;
+
+    font-size: 28px;
+}
+
+.page-header p {
+    margin: 6px 0;
+
+    color: #78869c;
+
+    font-size: 14px;
+}
+
+.page-header strong {
+    color: #2454a6;
+}
+
+
+/* INTERNSHIP SECTION */
+
+.internship-section {
+    width: 100%;
+
+    background: white;
+
+    padding: 25px;
+
+    border-radius: 15px;
+
+    box-shadow: 0 4px 20px rgba(30, 60, 100, 0.06);
+
+    margin-bottom: 25px;
+}
+
+.internship-header {
+    margin-bottom: 20px;
+}
+
+.internship-header h2 {
+    margin: 0 0 6px;
+
+    font-size: 20px;
+
+    color: #17365f;
+}
+
+.internship-header p {
+    margin: 0;
+
+    color: #78869c;
+
+    font-size: 13px;
+}
+
+
+/* INTERNSHIP GRID */
+
+.internship-grid {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 18px;
+}
+
+
+/* INTERNSHIP CARD */
+
+.internship-card {
+    width: 100%;
+    min-width: 0;
+
+    background: white;
+
+    border: 1px solid #e5eaf2;
+
+    border-radius: 14px;
+
+    padding: 20px;
+
+    box-shadow: 0 4px 15px rgba(30, 60, 100, 0.05);
+
+    transition: 0.2s ease;
+}
+
+.internship-card:hover {
+    transform: translateY(-3px);
+
+    box-shadow: 0 8px 22px rgba(30, 60, 100, 0.10);
+}
+
+
+/* COMPANY */
+
+.company-name {
+    color: #286bd6;
+
+    font-size: 13px;
+
+    font-weight: bold;
+
+    margin-bottom: 8px;
+}
+
+
+/* ROLE */
+
+.internship-card h2 {
+    margin: 0 0 10px;
+
+    color: #17365f;
+
+    font-size: 19px;
+}
+
+
+/* FIELD */
+
+.internship-field {
+    display: inline-block;
+
+    padding: 6px 11px;
+
+    background: #eaf2ff;
+
+    color: #286bd6;
+
+    border-radius: 20px;
+
+    font-size: 11px;
+
+    font-weight: bold;
+}
+
+
+/* REQUIRED SKILLS */
+
+.required-skills {
+    margin-top: 18px;
+}
+
+.required-skills h3 {
+    margin: 0 0 10px;
+
+    font-size: 13px;
+
+    color: #596b85;
+}
+
+
+/* SKILL TAGS */
+
+.profile-skills {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 7px;
+}
+
+.skill-tag {
+    display: inline-block;
+
+    padding: 7px 10px;
+
+    background: #f0f4ff;
+
+    color: #2454a6;
+
+    border-radius: 7px;
+
+    font-size: 12px;
+}
+
+
+/* APPLY BUTTON */
+
+.internship-action {
+    margin-top: 20px;
+
+    padding-top: 15px;
+
+    border-top: 1px solid #edf0f5;
+}
+
+.apply-btn {
+    border: none;
+
+    background: #286bd6;
+
+    color: white;
+
+    padding: 10px 17px;
+
+    border-radius: 7px;
+
+    font-size: 13px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.apply-btn:hover {
+    background: #1d5bb8;
+
+    transform: translateY(-1px);
+}
+
+
+/* LOADING / EMPTY */
+
+.loading,
+.empty-box {
+    grid-column: 1 / -1;
+
+    padding: 30px;
+
+    text-align: center;
+
+    background: #f5f8ff;
+
+    border-radius: 10px;
+
+    color: #71829b;
+
+    font-size: 14px;
+}
+
+
+/* ROADMAP BUTTONS */
+
+.roadmap-action {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 12px;
+
+    margin-top: 20px;
+}
+
+.roadmap-action .btn {
+    display: inline-block;
+
+    background: #286bd6;
+
+    color: white;
+
+    padding: 10px 18px;
+
+    border-radius: 7px;
+
+    text-decoration: none;
+
+    font-size: 13px;
+
+    font-weight: bold;
+}
+
+.roadmap-action .btn:hover {
+    background: #1d5bb8;
+}
+
+
+/* =========================================================
+   LOGIN PAGE
+   ========================================================= */
+
+.login-page {
+    width: 100%;
+
+    min-height: 100vh;
+
+    margin: 0;
+
+    background: #f4f7fc;
+
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.login-container {
+    width: 100%;
+
+    min-height: 100vh;
+
+    display: flex;
+}
+
+
+/* LOGIN LEFT */
+
+.login-left {
+    width: 50%;
+
+    min-height: 100vh;
+
+    background: linear-gradient(
+        135deg,
+        #12365f,
+        #1d568f
+    );
+
+    color: white;
+
+    padding: 55px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    position: relative;
+}
+
+
+/* LOGIN LOGO */
+
+.login-logo {
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    position: absolute;
+
+    top: 40px;
+    left: 55px;
+}
+
+.login-logo-icon {
+    width: 55px;
+    height: 55px;
+
+    border-radius: 14px;
+
+    background: #286bd6;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    font-size: 28px;
+}
+
+.login-logo h1 {
+    margin: 0;
+
+    color: white;
+
+    font-size: 27px;
+}
+
+.login-logo p {
+    margin: 3px 0 0;
+
+    color: #c7d7e9;
+
+    font-size: 12px;
+}
+
+
+/* LOGIN WELCOME */
+
+.login-welcome {
+    width: 100%;
+
+    max-width: 520px;
+}
+
+.login-welcome h2 {
+    color: white;
+
+    font-size: 42px;
+
+    margin: 0 0 15px;
+}
+
+.login-welcome > p {
+    color: #d2dfed;
+
+    font-size: 17px;
+
+    line-height: 1.7;
+
+    margin: 0 0 35px;
+}
+
+
+/* FEATURES */
+
+.login-features {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 18px;
+}
+
+.login-feature {
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    padding: 15px;
+
+    background: rgba(255,255,255,0.08);
+
+    border-radius: 12px;
+}
+
+.login-feature > span {
+    width: 42px;
+    height: 42px;
+
+    min-width: 42px;
+
+    border-radius: 10px;
+
+    background: rgba(255,255,255,0.12);
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    font-size: 21px;
+}
+
+.login-feature strong {
+    display: block;
+
+    color: white;
+
+    font-size: 14px;
+}
+
+.login-feature small {
+    display: block;
+
+    color: #c3d2e2;
+
+    font-size: 12px;
+
+    margin-top: 3px;
+}
+
+
+/* LOGIN RIGHT */
+
+.login-right {
+    width: 50%;
+
+    min-height: 100vh;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 40px;
+}
+
+
+/* LOGIN BOX */
+
+.login-box {
+    width: 100%;
+
+    max-width: 440px;
+
+    background: white;
+
+    padding: 40px;
+
+    border-radius: 20px;
+
+    box-shadow: 0 10px 35px rgba(30,60,100,0.10);
+}
+
+
+/* LOGIN ICON */
+
+.login-icon {
+    width: 60px;
+    height: 60px;
+
+    border-radius: 15px;
+
+    background: #eaf2ff;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    font-size: 27px;
+
+    margin-bottom: 18px;
+}
+
+
+/* LOGIN TITLE */
+
+.login-box h2 {
+    margin: 0;
+
+    color: #12365f;
+
+    font-size: 30px;
+}
+
+.login-subtitle {
+    color: #71839e;
+
+    font-size: 14px;
+
+    margin: 8px 0 25px;
+}
+
+
+/* LOGIN ERROR */
+
+.login-error {
+    background: #fff0f0;
+
+    color: #d04a4a;
+
+    padding: 11px 13px;
+
+    border-radius: 8px;
+
+    font-size: 13px;
+
+    margin-bottom: 18px;
+}
+
+
+/* LOGIN INPUT */
+
+.login-input-group {
+    margin-bottom: 18px;
+}
+
+.login-input-group label {
+    display: block;
+
+    color: #304862;
+
+    font-size: 13px;
+
+    font-weight: bold;
+
+    margin-bottom: 7px;
+}
+
+.login-input-group input {
+    width: 100%;
+
+    padding: 13px 14px;
+
+    border: 1px solid #d9e1ec;
+
+    border-radius: 9px;
+
+    outline: none;
+
+    font-size: 14px;
+
+    color: #26364d;
+
+    background: white;
+}
+
+.login-input-group input:focus {
+    border-color: #286bd6;
+
+    box-shadow: 0 0 0 3px rgba(40,107,214,0.10);
+}
+
+
+/* PASSWORD */
+
+.password-box {
+    position: relative;
+}
+
+.password-box input {
+    padding-right: 45px;
+}
+
+.show-password {
+    position: absolute;
+
+    right: 8px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    border: none;
+
+    background: transparent;
+
+    cursor: pointer;
+
+    font-size: 17px;
+}
+
+
+/* LOGIN OPTIONS */
+
+.login-options {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin: 5px 0 20px;
+
+    font-size: 12px;
+
+    color: #71839e;
+}
+
+.login-options label {
+    display: flex;
+
+    align-items: center;
+
+    gap: 5px;
+}
+
+.login-options a {
+    color: #286bd6;
+
+    background: transparent;
+
+    padding: 0;
+}
+
+.login-options a:hover {
+    text-decoration: underline;
+}
+
+
+/* LOGIN BUTTON */
+
+.login-btn {
+    width: 100%;
+
+    border: none;
+
+    padding: 14px;
+
+    border-radius: 9px;
+
+    background: #286bd6;
+
+    color: white;
+
+    font-size: 15px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.login-btn:hover {
+    background: #1958bd;
+
+    transform: translateY(-1px);
+}
+
+
+/* LOGIN DIVIDER */
+
+.login-divider {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    margin: 25px 0;
+
+    color: #a1adbd;
+
+    font-size: 11px;
+}
+
+.login-divider::before,
+.login-divider::after {
+    content: "";
+
+    flex: 1;
+
+    height: 1px;
+
+    background: #e5e9ef;
+}
+
+.login-divider span {
+    padding: 0 5px;
+}
+
+
+/* REGISTER */
+
+.register-text {
+    text-align: center;
+
+    color: #71839e;
+
+    font-size: 13px;
+}
+
+.register-text a {
+    color: #286bd6;
+
+    font-weight: bold;
+
+    background: transparent;
+
+    padding: 0;
+}
+
+.register-text a:hover {
+    text-decoration: underline;
+}
+
+
+/* =========================================================
+   RESPONSIVE - TABLET
+   ========================================================= */
+
+@media (max-width: 1200px) {
+
+    .sidebar {
+        width: 250px;
+    }
+
+    .main {
+    margin-left: 255px;
+    width: calc(100% - 255px);
+    min-width: 0;
+    padding: 30px 38px;
+    background: #f4f7fc;
+}
+
+.main-content {
+    margin-left: 255px;
+    width: calc(100% - 255px);
+    min-width: 0;
+    min-height: 100vh;
+    padding: 30px 38px;
+    background: #f4f7fc;
+}
+
+/* =========================================================
+   PROFILE PAGE - FIXED LAYOUT
+   ========================================================= */
+
+.profile-page {
+    margin-left: 255px;
+    width: calc(100% - 255px);
+    min-height: 100vh;
+    padding: 30px 38px;
+    background: #f4f7fc;
+}
+
+/* Profile header */
+.profile-page .page-header {
+    width: 100%;
+    margin-bottom: 25px;
+}
+
+.profile-page .page-header h1 {
+    margin: 0 0 8px;
+    font-size: 28px;
+    color: #17365f;
+}
+
+.profile-page .page-header p {
+    margin: 0;
+    color: #78869c;
+    font-size: 14px;
+}
+
+/* Main profile card */
+.profile-page .profile-card {
+    width: 100%;
+    background: white;
+    border-radius: 15px;
+    padding: 25px;
+    margin-bottom: 22px;
+    box-shadow: 0 4px 20px rgba(30, 60, 100, 0.06);
+}
+
+/* Profile top section */
+.profile-page .profile-big {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.profile-page .profile-avatar {
+    width: 65px;
+    min-width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    background: #eaf2ff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+}
+
+.profile-page .profile-big h2 {
+    margin: 0;
+    font-size: 24px;
+    color: #17365f;
+}
+
+.profile-page .profile-big p {
+    margin: 5px 0 0;
+    color: #78869c;
+}
+
+/* Profile information */
+.profile-page .profile-info {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 15px;
+}
+
+.profile-page .info-box {
+    min-width: 0;
+    padding: 17px;
+    background: #f7f9fd;
+    border-radius: 10px;
+}
+
+.profile-page .info-box span {
+    display: block;
+    color: #71809a;
+    font-size: 12px;
+    margin-bottom: 7px;
+}
+
+.profile-page .info-box strong {
+    display: block;
+    color: #17365f;
+    font-size: 16px;
+    word-break: break-word;
+}
+
+/* Profile skills */
+.profile-page .profile-skills {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.profile-page .skill-tag {
+    display: inline-block;
+    padding: 7px 11px;
+    background: #f0f4ff;
+    color: #2454a6;
+    border-radius: 7px;
+    font-size: 12px;
+}
+
+.profile-page .missing-tag {
+    display: inline-block;
+    padding: 7px 11px;
+    background: #fff0f2;
+    color: #d84e56;
+    border-radius: 7px;
+    font-size: 12px;
+}
+
+/* Profile lists */
+.profile-page .profile-list {
+    margin: 0;
+    padding-left: 20px;
+    line-height: 1.9;
+}
+
+.profile-page .profile-description {
+    color: #71809a;
+    line-height: 1.8;
+}
+
+/* =========================================================
+   PROFILE RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 1100px) {
+    .profile-page {
+        margin-left: 225px;
+        width: calc(100% - 225px);
+        padding: 25px;
+    }
+
+    .profile-page .profile-info {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 850px) {
+    .profile-page .profile-info {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 700px) {
+    .profile-page {
+        margin-left: 0;
+        width: 100%;
+        padding: 20px;
+    }
+
+    .profile-page .profile-card {
+        padding: 20px;
+    }
+
+    .profile-page .profile-big {
+        align-items: flex-start;
+    }
+}
+
+@media (max-width: 500px) {
+    .profile-page {
+        padding: 15px;
+    }
+
+    .profile-page .profile-card {
+        padding: 16px;
+    }
+
+    .profile-page .profile-big h2 {
+        font-size: 20px;
+    }
+
+    .profile-page .profile-avatar {
+        width: 55px;
+        min-width: 55px;
+        height: 55px;
+        font-size: 26px;
+    }
+}
+
+    .cards {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    #jobs {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .two-column {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* =========================================================
+   RESPONSIVE - SMALL TABLET
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .sidebar {
+        width: 220px;
+    }
+
+    .main {
+        margin-left: 220px;
+
+        width: calc(100% - 220px);
+
+        padding: 22px;
+    }
+
+    .main-content {
+        margin-left: 220px;
+
+        width: calc(100% - 220px);
+
+        padding: 22px;
+    }
+
+    .input-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .skill-columns {
+        grid-template-columns: 1fr;
+    }
+
+    .cards {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    #jobs {
+        grid-template-columns: 1fr;
+    }
+
+    .internship-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .report-stats {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+
+/* =========================================================
+   RESPONSIVE - MOBILE
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+    .layout,
+    .app-container {
+        display: block;
+
+        width: 100%;
+    }
+
+    .sidebar {
+        position: relative;
+
+        width: 100%;
+
+        height: auto;
+
+        min-height: auto;
+
+        max-height: none;
+    }
+
+    .main,
+    .main-content {
+        margin-left: 0;
+
+        width: 100%;
+
+        padding: 18px;
+    }
+
+    .sidebar-bottom {
+        display: none;
+    }
+
+    .header {
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 15px;
+    }
+
+    .profile {
+        width: 100%;
+    }
+
+    .cards,
+    .two-column,
+    .skill-columns,
+    .input-grid {
+        grid-template-columns: 1fr;
+    }
+
+    #jobs {
+        grid-template-columns: 1fr;
+    }
+
+    .panel-header {
+        align-items: flex-start;
+
+        flex-direction: column;
+    }
+
+    .panel-header span {
+        white-space: normal;
+    }
+
+    .refresh-btn {
+        width: 100%;
+    }
+
+    .job {
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+    .badge {
+        align-self: flex-start;
+    }
+
+    .internship-section {
+        padding: 18px;
+    }
+
+    .page-header h1 {
+        font-size: 23px;
+    }
+
+    .roadmap-action {
+        flex-direction: column;
+    }
+
+    .roadmap-action .btn {
+        width: 100%;
+
+        text-align: center;
+    }
+}
+
+
+/* =========================================================
+   LOGIN RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 850px) {
+
+    .login-container {
+        flex-direction: column;
+    }
+
+    .login-left {
+        width: 100%;
+
+        min-height: auto;
+
+        padding: 110px 30px 40px;
+    }
+
+    .login-logo {
+        left: 30px;
+
+        top: 30px;
+    }
+
+    .login-welcome h2 {
+        font-size: 32px;
+    }
+
+    .login-right {
+        width: 100%;
+
+        min-height: auto;
+
+        padding: 35px 20px;
+    }
+}
+
+
+@media (max-width: 500px) {
+
+    .login-left {
+        padding: 100px 20px 30px;
+    }
+
+    .login-logo {
+        left: 20px;
+
+        top: 22px;
+    }
+
+    .login-logo-icon {
+        width: 45px;
+        height: 45px;
+
+        font-size: 22px;
+    }
+
+    .login-logo h1 {
+        font-size: 22px;
+    }
+
+    .login-welcome h2 {
+        font-size: 28px;
+    }
+
+    .login-features {
+        display: none;
+    }
+
+    .login-box {
+        padding: 28px 22px;
+    }
+}
+/* =========================================================
+   SKILLBRIDGE - COMPLETE FINAL STYLE
+   ========================================================= */
+
+/* =========================================================
+   GLOBAL RESET
+   ========================================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f4f7fc;
+    color: #17365f;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+/* =========================================================
+   DASHBOARD LAYOUT
+   ========================================================= */
+
+.layout {
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
+}
+
+
+/* =========================================================
+   SIDEBAR
+   ========================================================= */
+
+.sidebar {
+    width: 235px;
+    height: 100vh;
+
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+
+    background: #12365f;
+    color: white;
+
+    padding: 25px 15px;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    z-index: 1000;
+
+    flex-shrink: 0;
+}
+
+
+/* LOGO */
+
+.logo {
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    margin-bottom: 30px;
+
+    padding: 0 8px 20px;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.logo-icon {
+    font-size: 30px;
+    flex-shrink: 0;
+}
+
+.logo h2 {
+    margin: 0;
+
+    color: white;
+
+    font-size: 25px;
+    line-height: 1.2;
+}
+
+.logo p {
+    margin: 3px 0 0;
+
+    color: #b9c9dc;
+
+    font-size: 10px;
+    line-height: 1.3;
+}
+
+
+/* MENU */
+
+.menu {
+    display: flex;
+    flex-direction: column;
+
+    gap: 5px;
+
+    width: 100%;
+}
+
+.menu-item {
+    display: block;
+
+    width: 100%;
+
+    padding: 12px;
+
+    margin: 0;
+
+    border-radius: 9px;
+
+    color: #d3deec;
+
+    background: transparent;
+
+    font-size: 14px;
+
+    text-decoration: none;
+
+    cursor: pointer;
+
+    transition: all 0.2s ease;
+}
+
+.menu-item:hover {
+    background: rgba(255, 255, 255, 0.10);
+
+    color: white;
+
+    text-decoration: none;
+}
+
+.menu-item.active {
+    background: #286bd6;
+
+    color: white;
+
+    font-weight: bold;
+
+    text-decoration: none;
+
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+
+/* SIDEBAR BOTTOM */
+
+.sidebar-bottom {
+    position: absolute;
+
+    left: 15px;
+    bottom: 30px;
+
+    width: 205px;
+
+    text-align: center;
+
+    color: #b9c9dc;
+
+    font-size: 12px;
+}
+
+.stairs {
+    font-size: 45px;
+
+    margin-bottom: 5px;
+}
+
+.sidebar-bottom p {
+    margin: 0;
+
+    color: #b9c9dc;
+
+    line-height: 1.4;
+}
+
+
+/* =========================================================
+   MAIN CONTENT
+   ========================================================= */
+
+.main {
+    width: calc(100% - 235px);
+
+    min-width: 0;
+    min-height: 100vh;
+
+    margin-left: 235px;
+
+    padding: 30px 35px 45px;
+
+    overflow-x: hidden;
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.header {
+    width: 100%;
+
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 20px;
+
+    margin-bottom: 22px;
+}
+
+.header h1 {
+    margin: 0;
+
+    color: #17365f;
+
+    font-size: 26px;
+
+    line-height: 1.3;
+}
+
+.header h1 span {
+    color: #286bd6;
+}
+
+.header p {
+    margin: 7px 0 0;
+
+    color: #78869c;
+
+    font-size: 14px;
+}
+
+
+/* PROFILE */
+
+.profile {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    flex-shrink: 0;
+}
+
+.profile-photo {
+    width: 42px;
+    height: 42px;
+
+    border-radius: 50%;
+
+    background: #e8eefb;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    font-size: 22px;
+}
+
+.profile strong {
+    display: block;
+
+    color: #17365f;
+
+    font-size: 14px;
+}
+
+.profile small {
+    display: block;
+
+    margin-top: 2px;
+
+    color: #8793a7;
+
+    font-size: 11px;
+}
+
+
+/* =========================================================
+   ASSESSMENT BOX
+   ========================================================= */
+
+.assessment-box {
+    width: 100%;
+    max-width: 100%;
+
+    background: white;
+
+    padding: 22px;
+
+    border-radius: 15px;
+
+    box-shadow: 0 4px 20px rgba(30, 60, 100, 0.06);
+
+    margin-bottom: 20px;
+}
+
+.section-title {
+    margin-bottom: 15px;
+}
+
+.section-title h2 {
+    margin: 0;
+
+    color: #17365f;
+
+    font-size: 19px;
+}
+
+.section-title p {
+    margin: 7px 0 0;
+
+    color: #7a879b;
+
+    font-size: 13px;
+}
+
+
+/* INPUT GRID */
+
+.input-grid {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 20px;
+}
+
+.input-group {
+    width: 100%;
+
+    min-width: 0;
+
+    margin-top: 12px;
+}
+
+.input-group label {
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: #304862;
+
+    font-size: 13px;
+
+    font-weight: bold;
+}
+
+.input-group input,
+.input-group select {
+    width: 100%;
+    max-width: 100%;
+
+    padding: 12px;
+
+    border: 1px solid #d9e0ec;
+
+    border-radius: 8px;
+
+    outline: none;
+
+    font-size: 14px;
+
+    color: #26364d;
+
+    background: white;
+}
+
+.input-group input:focus,
+.input-group select:focus {
+    border-color: #286bd6;
+
+    box-shadow: 0 0 0 3px rgba(40, 107, 214, 0.08);
+}
+
+.input-group small {
+    display: block;
+
+    margin-top: 5px;
+
+    color: #8995a7;
+
+    font-size: 11px;
+}
+
+
+/* ANALYZE BUTTON */
+
+.analyze-btn {
+    margin-top: 18px;
+
+    border: none;
+
+    padding: 13px 22px;
+
+    background: #2467d8;
+
+    color: white;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    font-weight: bold;
+
+    font-size: 13px;
+
+    transition: 0.2s ease;
+}
+
+.analyze-btn:hover {
+    background: #1857bd;
+
+    transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   SUMMARY CARDS
+   ========================================================= */
+
+.cards {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+
+    gap: 15px;
+
+    margin-bottom: 20px;
+}
+
+.card {
+    width: 100%;
+    min-width: 0;
+
+    padding: 20px;
+
+    border-radius: 14px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    transition: 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+}
+
+.card.blue {
+    background: #eaf5ff;
+}
+
+.card.purple {
+    background: #f0ebff;
+}
+
+.card.pink {
+    background: #fff0f3;
+}
+
+.card.yellow {
+    background: #fff7df;
+}
+
+.card-icon {
+    width: 45px;
+    height: 45px;
+
+    min-width: 45px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background: white;
+
+    font-size: 21px;
+}
+
+.card span {
+    display: block;
+
+    font-size: 12px;
+
+    color: #74829a;
+}
+
+.card h3 {
+    margin: 7px 0 0;
+
+    color: #17365f;
+
+    font-size: 22px;
+}
+
+
+/* =========================================================
+   TWO COLUMN SECTION
+   ========================================================= */
+
+.two-column {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+
+    gap: 18px;
+
+    margin-bottom: 0;
+}
+
+
+/* =========================================================
+   PANEL
+   ========================================================= */
+
+.panel {
+    width: 100%;
+    min-width: 0;
+
+    background: white;
+
+    border-radius: 14px;
+
+    padding: 20px;
+
+    margin-bottom: 18px;
+
+    box-shadow: 0 4px 20px rgba(30, 60, 100, 0.05);
+
+    overflow: hidden;
+}
+
+.panel-header {
+    width: 100%;
+
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 15px;
+
+    margin-bottom: 18px;
+}
+
+.panel-header h2 {
+    margin: 0;
+
+    color: #17365f;
+
+    font-size: 18px;
+}
+
+.panel-header span {
+    color: #71809a;
+
+    font-size: 12px;
+
+    white-space: nowrap;
+}
+
+.panel-header p {
+    margin: 6px 0 0;
+
+    color: #7c899d;
+
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   SKILL GAP ANALYSIS
+   ========================================================= */
+
+.skill-columns {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 15px;
+}
+
+.skill-box {
+    width: 100%;
+    min-width: 0;
+
+    border: 1px solid #edf0f5;
+
+    border-radius: 10px;
+
+    padding: 15px;
+
+    overflow: hidden;
+}
+
+.skill-box h3 {
+    margin-top: 0;
+
+    font-size: 14px;
+}
+
+.success {
+    color: #149568;
+}
+
+.danger {
+    color: #d94f57;
+}
+
+.skill-box ul {
+    margin: 10px 0 0;
+
+    padding-left: 20px;
+
+    line-height: 1.9;
+
+    word-break: break-word;
+}
+
+#matched li {
+    color: #159568;
+}
+
+#missing li {
+    color: #d84e56;
+}
+
+
+/* =========================================================
+   RECOMMENDATION
+   ========================================================= */
+
+.recommendation {
+    width: 100%;
+
+    margin-top: 15px;
+
+    padding: 13px;
+
+    background: #f5efff;
+
+    border-radius: 9px;
+
+    display: flex;
+
+    gap: 12px;
+
+    color: #6241b5;
+}
+
+.recommendation strong {
+    color: #6241b5;
+
+    font-size: 13px;
+}
+
+.recommendation p {
+    margin: 5px 0;
+
+    font-size: 12px;
+
+    color: #6d6680;
+
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   ROADMAP
+   ========================================================= */
+
+.roadmap {
+    width: 100%;
+
+    margin: 0;
+
+    padding-left: 25px;
+}
+
+.roadmap li {
+    margin-bottom: 12px;
+
+    padding: 9px;
+
+    background: #f5f8ff;
+
+    border-radius: 7px;
+
+    color: #40546f;
+
+    font-size: 13px;
+
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   JOBS
+   ========================================================= */
+
+.opportunities-panel {
+    width: 100%;
+}
+
+#jobs {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+
+    gap: 16px;
+}
+
+#jobs > div {
+    width: 100%;
+    min-width: 0;
+}
+
+.job {
+    width: 100%;
+
+    padding: 15px;
+
+    border: 1px solid #edf0f5;
+
+    border-radius: 10px;
+
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 12px;
+
+    background: white;
+}
+
+.job strong {
+    display: block;
+
+    color: #17365f;
+
+    font-size: 15px;
+}
+
+.job small {
+    display: block;
+
+    margin-top: 5px;
+
+    color: #78869c;
+
+    font-size: 11px;
+}
+
+.badge {
+    flex-shrink: 0;
+
+    padding: 7px 12px;
+
+    border-radius: 20px;
+
+    background: #e8f7ef;
+
+    color: #16845d;
+
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   COLLEGE REPORT
+   ========================================================= */
+
+.college-panel {
+    width: 100%;
+}
+
+.college-panel p {
+    color: #7c899d;
+
+    font-size: 13px;
+
+    line-height: 1.5;
+}
+
+#collegeGaps {
+    width: 100%;
+}
+
+.gap {
+    display: inline-block;
+
+    padding: 10px 14px;
+
+    margin: 5px;
+
+    background: #fff4df;
+
+    color: #795b20;
+
+    border-radius: 8px;
+
+    font-size: 13px;
+}
+
+.refresh-btn {
+    flex-shrink: 0;
+
+    border: none;
+
+    padding: 10px 15px;
+
+    border-radius: 7px;
+
+    background: #6c52c9;
+
+    color: white;
+
+    cursor: pointer;
+
+    font-size: 12px;
+
+    font-weight: bold;
+}
+
+.refresh-btn:hover {
+    background: #5840ad;
+}
+
+
+/* =========================================================
+   GENERAL BUTTON
+   ========================================================= */
+
+.btn {
+    display: inline-block;
+
+    background: #286bd6;
+
+    color: white;
+
+    border: none;
+
+    padding: 10px 18px;
+
+    border-radius: 7px;
+
+    text-decoration: none;
+
+    font-size: 13px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+.btn:hover {
+    background: #1d5bb8;
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+footer {
+    width: 100%;
+
+    text-align: center;
+
+    color: #8995a7;
+
+    font-size: 12px;
+
+    padding: 15px;
+}
+
+
+/* =========================================================
+   INTERNSHIP PAGE
+   ========================================================= */
+
+.app-container {
+    display: flex;
+
+    width: 100%;
+
+    min-height: 100vh;
+}
+
+.main-content {
+    width: calc(100% - 235px);
+
+    min-width: 0;
+    min-height: 100vh;
+
+    margin-left: 235px;
+
+    padding: 30px 35px;
+
+    background: #f4f7fc;
+
+    overflow-x: hidden;
+}
+
+
+/* PAGE HEADER */
+
+.page-header {
+    width: 100%;
+
+    margin-bottom: 25px;
+}
+
+.page-header h1 {
+    margin: 0 0 10px;
+
+    color: #17365f;
+
+    font-size: 28px;
+}
+
+.page-header p {
+    margin: 6px 0;
+
+    color: #78869c;
+
+    font-size: 14px;
+}
+
+.page-header strong {
+    color: #2454a6;
+}
+
+
+/* INTERNSHIP SECTION */
+
+.internship-section {
+    width: 100%;
+
+    background: white;
+
+    padding: 25px;
+
+    border-radius: 15px;
+
+    box-shadow: 0 4px 20px rgba(30, 60, 100, 0.06);
+
+    margin-bottom: 25px;
+}
+
+.internship-header {
+    margin-bottom: 20px;
+}
+
+.internship-header h2 {
+    margin: 0 0 6px;
+
+    font-size: 20px;
+
+    color: #17365f;
+}
+
+.internship-header p {
+    margin: 0;
+
+    color: #78869c;
+
+    font-size: 13px;
+}
+
+
+/* INTERNSHIP GRID */
+
+.internship-grid {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 18px;
+}
+
+
+/* INTERNSHIP CARD */
+
+.internship-card {
+    width: 100%;
+    min-width: 0;
+
+    background: white;
+
+    border: 1px solid #e5eaf2;
+
+    border-radius: 14px;
+
+    padding: 20px;
+
+    box-shadow: 0 4px 15px rgba(30, 60, 100, 0.05);
+
+    transition: 0.2s ease;
+}
+
+.internship-card:hover {
+    transform: translateY(-3px);
+
+    box-shadow: 0 8px 22px rgba(30, 60, 100, 0.10);
+}
+
+
+/* COMPANY */
+
+.company-name {
+    color: #286bd6;
+
+    font-size: 13px;
+
+    font-weight: bold;
+
+    margin-bottom: 8px;
+}
+
+
+/* ROLE */
+
+.internship-card h2 {
+    margin: 0 0 10px;
+
+    color: #17365f;
+
+    font-size: 19px;
+}
+
+
+/* FIELD */
+
+.internship-field {
+    display: inline-block;
+
+    padding: 6px 11px;
+
+    background: #eaf2ff;
+
+    color: #286bd6;
+
+    border-radius: 20px;
+
+    font-size: 11px;
+
+    font-weight: bold;
+}
+
+
+/* REQUIRED SKILLS */
+
+.required-skills {
+    margin-top: 18px;
+}
+
+.required-skills h3 {
+    margin: 0 0 10px;
+
+    font-size: 13px;
+
+    color: #596b85;
+}
+
+
+/* SKILL TAGS */
+
+.profile-skills {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 7px;
+}
+
+.skill-tag {
+    display: inline-block;
+
+    padding: 7px 10px;
+
+    background: #f0f4ff;
+
+    color: #2454a6;
+
+    border-radius: 7px;
+
+    font-size: 12px;
+}
+
+
+/* APPLY BUTTON */
+
+.internship-action {
+    margin-top: 20px;
+
+    padding-top: 15px;
+
+    border-top: 1px solid #edf0f5;
+}
+
+.apply-btn {
+    border: none;
+
+    background: #286bd6;
+
+    color: white;
+
+    padding: 10px 17px;
+
+    border-radius: 7px;
+
+    font-size: 13px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.apply-btn:hover {
+    background: #1d5bb8;
+
+    transform: translateY(-1px);
+}
+
+
+/* LOADING / EMPTY */
+
+.loading,
+.empty-box {
+    grid-column: 1 / -1;
+
+    padding: 30px;
+
+    text-align: center;
+
+    background: #f5f8ff;
+
+    border-radius: 10px;
+
+    color: #71829b;
+
+    font-size: 14px;
+}
+
+
+/* ROADMAP BUTTONS */
+
+.roadmap-action {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 12px;
+
+    margin-top: 20px;
+}
+
+.roadmap-action .btn {
+    display: inline-block;
+
+    background: #286bd6;
+
+    color: white;
+
+    padding: 10px 18px;
+
+    border-radius: 7px;
+
+    text-decoration: none;
+
+    font-size: 13px;
+
+    font-weight: bold;
+}
+
+.roadmap-action .btn:hover {
+    background: #1d5bb8;
+}
+
+
+/* =========================================================
+   LOGIN PAGE
+   ========================================================= */
+
+.login-page {
+    width: 100%;
+
+    min-height: 100vh;
+
+    margin: 0;
+
+    background: #f4f7fc;
+
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.login-container {
+    width: 100%;
+
+    min-height: 100vh;
+
+    display: flex;
+}
+
+
+/* LOGIN LEFT */
+
+.login-left {
+    width: 50%;
+
+    min-height: 100vh;
+
+    background: linear-gradient(
+        135deg,
+        #12365f,
+        #1d568f
+    );
+
+    color: white;
+
+    padding: 55px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    position: relative;
+}
+
+
+/* LOGIN LOGO */
+
+.login-logo {
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    position: absolute;
+
+    top: 40px;
+    left: 55px;
+}
+
+.login-logo-icon {
+    width: 55px;
+    height: 55px;
+
+    border-radius: 14px;
+
+    background: #286bd6;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    font-size: 28px;
+}
+
+.login-logo h1 {
+    margin: 0;
+
+    color: white;
+
+    font-size: 27px;
+}
+
+.login-logo p {
+    margin: 3px 0 0;
+
+    color: #c7d7e9;
+
+    font-size: 12px;
+}
+
+
+/* LOGIN WELCOME */
+
+.login-welcome {
+    width: 100%;
+
+    max-width: 520px;
+}
+
+.login-welcome h2 {
+    color: white;
+
+    font-size: 42px;
+
+    margin: 0 0 15px;
+}
+
+.login-welcome > p {
+    color: #d2dfed;
+
+    font-size: 17px;
+
+    line-height: 1.7;
+
+    margin: 0 0 35px;
+}
+
+
+/* FEATURES */
+
+.login-features {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 18px;
+}
+
+.login-feature {
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    padding: 15px;
+
+    background: rgba(255,255,255,0.08);
+
+    border-radius: 12px;
+}
+
+.login-feature > span {
+    width: 42px;
+    height: 42px;
+
+    min-width: 42px;
+
+    border-radius: 10px;
+
+    background: rgba(255,255,255,0.12);
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    font-size: 21px;
+}
+
+.login-feature strong {
+    display: block;
+
+    color: white;
+
+    font-size: 14px;
+}
+
+.login-feature small {
+    display: block;
+
+    color: #c3d2e2;
+
+    font-size: 12px;
+
+    margin-top: 3px;
+}
+
+
+/* LOGIN RIGHT */
+
+.login-right {
+    width: 50%;
+
+    min-height: 100vh;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 40px;
+}
+
+
+/* LOGIN BOX */
+
+.login-box {
+    width: 100%;
+
+    max-width: 440px;
+
+    background: white;
+
+    padding: 40px;
+
+    border-radius: 20px;
+
+    box-shadow: 0 10px 35px rgba(30,60,100,0.10);
+}
+
+
+/* LOGIN ICON */
+
+.login-icon {
+    width: 60px;
+    height: 60px;
+
+    border-radius: 15px;
+
+    background: #eaf2ff;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    font-size: 27px;
+
+    margin-bottom: 18px;
+}
+
+
+/* LOGIN TITLE */
+
+.login-box h2 {
+    margin: 0;
+
+    color: #12365f;
+
+    font-size: 30px;
+}
+
+.login-subtitle {
+    color: #71839e;
+
+    font-size: 14px;
+
+    margin: 8px 0 25px;
+}
+
+
+/* LOGIN ERROR */
+
+.login-error {
+    background: #fff0f0;
+
+    color: #d04a4a;
+
+    padding: 11px 13px;
+
+    border-radius: 8px;
+
+    font-size: 13px;
+
+    margin-bottom: 18px;
+}
+
+
+/* LOGIN INPUT */
+
+.login-input-group {
+    margin-bottom: 18px;
+}
+
+.login-input-group label {
+    display: block;
+
+    color: #304862;
+
+    font-size: 13px;
+
+    font-weight: bold;
+
+    margin-bottom: 7px;
+}
+
+.login-input-group input {
+    width: 100%;
+
+    padding: 13px 14px;
+
+    border: 1px solid #d9e1ec;
+
+    border-radius: 9px;
+
+    outline: none;
+
+    font-size: 14px;
+
+    color: #26364d;
+
+    background: white;
+}
+
+.login-input-group input:focus {
+    border-color: #286bd6;
+
+    box-shadow: 0 0 0 3px rgba(40,107,214,0.10);
+}
+
+
+/* PASSWORD */
+
+.password-box {
+    position: relative;
+}
+
+.password-box input {
+    padding-right: 45px;
+}
+
+.show-password {
+    position: absolute;
+
+    right: 8px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    border: none;
+
+    background: transparent;
+
+    cursor: pointer;
+
+    font-size: 17px;
+}
+
+
+/* LOGIN OPTIONS */
+
+.login-options {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin: 5px 0 20px;
+
+    font-size: 12px;
+
+    color: #71839e;
+}
+
+.login-options label {
+    display: flex;
+
+    align-items: center;
+
+    gap: 5px;
+}
+
+.login-options a {
+    color: #286bd6;
+
+    background: transparent;
+
+    padding: 0;
+}
+
+.login-options a:hover {
+    text-decoration: underline;
+}
+
+
+/* LOGIN BUTTON */
+
+.login-btn {
+    width: 100%;
+
+    border: none;
+
+    padding: 14px;
+
+    border-radius: 9px;
+
+    background: #286bd6;
+
+    color: white;
+
+    font-size: 15px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.login-btn:hover {
+    background: #1958bd;
+
+    transform: translateY(-1px);
+}
+
+
+/* LOGIN DIVIDER */
+
+.login-divider {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    margin: 25px 0;
+
+    color: #a1adbd;
+
+    font-size: 11px;
+}
+
+.login-divider::before,
+.login-divider::after {
+    content: "";
+
+    flex: 1;
+
+    height: 1px;
+
+    background: #e5e9ef;
+}
+
+.login-divider span {
+    padding: 0 5px;
+}
+
+
+/* REGISTER */
+
+.register-text {
+    text-align: center;
+
+    color: #71839e;
+
+    font-size: 13px;
+}
+
+.register-text a {
+    color: #286bd6;
+
+    font-weight: bold;
+
+    background: transparent;
+
+    padding: 0;
+}
+
+.register-text a:hover {
+    text-decoration: underline;
+}
+
+
+/* =========================================================
+   RESPONSIVE - TABLET
+   ========================================================= */
+
+@media (max-width: 1200px) {
+
+    .sidebar {
+        width: 250px;
+    }
+
+    .main {
+    margin-left: 255px;
+    width: calc(100% - 255px);
+    min-width: 0;
+    padding: 30px 38px;
+    background: #f4f7fc;
+}
+
+.main-content {
+    margin-left: 255px;
+    width: calc(100% - 255px);
+    min-width: 0;
+    min-height: 100vh;
+    padding: 30px 38px;
+    background: #f4f7fc;
+}
+
+/* =========================================================
+   PROFILE PAGE - FIXED LAYOUT
+   ========================================================= */
+
+.profile-page {
+    margin-left: 255px;
+    width: calc(100% - 255px);
+    min-height: 100vh;
+    padding: 30px 38px;
+    background: #f4f7fc;
+}
+
+/* Profile header */
+.profile-page .page-header {
+    width: 100%;
+    margin-bottom: 25px;
+}
+
+.profile-page .page-header h1 {
+    margin: 0 0 8px;
+    font-size: 28px;
+    color: #17365f;
+}
+
+.profile-page .page-header p {
+    margin: 0;
+    color: #78869c;
+    font-size: 14px;
+}
+
+/* Main profile card */
+.profile-page .profile-card {
+    width: 100%;
+    background: white;
+    border-radius: 15px;
+    padding: 25px;
+    margin-bottom: 22px;
+    box-shadow: 0 4px 20px rgba(30, 60, 100, 0.06);
+}
+
+/* Profile top section */
+.profile-page .profile-big {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.profile-page .profile-avatar {
+    width: 65px;
+    min-width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    background: #eaf2ff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+}
+
+.profile-page .profile-big h2 {
+    margin: 0;
+    font-size: 24px;
+    color: #17365f;
+}
+
+.profile-page .profile-big p {
+    margin: 5px 0 0;
+    color: #78869c;
+}
+
+/* Profile information */
+.profile-page .profile-info {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 15px;
+}
+
+.profile-page .info-box {
+    min-width: 0;
+    padding: 17px;
+    background: #f7f9fd;
+    border-radius: 10px;
+}
+
+.profile-page .info-box span {
+    display: block;
+    color: #71809a;
+    font-size: 12px;
+    margin-bottom: 7px;
+}
+
+.profile-page .info-box strong {
+    display: block;
+    color: #17365f;
+    font-size: 16px;
+    word-break: break-word;
+}
+
+/* Profile skills */
+.profile-page .profile-skills {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.profile-page .skill-tag {
+    display: inline-block;
+    padding: 7px 11px;
+    background: #f0f4ff;
+    color: #2454a6;
+    border-radius: 7px;
+    font-size: 12px;
+}
+
+.profile-page .missing-tag {
+    display: inline-block;
+    padding: 7px 11px;
+    background: #fff0f2;
+    color: #d84e56;
+    border-radius: 7px;
+    font-size: 12px;
+}
+
+/* Profile lists */
+.profile-page .profile-list {
+    margin: 0;
+    padding-left: 20px;
+    line-height: 1.9;
+}
+
+.profile-page .profile-description {
+    color: #71809a;
+    line-height: 1.8;
+}
+
+/* =========================================================
+   PROFILE RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 1100px) {
+    .profile-page {
+        margin-left: 225px;
+        width: calc(100% - 225px);
+        padding: 25px;
+    }
+
+    .profile-page .profile-info {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 850px) {
+    .profile-page .profile-info {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 700px) {
+    .profile-page {
+        margin-left: 0;
+        width: 100%;
+        padding: 20px;
+    }
+
+    .profile-page .profile-card {
+        padding: 20px;
+    }
+
+    .profile-page .profile-big {
+        align-items: flex-start;
+    }
+}
+
+@media (max-width: 500px) {
+    .profile-page {
+        padding: 15px;
+    }
+
+    .profile-page .profile-card {
+        padding: 16px;
+    }
+
+    .profile-page .profile-big h2 {
+        font-size: 20px;
+    }
+
+    .profile-page .profile-avatar {
+        width: 55px;
+        min-width: 55px;
+        height: 55px;
+        font-size: 26px;
+    }
+}
+
+    .cards {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    #jobs {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .two-column {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* =========================================================
+   RESPONSIVE - SMALL TABLET
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .sidebar {
+        width: 220px;
+    }
+
+    .main {
+        margin-left: 220px;
+
+        width: calc(100% - 220px);
+
+        padding: 22px;
+    }
+
+    .main-content {
+        margin-left: 220px;
+
+        width: calc(100% - 220px);
+
+        padding: 22px;
+    }
+
+    .input-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .skill-columns {
+        grid-template-columns: 1fr;
+    }
+
+    .cards {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    #jobs {
+        grid-template-columns: 1fr;
+    }
+
+    .internship-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .report-stats {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+
+/* =========================================================
+   RESPONSIVE - MOBILE
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+    .layout,
+    .app-container {
+        display: block;
+
+        width: 100%;
+    }
+
+    .sidebar {
+        position: relative;
+
+        width: 100%;
+
+        height: auto;
+
+        min-height: auto;
+
+        max-height: none;
+    }
+
+    .main,
+    .main-content {
+        margin-left: 0;
+
+        width: 100%;
+
+        padding: 18px;
+    }
+
+    .sidebar-bottom {
+        display: none;
+    }
+
+    .header {
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 15px;
+    }
+
+    .profile {
+        width: 100%;
+    }
+
+    .cards,
+    .two-column,
+    .skill-columns,
+    .input-grid {
+        grid-template-columns: 1fr;
+    }
+
+    #jobs {
+        grid-template-columns: 1fr;
+    }
+
+    .panel-header {
+        align-items: flex-start;
+
+        flex-direction: column;
+    }
+
+    .panel-header span {
+        white-space: normal;
+    }
+
+    .refresh-btn {
+        width: 100%;
+    }
+
+    .job {
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+    .badge {
+        align-self: flex-start;
+    }
+
+    .internship-section {
+        padding: 18px;
+    }
+
+    .page-header h1 {
+        font-size: 23px;
+    }
+
+    .roadmap-action {
+        flex-direction: column;
+    }
+
+    .roadmap-action .btn {
+        width: 100%;
+
+        text-align: center;
+    }
+}
+
+
+/* =========================================================
+   LOGIN RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 850px) {
+
+    .login-container {
+        flex-direction: column;
+    }
+
+    .login-left {
+        width: 100%;
+
+        min-height: auto;
+
+        padding: 110px 30px 40px;
+    }
+
+    .login-logo {
+        left: 30px;
+
+        top: 30px;
+    }
+
+    .login-welcome h2 {
+        font-size: 32px;
+    }
+
+    .login-right {
+        width: 100%;
+
+        min-height: auto;
+
+        padding: 35px 20px;
+    }
+}
+
+
+@media (max-width: 500px) {
+
+    .login-left {
+        padding: 100px 20px 30px;
+    }
+
+    .login-logo {
+        left: 20px;
+
+        top: 22px;
+    }
+
+    .login-logo-icon {
+        width: 45px;
+        height: 45px;
+
+        font-size: 22px;
+    }
+
+    .login-logo h1 {
+        font-size: 22px;
+    }
+
+    .login-welcome h2 {
+        font-size: 28px;
+    }
+
+    .login-features {
+        display: none;
+    }
+
+    .login-box {
+        padding: 28px 22px;
+    }
+}
+/* =========================================================
+   PROFILE PAGE - FINAL FIX
+   ========================================================= */
+
+/* Profile page main area */
+.profile-page {
+    margin-left: 255px;
+    width: calc(100% - 255px);
+    min-height: 100vh;
+    padding: 30px 38px;
+    background: #f4f7fc;
+}
+
+/* Profile page header */
+.profile-page .page-header {
+    width: 100%;
+    margin-bottom: 25px;
+}
+
+.profile-page .page-header h1 {
+    margin: 0 0 8px;
+    font-size: 28px;
+    color: #17365f;
+}
+
+.profile-page .page-header p {
+    margin: 0;
+    color: #78869c;
+    font-size: 14px;
+}
+
+/* Main profile card */
+.profile-page .profile-card {
+    width: 100%;
+    background: white;
+    border-radius: 15px;
+    padding: 25px;
+    margin-bottom: 22px;
+    box-shadow: 0 4px 20px rgba(30, 60, 100, 0.06);
+}
+
+/* Profile top section */
+.profile-page .profile-big {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-bottom: 25px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #edf0f5;
+}
+
+/* Avatar */
+.profile-page .profile-avatar {
+    width: 70px;
+    height: 70px;
+    min-width: 70px;
+    border-radius: 50%;
+    background: #eaf2ff;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 32px;
+}
+
+/* Name */
+.profile-page .profile-big h2 {
+    margin: 0;
+    font-size: 24px;
+    color: #17365f;
+}
+
+/* Subtitle */
+.profile-page .profile-big p {
+    margin: 5px 0 0;
+    color: #78869c;
+    font-size: 14px;
+}
+
+/* Information boxes */
+.profile-page .profile-info {
+    width: 100%;
+
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+
+    gap: 15px;
+}
+
+/* Individual information box */
+.profile-page .info-box {
+    min-width: 0;
+    padding: 17px;
+    background: #f7f9fd;
+    border-radius: 10px;
+}
+
+/* Information label */
+.profile-page .info-box span {
+    display: block;
+    margin-bottom: 7px;
+
+    color: #71809a;
+    font-size: 12px;
+}
+
+/* Information value */
+.profile-page .info-box strong {
+    display: block;
+
+    color: #17365f;
+    font-size: 16px;
+
+    word-break: break-word;
+}
+
+/* Profile description */
+.profile-page .profile-description {
+    color: #71809a;
+    line-height: 1.8;
+}
+
+/* Skills */
+.profile-page .profile-skills {
+    width: 100%;
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+/* Skill tag */
+.profile-page .skill-tag {
+    display: inline-block;
+
+    padding: 7px 11px;
+
+    background: #f0f4ff;
+    color: #2454a6;
+
+    border-radius: 7px;
+    font-size: 12px;
+}
+
+/* Missing skill tag */
+.profile-page .missing-tag {
+    display: inline-block;
+
+    padding: 7px 11px;
+
+    background: #fff0f2;
+    color: #d84e56;
+
+    border-radius: 7px;
+    font-size: 12px;
+}
+
+/* Profile list */
+.profile-page .profile-list {
+    margin: 0;
+    padding-left: 20px;
+
+    line-height: 1.9;
+}
+
+/* =========================================================
+   PROFILE RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 1100px) {
+
+    .profile-page {
+        margin-left: 225px;
+        width: calc(100% - 225px);
+        padding: 25px;
+    }
+
+    .profile-page .profile-info {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 700px) {
+
+    .profile-page {
+        margin-left: 0;
+        width: 100%;
+        padding: 20px;
+    }
+
+    .profile-page .profile-info {
+        grid-template-columns: 1fr;
+    }
+
+    .profile-page .profile-big {
+        align-items: flex-start;
+    }
+}
+
+@media (max-width: 500px) {
+
+    .profile-page {
+        padding: 15px;
+    }
+
+    .profile-page .profile-card {
+        padding: 18px;
+    }
+
+    .profile-page .profile-big {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .profile-page .profile-big h2 {
+        font-size: 21px;
+    }
+}/* =========================================================
+   SKILLBRIDGE - PROFESSIONAL INTERNSHIP PAGE
+========================================================= */
+
+
+/* ---------------------------------------------------------
+   MAIN WRAPPER
+--------------------------------------------------------- */
+
+.internship-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 35px 40px 50px;
+}
+
+
+/* ---------------------------------------------------------
+   PAGE HEADER
+--------------------------------------------------------- */
+
+.internship-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 30px;
+}
+
+.internship-top h1 {
+    color: #17365d;
+
+    font-size: 32px;
+    font-weight: 750;
+
+    margin-bottom: 8px;
+}
+
+.internship-top > div:first-child > p {
+    color: #718096;
+
+    font-size: 15px;
+
+    line-height: 1.6;
+}
+
+
+.internship-header-icon {
+    width: 75px;
+    height: 75px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #eaf2ff;
+
+    border-radius: 20px;
+
+    font-size: 36px;
+
+    box-shadow:
+        0 6px 20px rgba(40, 107, 214, 0.10);
+}
+
+
+/* ---------------------------------------------------------
+   TARGET CAREER
+--------------------------------------------------------- */
+
+.target-career {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    margin-top: 12px;
+
+    padding: 9px 14px;
+
+    background: #ffffff;
+
+    border: 1px solid #dce6f3;
+
+    border-radius: 9px;
+
+    box-shadow:
+        0 3px 10px rgba(30, 55, 90, 0.04);
+}
+
+.target-career span {
+    color: #7c899b;
+
+    font-size: 12px;
+
+    font-weight: 600;
+}
+
+.target-career strong {
+    color: #286bd6;
+
+    font-size: 14px;
+}
+
+
+/* ---------------------------------------------------------
+   INTERNSHIP SECTION
+--------------------------------------------------------- */
+
+.internship-section {
+    background: #ffffff;
+
+    border: 1px solid #e5ebf4;
+
+    border-radius: 18px;
+
+    padding: 28px;
+
+    box-shadow:
+        0 7px 25px rgba(30, 55, 90, 0.06);
+}
+
+
+/* ---------------------------------------------------------
+   SECTION HEADER
+--------------------------------------------------------- */
+
+.internship-header {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    margin-bottom: 25px;
+
+    padding-bottom: 20px;
+
+    border-bottom: 1px solid #edf1f6;
+}
+
+.internship-header h2 {
+    color: #17365d;
+
+    font-size: 23px;
+
+    font-weight: 750;
+
+    margin-bottom: 6px;
+}
+
+.internship-header p {
+    color: #7b8798;
+
+    font-size: 14px;
+}
+
+.opportunity-badge {
+    background: #edf7f0;
+
+    color: #287648;
+
+    padding: 9px 13px;
+
+    border-radius: 9px;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    white-space: nowrap;
+}
+
+
+/* ---------------------------------------------------------
+   INTERNSHIP GRID
+--------------------------------------------------------- */
+
+.internship-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 20px;
+}
+
+
+/* ---------------------------------------------------------
+   INTERNSHIP CARD
+--------------------------------------------------------- */
+
+.internship-card {
+    background: #ffffff;
+
+    border: 1px solid #e2e9f3;
+
+    border-radius: 15px;
+
+    padding: 22px;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
+}
+
+.internship-card:hover {
+    transform: translateY(-4px);
+
+    border-color: #c8d8f2;
+
+    box-shadow:
+        0 12px 28px rgba(30, 55, 90, 0.10);
+}
+
+
+/* ---------------------------------------------------------
+   COMPANY
+--------------------------------------------------------- */
+
+.internship-company {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    margin-bottom: 17px;
+}
+
+.company-icon {
+    width: 45px;
+    height: 45px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #edf4ff;
+
+    border-radius: 11px;
+
+    font-size: 20px;
+}
+
+.internship-company-name {
+    color: #286bd6;
+
+    font-size: 13px;
+
+    font-weight: 750;
+}
+
+
+/* ---------------------------------------------------------
+   TITLE
+--------------------------------------------------------- */
+
+.internship-card h3 {
+    color: #17365d;
+
+    font-size: 19px;
+
+    font-weight: 700;
+
+    line-height: 1.4;
+
+    margin-bottom: 13px;
+}
+
+
+/* ---------------------------------------------------------
+   DESCRIPTION
+--------------------------------------------------------- */
+
+.internship-description {
+    color: #718096;
+
+    font-size: 13px;
+
+    line-height: 1.7;
+
+    margin-bottom: 17px;
+}
+
+
+/* ---------------------------------------------------------
+   TAGS
+--------------------------------------------------------- */
+
+.internship-tags {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 8px;
+
+    margin-bottom: 18px;
+}
+
+.internship-tag {
+    padding: 6px 10px;
+
+    background: #f1f5fb;
+
+    color: #4d6584;
+
+    border-radius: 7px;
+
+    font-size: 11px;
+
+    font-weight: 600;
+}
+
+
+/* ---------------------------------------------------------
+   CARD FOOTER
+--------------------------------------------------------- */
+
+.internship-card-footer {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 12px;
+
+    padding-top: 15px;
+
+    border-top: 1px solid #edf1f6;
+}
+
+.internship-location {
+    color: #78879b;
+
+    font-size: 12px;
+}
+
+
+/* ---------------------------------------------------------
+   APPLY BUTTON
+--------------------------------------------------------- */
+
+.apply-btn {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 9px 15px;
+
+    background: #286bd6;
+
+    color: #ffffff;
+
+    border-radius: 8px;
+
+    text-decoration: none;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    transition: all 0.25s ease;
+}
+
+.apply-btn:hover {
+    background: #1558b0;
+
+    transform: translateY(-2px);
+}
+
+
+/* ---------------------------------------------------------
+   LOADING
+--------------------------------------------------------- */
+
+.loading {
+    grid-column: 1 / -1;
+
+    min-height: 160px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    flex-direction: column;
+
+    gap: 12px;
+
+    color: #718096;
+
+    font-size: 14px;
+}
+
+.loading-spinner {
+    width: 32px;
+    height: 32px;
+
+    border: 3px solid #e1e8f3;
+
+    border-top-color: #286bd6;
+
+    border-radius: 50%;
+
+    animation: internshipSpin 0.8s linear infinite;
+}
+
+@keyframes internshipSpin {
+
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+
+}
+
+
+/* ---------------------------------------------------------
+   ACTION BUTTONS
+--------------------------------------------------------- */
+
+.internship-actions {
+    display: flex;
+
+    justify-content: flex-end;
+
+    align-items: center;
+
+    gap: 12px;
+
+    flex-wrap: wrap;
+
+    margin-top: 28px;
+
+    padding-top: 24px;
+
+    border-top: 1px solid #e2e9f3;
+}
+
+.internship-btn {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    min-height: 42px;
+
+    padding: 10px 17px;
+
+    border-radius: 9px;
+
+    text-decoration: none;
+
+    font-size: 13px;
+
+    font-weight: 650;
+
+    transition: all 0.25s ease;
+}
+
+.internship-btn.primary {
+    background: #286bd6;
+
+    color: #ffffff;
+
+    box-shadow:
+        0 5px 14px rgba(40, 107, 214, 0.20);
+}
+
+.internship-btn.primary:hover {
+    background: #1558b0;
+
+    transform: translateY(-2px);
+}
+
+.internship-btn.secondary {
+    background: #ffffff;
+
+    color: #2863b9;
+
+    border: 1px solid #d8e2f0;
+}
+
+.internship-btn.secondary:hover {
+    background: #f2f6fc;
+
+    border-color: #bfd0e8;
+
+    transform: translateY(-2px);
+}
+
+
+/* ---------------------------------------------------------
+   RESPONSIVE
+--------------------------------------------------------- */
+
+@media (max-width: 850px) {
+
+    .internship-wrapper {
+        padding: 28px 25px 40px;
+    }
+
+    .internship-top h1 {
+        font-size: 27px;
+    }
+
+    .internship-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .internship-wrapper {
+        padding: 22px 15px 35px;
+    }
+
+    .internship-top {
+        align-items: flex-start;
+    }
+
+    .internship-top h1 {
+        font-size: 23px;
+    }
+
+    .internship-header-icon {
+        width: 55px;
+        height: 55px;
+
+        font-size: 26px;
+    }
+
+    .internship-section {
+        padding: 20px;
+    }
+
+    .internship-header {
+        align-items: flex-start;
+
+        flex-direction: column;
+    }
+
+    .internship-card {
+        padding: 18px;
+    }
+
+    .internship-actions {
+        justify-content: stretch;
+    }
+
+    .internship-btn {
+        flex: 1;
+    }
+
+}
+/* =========================================================
+   PLACEMENT PAGE ONLY
+   IMPORTANT: This CSS will NOT affect other pages
+========================================================= */
+
+
+/* =========================================================
+   1. PLACEMENT SIDEBAR
+========================================================= */
+
+.app-container:has(.placement-section) .sidebar {
+    width: 290px;
+    min-height: 100vh;
+    background: #173f6b;
+
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+
+    padding: 30px 16px;
+    box-sizing: border-box;
+    z-index: 100;
+}
+
+
+/* =========================================================
+   2. PLACEMENT LOGO
+========================================================= */
+
+.app-container:has(.placement-section) .sidebar .logo {
+    padding: 0 18px 25px;
+    margin-bottom: 28px;
+
+    border-bottom: 1px solid rgba(255,255,255,0.18);
+}
+
+.app-container:has(.placement-section) .sidebar .logo h2 {
+    color: #ffffff;
+    font-size: 30px;
+    font-weight: 700;
+
+    margin: 0 0 5px;
+}
+
+.app-container:has(.placement-section) .sidebar .logo p {
+    color: #d9e5f5;
+    font-size: 13px;
+    line-height: 1.4;
+    margin: 0;
+}
+
+
+/* =========================================================
+   3. PLACEMENT NAVIGATION
+========================================================= */
+
+.app-container:has(.placement-section) .sidebar nav {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.app-container:has(.placement-section) .sidebar nav a {
+    display: flex;
+    align-items: center;
+
+    width: 100%;
+    min-height: 46px;
+
+    padding: 0 18px;
+    box-sizing: border-box;
+
+    color: #eef5ff;
+    background: transparent;
+
+    text-decoration: none;
+
+    border-radius: 12px;
+
+    font-size: 17px;
+    font-weight: 500;
+
+    transition: all 0.25s ease;
+}
+
+
+/* Hover */
+
+.app-container:has(.placement-section) .sidebar nav a:hover {
+    background: rgba(255,255,255,0.10);
+    color: #ffffff;
+}
+
+
+/* Active Placement */
+
+.app-container:has(.placement-section) .sidebar nav a.active {
+    background: #2f70d8;
+    color: #ffffff;
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   4. PLACEMENT MAIN CONTENT
+========================================================= */
+
+.app-container:has(.placement-section) .main-content {
+    margin-left: 290px;
+
+    width: calc(100% - 290px);
+
+    min-height: 100vh;
+
+    padding: 55px 65px;
+
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   5. PLACEMENT HEADER
+========================================================= */
+
+.app-container:has(.placement-section) .page-header {
+    margin-bottom: 35px;
+}
+
+.app-container:has(.placement-section) .page-header h1 {
+    color: #123d70;
+    font-size: 38px;
+    font-weight: 700;
+    margin: 0 0 12px;
+}
+
+.app-container:has(.placement-section) .page-header p {
+    color: #647da0;
+    font-size: 18px;
+    margin: 7px 0;
+}
+
+.app-container:has(.placement-section) .page-header strong {
+    color: #1764d1;
+}
+
+
+/* =========================================================
+   6. PLACEMENT READINESS
+========================================================= */
+
+.app-container:has(.placement-section) .placement-readiness {
+    background: transparent;
+
+    border: none;
+    box-shadow: none;
+
+    padding: 0;
+    margin-bottom: 35px;
+}
+
+.app-container:has(.placement-section) .placement-readiness-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 15px;
+}
+
+.app-container:has(.placement-section) .placement-readiness-header h2 {
+    color: #123d70;
+    font-size: 30px;
+    margin: 0 0 8px;
+}
+
+.app-container:has(.placement-section) .placement-readiness-header p {
+    color: #123d70;
+    font-size: 18px;
+    margin: 0;
+}
+
+.app-container:has(.placement-section) .readiness-number {
+    color: #1764d1;
+    font-size: 28px;
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   7. PROGRESS BAR
+========================================================= */
+
+.app-container:has(.placement-section) .placement-readiness .progress-bar {
+    width: 100%;
+    height: 13px;
+
+    background: #e8eef6;
+
+    border-radius: 20px;
+    overflow: hidden;
+
+    margin-top: 12px;
+}
+
+.app-container:has(.placement-section) .placement-readiness .progress-fill {
+    height: 100%;
+    width: 0;
+
+    background: #2f70d8;
+
+    border-radius: 20px;
+
+    transition: width 1s ease;
+}
+
+.app-container:has(.placement-section) .readiness-text {
+    color: #647da0;
+    font-size: 16px;
+    margin-top: 15px;
+}
+
+
+/* =========================================================
+   8. RECOMMENDED PLACEMENTS
+========================================================= */
+
+.app-container:has(.placement-section) .placement-section {
+    background: #ffffff;
+
+    border: 1px solid #e1e8f2;
+
+    border-radius: 22px;
+
+    padding: 35px;
+
+    box-shadow: 0 8px 25px rgba(30,60,100,0.07);
+
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   9. SECTION HEADER
+========================================================= */
+
+.app-container:has(.placement-section) .placement-header {
+    padding-bottom: 25px;
+
+    border-bottom: 1px solid #e4eaf2;
+}
+
+.app-container:has(.placement-section) .placement-header h2 {
+    color: #123d70;
+    font-size: 30px;
+
+    margin: 0 0 6px;
+}
+
+.app-container:has(.placement-section) .placement-header p {
+    color: #71829a;
+    font-size: 17px;
+    margin: 0;
+}
+
+
+/* =========================================================
+   10. PLACEMENT GRID
+========================================================= */
+
+.app-container:has(.placement-section) .placement-grid {
+    display: grid;
+
+    grid-template-columns: 1fr;
+
+    gap: 20px;
+
+    margin-top: 30px;
+}
+
+
+/* =========================================================
+   11. PLACEMENT CARD
+========================================================= */
+
+.app-container:has(.placement-section) .placement-card {
+    background: #ffffff;
+
+    border: 1px solid #dce5f1;
+
+    border-radius: 18px;
+
+    padding: 28px;
+
+    box-sizing: border-box;
+
+    transition: 0.25s ease;
+}
+
+.app-container:has(.placement-section) .placement-card:hover {
+    transform: translateY(-3px);
+
+    box-shadow: 0 8px 22px rgba(30,70,120,0.10);
+}
+
+.app-container:has(.placement-section) .placement-card h3 {
+    color: #123d70;
+    font-size: 23px;
+}
+
+.app-container:has(.placement-section) .placement-card h4 {
+    color: #1764d1;
+}
+
+.app-container:has(.placement-section) .placement-card p {
+    color: #657994;
+}
+
+
+/* =========================================================
+   12. LOADING
+========================================================= */
+
+.app-container:has(.placement-section) .loading-placement {
+    width: 100%;
+
+    padding: 30px;
+
+    text-align: center;
+
+    color: #71829a;
+
+    font-size: 16px;
+
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   13. BOTTOM BUTTONS
+========================================================= */
+
+.app-container:has(.placement-section) .roadmap-action {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    flex-wrap: wrap;
+
+    margin-top: 30px;
+}
+
+.app-container:has(.placement-section) .roadmap-action .btn {
+    display: inline-block;
+
+    padding: 12px 22px;
+
+    background: #2f70d8;
+    color: #ffffff;
+
+    border-radius: 9px;
+
+    text-decoration: none;
+
+    font-size: 15px;
+    font-weight: 600;
+
+    transition: 0.25s ease;
+}
+
+.app-container:has(.placement-section) .roadmap-action .btn:hover {
+    background: #1959b5;
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   14. SIDEBAR BOTTOM
+========================================================= */
+
+.app-container:has(.placement-section) .sidebar-bottom {
+    position: absolute;
+
+    bottom: 25px;
+
+    left: 0;
+    right: 0;
+
+    text-align: center;
+
+    color: #d9e5f5;
+
+    font-size: 14px;
+
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   15. RESPONSIVE
+========================================================= */
+
+@media (max-width: 1000px) {
+
+    .app-container:has(.placement-section) .sidebar {
+        width: 250px;
+    }
+
+    .app-container:has(.placement-section) .main-content {
+        margin-left: 250px;
+        width: calc(100% - 250px);
+        padding: 40px;
+    }
+}
+
+
+@media (max-width: 700px) {
+
+    .app-container:has(.placement-section) {
+        display: block;
+    }
+
+    .app-container:has(.placement-section) .sidebar {
+        position: relative;
+        width: 100%;
+        min-height: auto;
+    }
+
+    .app-container:has(.placement-section) .main-content {
+        margin-left: 0;
+        width: 100%;
+        padding: 25px;
+    }
+
+    .app-container:has(.placement-section) .sidebar-bottom {
+        display: none;
+    }
+}.login-success {
+    background: #eaf8ef;
+    color: #21844b;
+    border: 1px solid #c8ead4;
+
+    padding: 12px 14px;
+
+    border-radius: 8px;
+
+    margin-bottom: 20px;
+
+    font-size: 14px;
+}
+#requiredSkills {
+    margin-top: 15px;
+    padding: 12px;
+    background: #f1f6ff;
+    border-radius: 8px;
+    color: #173f6f;
+}/* =========================================
+   APPLICATION MODAL
+========================================= */
+
+#applicationModal {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+}
+
+.application-overlay {
+    position: fixed;
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.65);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+
+    overflow-y: auto;
+}
+
+.application-form-box {
+    width: 100%;
+    max-width: 750px;
+
+    max-height: 92vh;
+
+    overflow-y: auto;
+
+    background: #fff;
+
+    border-radius: 18px;
+
+    padding: 30px;
+
+    box-shadow:
+        0 20px 60px rgba(0,0,0,0.3);
+}
+
+.application-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    margin-bottom: 25px;
+
+    padding-bottom: 18px;
+
+    border-bottom: 1px solid #ddd;
+}
+
+.application-header h2 {
+    margin: 0 0 8px;
+}
+
+.application-header p {
+    margin: 0;
+
+    color: #666;
+}
+
+.application-close {
+    width: 38px;
+    height: 38px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: #eee;
+
+    font-size: 20px;
+
+    cursor: pointer;
+}
+
+.form-group {
+    margin-bottom: 18px;
+}
+
+.form-group label {
+    display: block;
+
+    font-weight: 600;
+
+    margin-bottom: 7px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+
+    padding: 12px;
+
+    border: 1px solid #ccc;
+
+    border-radius: 8px;
+
+    font-size: 14px;
+
+    box-sizing: border-box;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+
+    border-color: #4f46e5;
+}
+
+.form-row {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 15px;
+}
+
+.application-check {
+    padding: 14px;
+
+    background: #f5f5f5;
+
+    border-radius: 8px;
+
+    margin-bottom: 20px;
+}
+
+.application-buttons {
+    display: flex;
+
+    justify-content: flex-end;
+
+    gap: 12px;
+}
+
+.application-cancel,
+.application-submit {
+    padding: 12px 22px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    font-weight: 600;
+}
+
+.application-cancel {
+    background: #e5e7eb;
+}
+
+.application-submit {
+    background: #4f46e5;
+
+    color: white;
+}
+
+.application-success {
+    text-align: center;
+
+    padding: 40px 20px;
+}
+
+.success-icon {
+    width: 70px;
+    height: 70px;
+
+    margin: auto;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    border-radius: 50%;
+
+    background: #22c55e;
+
+    color: white;
+
+    font-size: 40px;
+
+    font-weight: bold;
+
+    margin-bottom: 20px;
+}
+
+.application-success p {
+    color: #666;
+
+    line-height: 1.6;
+}
+
+@media (max-width: 600px) {
+
+    .application-form-box {
+        padding: 20px;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .application-buttons {
+        flex-direction: column;
+    }
+
+    .application-cancel,
+    .application-submit {
+        width: 100%;
+    }
+}/* =====================================================
+   INTERNSHIP / PLACEMENT APPLICATION FORM
+===================================================== */
+
+#applicationModal {
+    position: fixed;
+    inset: 0;
+    z-index: 999999;
+}
+
+.application-overlay {
+    position: fixed;
+    inset: 0;
+
+    background: rgba(15, 23, 42, 0.72);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    overflow-y: auto;
+}
+
+.application-box {
+    width: 100%;
+    max-width: 800px;
+
+    max-height: 92vh;
+
+    overflow-y: auto;
+
+    background: white;
+
+    border-radius: 20px;
+
+    padding: 30px;
+
+    box-shadow:
+        0 25px 70px rgba(0, 0, 0, 0.35);
+}
+
+.application-title {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: flex-start;
+
+    padding-bottom: 20px;
+
+    margin-bottom: 20px;
+
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.application-title h2 {
+    margin: 0 0 8px;
+
+    font-size: 24px;
+}
+
+.application-title p {
+    margin: 0;
+
+    color: #64748b;
+}
+
+.close-application {
+    width: 40px;
+    height: 40px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: #f1f5f9;
+
+    font-size: 25px;
+
+    cursor: pointer;
+}
+
+.close-application:hover {
+    background: #e2e8f0;
+}
+
+
+/* OPPORTUNITY */
+
+.application-opportunity {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 15px;
+
+    padding: 18px;
+
+    margin-bottom: 25px;
+
+    background: #f8fafc;
+
+    border-radius: 12px;
+}
+
+.application-opportunity div {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 5px;
+}
+
+.application-opportunity span {
+    font-size: 12px;
+
+    color: #64748b;
+}
+
+.application-opportunity strong {
+    font-size: 14px;
+}
+
+
+/* GRID */
+
+.application-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 18px;
+}
+
+
+/* FORM */
+
+.application-group {
+    margin-bottom: 18px;
+}
+
+.application-group label {
+    display: block;
+
+    font-weight: 600;
+
+    margin-bottom: 7px;
+
+    color: #1e293b;
+}
+
+.application-group input,
+.application-group select,
+.application-group textarea {
+    width: 100%;
+
+    box-sizing: border-box;
+
+    padding: 12px 14px;
+
+    border: 1px solid #cbd5e1;
+
+    border-radius: 9px;
+
+    font-size: 14px;
+
+    font-family: inherit;
+
+    background: white;
+
+    outline: none;
+}
+
+.application-group input:focus,
+.application-group select:focus,
+.application-group textarea:focus {
+    border-color: #4f46e5;
+
+    box-shadow:
+        0 0 0 3px rgba(79,70,229,0.10);
+}
+
+.application-group small {
+    display: block;
+
+    margin-top: 6px;
+
+    color: #64748b;
+
+    font-size: 12px;
+}
+
+
+/* DECLARATION */
+
+.application-declaration {
+    padding: 15px;
+
+    margin: 10px 0 20px;
+
+    background: #f8fafc;
+
+    border-radius: 9px;
+
+    color: #475569;
+}
+
+.application-declaration input {
+    margin-right: 8px;
+}
+
+
+/* BUTTONS */
+
+.application-actions {
+    display: flex;
+
+    justify-content: flex-end;
+
+    gap: 12px;
+
+    padding-top: 20px;
+
+    border-top: 1px solid #e5e7eb;
+}
+
+.application-cancel,
+.application-submit {
+    border: none;
+
+    padding: 13px 24px;
+
+    border-radius: 9px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+.application-cancel {
+    background: #e2e8f0;
+
+    color: #334155;
+}
+
+.application-submit {
+    background: #4f46e5;
+
+    color: white;
+}
+
+.application-submit:hover {
+    opacity: 0.9;
+}
+
+
+/* SUCCESS */
+
+.application-success {
+    text-align: center;
+
+    padding: 50px 20px;
+}
+
+.success-icon {
+    width: 75px;
+    height: 75px;
+
+    margin: 0 auto 20px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background: #22c55e;
+
+    color: white;
+
+    font-size: 42px;
+
+    font-weight: bold;
+}
+
+.application-success h2 {
+    margin-bottom: 15px;
+}
+
+.application-success p {
+    color: #64748b;
+
+    line-height: 1.6;
+}
+
+.application-done {
+    margin-top: 20px;
+
+    padding: 12px 30px;
+
+    border: none;
+
+    border-radius: 9px;
+
+    background: #4f46e5;
+
+    color: white;
+
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 650px) {
+
+    .application-box {
+        padding: 20px;
+    }
+
+    .application-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .application-opportunity {
+        grid-template-columns: 1fr;
+    }
+
+    .application-actions {
+        flex-direction: column;
+    }
+
+    .application-cancel,
+    .application-submit {
+        width: 100%;
+    }
+
+}
+/* =====================================================
+   SKILLBRIDGE PLACEMENTS
+   ===================================================== */
+
+.placement-page {
+    padding: 35px;
+    max-width: 1250px;
+    margin: auto;
+}
+
+.placement-header {
+    margin-bottom: 30px;
+}
+
+.placement-header h1 {
+    font-size: 36px;
+    color: #173f70;
+    margin-bottom: 10px;
+}
+
+.placement-header p {
+    color: #64748b;
+    font-size: 17px;
+    margin: 7px 0;
+}
+
+.target-career strong {
+    color: #2563eb;
+}
+
+
+/* =====================================================
+   SECTIONS
+   ===================================================== */
+
+.placement-section {
+    background: white;
+    border-radius: 18px;
+    padding: 28px;
+    margin-bottom: 28px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 8px 25px rgba(15, 23, 42, 0.06);
+}
+
+.section-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 22px;
+}
+
+.section-heading h2 {
+    margin: 0 0 7px;
+    color: #173f70;
+    font-size: 27px;
+}
+
+.section-heading p {
+    margin: 0;
+    color: #64748b;
+}
+
+
+/* =====================================================
+   READINESS
+   ===================================================== */
+
+.big-score {
+    font-size: 38px;
+    font-weight: 800;
+    color: #2563eb;
+}
+
+.large-progress {
+    height: 15px;
+    width: 100%;
+    background: #e8eef7;
+    border-radius: 30px;
+    overflow: hidden;
+}
+
+.large-progress-fill {
+    height: 100%;
+    background: #2563eb;
+    border-radius: 30px;
+    transition: width 1s ease;
+}
+
+.readiness-message {
+    margin-top: 15px;
+    color: #475569;
+    font-size: 16px;
+}
+
+.readiness-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.mini-score {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 17px;
+    background: #f8fafc;
+    border-radius: 13px;
+    border: 1px solid #e2e8f0;
+}
+
+.mini-score span {
+    font-size: 25px;
+}
+
+.mini-score strong {
+    color: #334155;
+}
+
+.mini-score p {
+    margin: 4px 0 0;
+    color: #2563eb;
+    font-weight: bold;
+}
+
+
+/* =====================================================
+   PLACEMENT GRID
+   ===================================================== */
+
+.placement-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.smart-placement-card {
+    background: #ffffff;
+    border: 1px solid #dbe4ef;
+    border-radius: 17px;
+    padding: 23px;
+    transition: 0.25s ease;
+}
+
+.smart-placement-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgba(15, 23, 42, 0.10);
+}
+
+.placement-card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 15px;
+}
+
+.company-title {
+    color: #2563eb;
+    font-weight: 700;
+    font-size: 18px;
+}
+
+.smart-placement-card h3 {
+    color: #173f70;
+    font-size: 22px;
+    margin: 8px 0;
+}
+
+
+/* =====================================================
+   MATCH CIRCLE
+   ===================================================== */
+
+.match-circle {
+    min-width: 68px;
+    height: 68px;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-weight: 800;
+    font-size: 18px;
+}
+
+.match-circle small {
+    font-size: 10px;
+    font-weight: 600;
+}
+
+.match-high {
+    background: #dcfce7;
+    color: #15803d;
+}
+
+.match-medium {
+    background: #fef3c7;
+    color: #b45309;
+}
+
+.match-low {
+    background: #fee2e2;
+    color: #dc2626;
+}
+
+
+/* =====================================================
+   META
+   ===================================================== */
+
+.placement-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 15px 0;
+}
+
+.placement-meta span {
+    background: #f8fafc;
+    padding: 8px 11px;
+    border-radius: 8px;
+    color: #475569;
+    font-size: 13px;
+}
+
+.field-label {
+    display: inline-block;
+    background: #eff6ff;
+    color: #2563eb;
+    padding: 7px 13px;
+    border-radius: 20px;
+    font-size: 13px;
+    margin-bottom: 18px;
+}
+
+
+/* =====================================================
+   SKILLS
+   ===================================================== */
+
+.required-skills h4 {
+    color: #334155;
+    margin-bottom: 10px;
+}
+
+.skill-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.skill-list span {
+    padding: 7px 10px;
+    border-radius: 8px;
+    font-size: 13px;
+}
+
+.skill-matched {
+    background: #dcfce7;
+    color: #15803d;
+}
+
+.skill-missing {
+    background: #fee2e2;
+    color: #b91c1c;
+}
+
+.match-summary {
+    display: flex;
+    gap: 20px;
+    margin: 18px 0;
+    color: #475569;
+    font-size: 14px;
+}
+
+.eligibility-small {
+    padding: 12px;
+    background: #f8fafc;
+    border-radius: 10px;
+    color: #475569;
+    margin-bottom: 16px;
+}
+
+
+/* =====================================================
+   BUTTON
+   ===================================================== */
+
+.apply-placement-button,
+.primary-button {
+    border: none;
+    background: #2563eb;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 9px;
+    font-weight: 700;
+    cursor: pointer;
+    font-size: 14px;
+    transition: 0.2s ease;
+}
+
+.apply-placement-button:hover,
+.primary-button:hover {
+    background: #1d4ed8;
+    transform: translateY(-1px);
+}
+
+
+/* =====================================================
+   SKILL GAP
+   ===================================================== */
+
+.skill-gap-box {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    padding: 22px;
+    border-radius: 14px;
+    margin-bottom: 17px;
+}
+
+.skill-gap-box h3 {
+    margin-top: 0;
+    color: #173f70;
+}
+
+.gap-skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.gap-skills span {
+    background: #fee2e2;
+    color: #b91c1c;
+    padding: 9px 13px;
+    border-radius: 9px;
+    font-weight: 600;
+}
+
+.improvement-result {
+    margin-top: 20px;
+}
+
+.roadmap-suggestion {
+    background: #eff6ff;
+    border: 1px solid #bfdbfe;
+    padding: 20px;
+    border-radius: 13px;
+}
+
+.roadmap-suggestion h3 {
+    color: #173f70;
+}
+
+.roadmap-suggestion li {
+    margin: 9px 0;
+}
+
+
+/* =====================================================
+   COUNTDOWN
+   ===================================================== */
+
+.countdown-section {
+    background: linear-gradient(
+        135deg,
+        #eff6ff,
+        #ffffff
+    );
+}
+
+.countdown-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+}
+
+.countdown-box {
+    text-align: center;
+    background: white;
+    border: 1px solid #dbeafe;
+    border-radius: 13px;
+    padding: 20px;
+}
+
+.countdown-box strong {
+    display: block;
+    font-size: 35px;
+    color: #2563eb;
+}
+
+.countdown-box span {
+    color: #64748b;
+    font-size: 13px;
+}
+
+
+/* =====================================================
+   ELIGIBILITY
+   ===================================================== */
+
+#eligibilityContainer {
+    display: grid;
+    gap: 12px;
+}
+
+.eligibility-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 17px 20px;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    background: #f8fafc;
+}
+
+.eligibility-card p {
+    margin: 5px 0 0;
+    color: #64748b;
+}
+
+.eligible {
+    background: #dcfce7;
+    color: #15803d;
+    padding: 8px 12px;
+    border-radius: 20px;
+    font-weight: 700;
+}
+
+.not-eligible {
+    background: #fef3c7;
+    color: #b45309;
+    padding: 8px 12px;
+    border-radius: 20px;
+    font-weight: 700;
+}
+
+
+/* =====================================================
+   APPLICATION TRACKING
+   ===================================================== */
+
+.tracking-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+}
+
+.tracking-card {
+    text-align: center;
+    padding: 22px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+}
+
+.tracking-card span {
+    display: block;
+    font-size: 25px;
+    margin-bottom: 8px;
+}
+
+.tracking-card strong {
+    display: block;
+    font-size: 30px;
+    color: #2563eb;
+}
+
+.tracking-card p {
+    color: #64748b;
+    margin: 6px 0 0;
+}
+
+.application-list {
+    margin-top: 20px;
+}
+
+.application-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 17px;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.application-row p {
+    margin: 5px 0;
+    color: #64748b;
+}
+
+.status-badge {
+    display: inline-block;
+    background: #dbeafe;
+    color: #1d4ed8;
+    padding: 6px 10px;
+    border-radius: 15px;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.application-row small {
+    display: block;
+    margin-top: 5px;
+    color: #94a3b8;
+}
+
+
+/* =====================================================
+   AI ADVISOR
+   ===================================================== */
+
+.advisor-section {
+    background: linear-gradient(
+        135deg,
+        #f8fafc,
+        #ffffff
+    );
+}
+
+.advisor-result {
+    margin-top: 20px;
+}
+
+.advisor-message {
+    background: #eff6ff;
+    border: 1px solid #bfdbfe;
+    padding: 20px;
+    border-radius: 14px;
+}
+
+.advisor-message h3 {
+    color: #173f70;
+    margin-top: 0;
+}
+
+.advisor-message li {
+    margin: 10px 0;
+    color: #334155;
+}
+
+
+/* =====================================================
+   LOADING / EMPTY
+   ===================================================== */
+
+.loading-card,
+.empty-card {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 35px;
+    text-align: center;
+    color: #64748b;
+}
+
+.success-message {
+    background: #dcfce7;
+    color: #166534;
+    padding: 17px;
+    border-radius: 12px;
+}
+
+.empty-text {
+    color: #64748b;
+    text-align: center;
+}
+
+
+/* =====================================================
+   BOTTOM NAVIGATION
+   ===================================================== */
+
+.bottom-navigation {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 30px 0;
+}
+
+.bottom-navigation a {
+    text-decoration: none;
+    background: #2563eb;
+    color: white;
+    padding: 12px 18px;
+    border-radius: 9px;
+    font-weight: 700;
+}
+
+.bottom-navigation a:hover {
+    background: #1d4ed8;
+}
+
+
+/* =====================================================
+   RESPONSIVE
+   ===================================================== */
+
+@media (max-width: 900px) {
+
+    .placement-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .readiness-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .tracking-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .countdown-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .placement-page {
+        padding: 18px;
+    }
+
+    .placement-header h1 {
+        font-size: 28px;
+    }
+
+    .section-heading {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .readiness-grid,
+    .tracking-grid,
+    .countdown-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+/* =========================================================
+   SKILLBRIDGE - COMPANIES PAGE
+========================================================= */
+
+/* Company Intro */
+.company-intro {
+    background: #ffffff;
+    border: 1px solid #dce6f2;
+    border-radius: 18px;
+    padding: 28px;
+    margin: 25px 0 30px 0;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+}
+
+.company-intro h2 {
+    margin: 0 0 10px 0;
+    color: #123f70;
+    font-size: 26px;
+    font-weight: 700;
+}
+
+.company-intro p {
+    margin: 0;
+    color: #607895;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+
+/* Company Section */
+.company-section {
+    width: 100%;
+    margin-bottom: 40px;
+}
+
+
+/* Company Grid */
+.company-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+
+/* Company Card */
+.company-card {
+    background: #ffffff;
+    border: 1px solid #dce6f2;
+    border-radius: 20px;
+    padding: 28px;
+    box-shadow: 0 8px 25px rgba(20, 60, 100, 0.07);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    overflow: hidden;
+}
+
+.company-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(20, 60, 100, 0.13);
+}
+
+
+/* Company Icon */
+.company-icon {
+    width: 58px;
+    height: 58px;
+    background: #eaf2ff;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    margin-bottom: 18px;
+}
+
+
+/* Company Name */
+.company-card h2 {
+    margin: 0 0 8px 0;
+    color: #123f70;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+
+/* Career Field */
+.company-field {
+    display: inline-block;
+    background: #edf5ff;
+    color: #2468c7;
+    padding: 7px 13px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    margin: 0 0 22px 0;
+}
+
+
+/* Company Details */
+.company-details {
+    border-top: 1px solid #e5ebf3;
+    padding-top: 18px;
+}
+
+
+/* Individual Detail */
+.company-details > div {
+    margin-bottom: 18px;
+}
+
+.company-details > div:last-child {
+    margin-bottom: 0;
+}
+
+
+/* Detail Heading */
+.company-details strong {
+    display: block;
+    color: #244d78;
+    font-size: 15px;
+    margin-bottom: 5px;
+}
+
+
+/* Detail Text */
+.company-details p {
+    margin: 0;
+    color: #687d96;
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+
+/* Company Button */
+.company-btn {
+    width: 100%;
+    margin-top: 24px;
+    padding: 13px 18px;
+    border: none;
+    border-radius: 10px;
+    background: #286ed8;
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.company-btn:hover {
+    background: #195ab9;
+    transform: translateY(-2px);
+}
+
+
+/* Empty Company Message */
+.empty-company {
+    background: #ffffff;
+    border: 1px dashed #b9c9dc;
+    border-radius: 18px;
+    padding: 45px;
+    text-align: center;
+    grid-column: 1 / -1;
+}
+
+.empty-company h3 {
+    margin: 0 0 10px 0;
+    color: #123f70;
+    font-size: 22px;
+}
+
+.empty-company p {
+    margin: 0;
+    color: #71839a;
+    font-size: 15px;
+}
+
+
+/* Bottom Navigation */
+.roadmap-action {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 35px;
+    margin-bottom: 40px;
+}
+
+.roadmap-action .btn {
+    display: inline-block;
+    padding: 12px 20px;
+    background: #286ed8;
+    color: white;
+    text-decoration: none;
+    border-radius: 9px;
+    font-weight: 600;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.roadmap-action .btn:hover {
+    background: #195ab9;
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   RESPONSIVE DESIGN
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .company-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .company-intro {
+        padding: 22px;
+    }
+
+    .company-card {
+        padding: 22px;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .company-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .company-card h2 {
+        font-size: 21px;
+    }
+
+    .company-intro h2 {
+        font-size: 22px;
+    }
+
+    .roadmap-action {
+        flex-direction: column;
+    }
+
+    .roadmap-action .btn {
+        text-align: center;
+    }
+}
+/* ==========================================
+   SETTINGS TOGGLE CLICK FIX
+========================================== */
+
+.setting-option {
+    position: relative;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 52px;
+    height: 28px;
+    flex-shrink: 0;
+    cursor: pointer;
+    z-index: 100;
+}
+
+.switch input {
+    position: absolute;
+    opacity: 0;
+    width: 52px;
+    height: 28px;
+    left: 0;
+    top: 0;
+    margin: 0;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.slider {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 52px;
+    height: 28px;
+    background: #cbd5e1;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: 0.3s ease;
+    pointer-events: none;
+}
+
+.slider::before {
+    content: "";
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    left: 3px;
+    top: 3px;
+    background: white;
+    border-radius: 50%;
+    transition: 0.3s ease;
+}
+
+.switch input:checked + .slider {
+    background: #286bd6;
+}
+
+.switch input:checked + .slider::before {
+    transform: translateX(24px);
+}/* =========================================
+   SETTINGS CLICK FIX
+   ========================================= */
+
+.sidebar {
+    position: fixed;
+    z-index: 9999;
+}
+
+.sidebar .menu {
+    position: relative;
+    z-index: 10000;
+}
+
+.sidebar .menu-item {
+    position: relative;
+    z-index: 10001;
+    display: block;
+    cursor: pointer;
+    pointer-events: auto;
+}
+
+
+/* =========================================
+   SETTINGS
+   ========================================= */
+
+.settings-card {
+    margin-bottom: 20px;
+}
+
+.settings-row {
+    padding: 15px 0;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.settings-row:last-child {
+    border-bottom: none;
+}
+
+.settings-row strong {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.settings-row p {
+    margin: 0;
+}
+
+
+/* =========================================
+   SETTING OPTIONS
+   ========================================= */
+
+.setting-option {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 18px 0;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.setting-option:last-child {
+    border-bottom: none;
+}
+
+.setting-option strong {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.setting-option p {
+    margin: 0;
+    color: #6b7280;
+}
+
+
+/* =========================================
+   TOGGLE SWITCH
+   ========================================= */
+
+.switch {
+    position: relative;
+    width: 54px;
+    height: 30px;
+    display: inline-block;
+    flex-shrink: 0;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    inset: 0;
+    background: #d1d5db;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.slider:before {
+    content: "";
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    left: 3px;
+    top: 3px;
+    background: white;
+    border-radius: 50%;
+    transition: 0.3s;
+}
+
+.switch input:checked + .slider {
+    background: #4f46e5;
+}
+
+.switch input:checked + .slider:before {
+    transform: translateX(24px);
+}
+
+
+/* =========================================
+   LOGOUT
+   ========================================= */
+
+.settings-logout-btn {
+    display: inline-block;
+    padding: 12px 25px;
+    background: #dc2626;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.settings-logout-btn:hover {
+    background: #b91c1c;
+}
+
+
+/* =========================================
+   DARK MODE
+   ========================================= */
+
+body.dark-mode {
+    background: #111827;
+    color: #f9fafb;
+}
+
+body.dark-mode .panel {
+    background: #1f2937;
+    color: #f9fafb;
+}
+
+body.dark-mode .setting-option,
+body.dark-mode .settings-row {
+    border-color: #374151;
+}
+
+body.dark-mode .setting-option p {
+    color: #d1d5db;
+}
+/* =========================================
+   SIDEBAR MENU - ONE BUTTON PER LINE
+   ========================================= */
+
+.sidebar nav {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 8px;
+}
+
+.sidebar nav a {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px 18px;
+    text-decoration: none;
+    white-space: nowrap;
+    border-radius: 8px;
+}
+
+.sidebar .menu {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 8px;
+}
+
+.sidebar .menu-item {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px 18px;
+    text-decoration: none;
+    white-space: nowrap;
+    border-radius: 8px;
+}
+/* =========================================
+   SKILLBRIDGE SIDEBAR BUTTON DESIGN
+   ========================================= */
+
+/* Sidebar menu */
+.sidebar nav,
+.sidebar .menu {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+}
+
+/* Every sidebar button */
+.sidebar nav a,
+.sidebar .menu-item {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    min-height: 46px;
+    box-sizing: border-box;
+
+    padding: 12px 18px;
+
+    background: transparent;
+    color: #dbe4f0;
+
+    text-decoration: none;
+    white-space: nowrap;
+
+    border-radius: 10px;
+
+    font-size: 15px;
+    font-weight: 500;
+
+    transition: all 0.2s ease;
+}
+
+/* Hover */
+.sidebar nav a:hover,
+.sidebar .menu-item:hover {
+    background: #26364f;
+    color: #ffffff;
+    transform: translateX(3px);
+}
+
+/* Active button */
+.sidebar nav a.active,
+.sidebar .menu-item.active {
+    background: #2563eb;
+    color: #ffffff;
+
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.30);
+}
+
+/* Active hover */
+.sidebar nav a.active:hover,
+.sidebar .menu-item.active:hover {
+    background: #1d4ed8;
+    color: #ffffff;
+    transform: translateX(3px);
+}
+
+/* ONLY SUBMIT ASSESSMENT BUTTON */
+
+.assessment-btn {
+    background: #2563eb !important;
+    color: #ffffff !important;
+    border: none !important;
+    border-radius: 8px !important;
+
+    padding: 12px 24px !important;
+
+    font-size: 16px !important;
+    font-weight: 600 !important;
+
+    cursor: pointer !important;
+    display: inline-block !important;
+
+    box-shadow: 0 4px 10px rgba(37, 99, 235, 0.25) !important;
+
+    transition: all 0.2s ease !important;
+}
+
+.assessment-btn:hover {
+    background: #1d4ed8 !important;
+    transform: translateY(-1px);
+}
+/* =========================================================
+   SKILLBRIDGE PLACEMENTS PAGE
+   ========================================================= */
+
+.placement-readiness,
+.placement-section,
+.placement-feature-card,
+.application-tracking,
+.placement-advisor {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 18px;
+    padding: 28px;
+    margin-bottom: 24px;
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.06);
+}
+
+/* PAGE HEADER */
+
+.page-header {
+    margin-bottom: 28px;
+}
+
+.page-header h1 {
+    font-size: 32px;
+    margin-bottom: 8px;
+    color: #111827;
+}
+
+.page-header p {
+    color: #6b7280;
+    font-size: 15px;
+}
+
+.target-career-box {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 18px;
+    padding: 12px 18px;
+    background: #eff6ff;
+    border: 1px solid #bfdbfe;
+    border-radius: 12px;
+}
+
+.target-career-box span {
+    color: #64748b;
+}
+
+.target-career-box strong {
+    color: #2563eb;
+}
+
+
+/* SECTION HEADER */
+
+.placement-readiness-header,
+.placement-header,
+.feature-header,
+.advisor-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.section-label {
+    display: block;
+    font-size: 12px;
+    font-weight: 700;
+    color: #2563eb;
+    letter-spacing: 1px;
+    margin-bottom: 6px;
+}
+
+.placement-readiness h2,
+.placement-section h2,
+.placement-feature-card h2,
+.application-tracking h2,
+.placement-advisor h2 {
+    margin: 0 0 8px;
+    font-size: 23px;
+    color: #111827;
+}
+
+.placement-readiness p,
+.placement-section p,
+.placement-feature-card p,
+.application-tracking p,
+.placement-advisor p {
+    color: #6b7280;
+    line-height: 1.6;
+}
+
+
+/* READINESS */
+
+.readiness-number {
+    min-width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background: #eff6ff;
+    border: 8px solid #dbeafe;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #2563eb;
+    font-size: 24px;
+    font-weight: 800;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 12px;
+    background: #e5e7eb;
+    border-radius: 20px;
+    overflow: hidden;
+    margin: 24px 0 12px;
+}
+
+.progress-fill {
+    height: 100%;
+    width: 0%;
+    background: #2563eb;
+    border-radius: 20px;
+    transition: width 0.5s ease;
+}
+
+.progress-fill[data-readiness] {
+    width: attr(data-readiness percentage);
+}
+
+.readiness-text {
+    font-weight: 600;
+}
+
+.readiness-breakdown {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+    margin-top: 22px;
+}
+
+.readiness-breakdown div {
+    background: #f8fafc;
+    border: 1px solid #e5e7eb;
+    padding: 18px;
+    border-radius: 12px;
+}
+
+.readiness-breakdown span {
+    display: block;
+    color: #64748b;
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+.readiness-breakdown strong {
+    font-size: 20px;
+    color: #111827;
+}
+
+
+/* PLACEMENT GRID */
+
+.placement-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+    margin-top: 22px;
+}
+
+.professional-placement-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 22px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+    transition: 0.2s ease;
+}
+
+.professional-placement-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.09);
+}
+
+.placement-card-header {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.company-label {
+    font-size: 11px;
+    font-weight: 700;
+    color: #64748b;
+}
+
+.placement-card-header h3 {
+    margin: 7px 0 3px;
+    font-size: 21px;
+    color: #111827;
+}
+
+.job-role {
+    margin: 0;
+    color: #2563eb !important;
+    font-weight: 600;
+}
+
+.match-score {
+    min-width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.match-score strong {
+    font-size: 19px;
+}
+
+.match-score span {
+    font-size: 9px;
+}
+
+.match-high {
+    background: #dcfce7;
+    color: #15803d;
+}
+
+.match-medium {
+    background: #fef3c7;
+    color: #b45309;
+}
+
+.match-low {
+    background: #fee2e2;
+    color: #dc2626;
+}
+
+
+/* PLACEMENT INFO */
+
+.placement-info {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.placement-info > div {
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+    background: #f8fafc;
+    padding: 12px;
+    border-radius: 10px;
+}
+
+.placement-info p {
+    margin: 0;
+    font-size: 13px;
+    color: #334155;
+}
+
+.placement-info small {
+    display: block;
+    color: #94a3b8;
+    margin-bottom: 3px;
+}
+
+
+/* ELIGIBILITY */
+
+.eligibility-box-small {
+    background: #f8fafc;
+    border-left: 4px solid #2563eb;
+    padding: 14px;
+    border-radius: 8px;
+    margin-bottom: 18px;
+}
+
+.eligibility-box-small strong {
+    color: #1e3a8a;
+}
+
+.eligibility-box-small p {
+    margin: 7px 0 0;
+    font-size: 13px;
+}
+
+
+/* SKILLS */
+
+.required-skills-section h4 {
+    margin-bottom: 10px;
+    color: #334155;
+}
+
+.skill-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+}
+
+.skill-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 6px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.skill-matched {
+    background: #dcfce7;
+    color: #15803d;
+}
+
+.skill-missing {
+    background: #fee2e2;
+    color: #dc2626;
+}
+
+
+/* MATCH SUMMARY */
+
+.match-summary {
+    display: flex;
+    gap: 30px;
+    border-top: 1px solid #e5e7eb;
+    margin-top: 18px;
+    padding-top: 15px;
+}
+
+.match-summary div {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.summary-success {
+    color: #16a34a;
+}
+
+.summary-warning {
+    color: #dc2626;
+}
+
+
+/* APPLY BUTTON */
+
+.placement-card-footer {
+    margin-top: 18px;
+}
+
+.apply-button {
+    width: 100%;
+    border: none;
+    border-radius: 10px;
+    padding: 12px 18px;
+    background: #2563eb;
+    color: white;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.apply-button:hover {
+    background: #1d4ed8;
+    transform: translateY(-1px);
+}
+
+
+/* FEATURE CARDS */
+
+.feature-header {
+    margin-bottom: 20px;
+}
+
+.feature-icon {
+    width: 48px;
+    height: 48px;
+    min-width: 48px;
+    border-radius: 12px;
+    background: #eff6ff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 23px;
+}
+
+.feature-header > div:last-child {
+    flex: 1;
+}
+
+
+/* IMPROVE BUTTON */
+
+.primary-button {
+    display: inline-block;
+    border: none;
+    border-radius: 10px;
+    padding: 12px 20px;
+    background: #2563eb;
+    color: #ffffff !important;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.primary-button:hover {
+    background: #1d4ed8;
+}
+
+.improvement-result {
+    margin-top: 18px;
+}
+
+
+/* SKILL GAP */
+
+.skill-gap-result {
+    background: #f8fafc;
+    border-radius: 12px;
+    padding: 18px;
+}
+
+.missing-skill-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.missing-skill-list span {
+    background: #fee2e2;
+    color: #b91c1c;
+    padding: 8px 12px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.success-message {
+    background: #f0fdf4;
+    border: 1px solid #bbf7d0;
+    color: #166534;
+    padding: 18px;
+    border-radius: 12px;
+}
+
+
+/* COUNTDOWN */
+
+.placement-countdown {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+    margin-top: 20px;
+}
+
+.countdown-box {
+    text-align: center;
+    padding: 20px 10px;
+    background: #f8fafc;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+}
+
+.countdown-box strong {
+    display: block;
+    font-size: 28px;
+    color: #2563eb;
+}
+
+.countdown-box span {
+    color: #64748b;
+    font-size: 13px;
+}
+
+
+/* ELIGIBILITY */
+
+.eligibility-container {
+    display: grid;
+    gap: 12px;
+}
+
+.eligibility-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    padding: 16px;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    background: #f8fafc;
+}
+
+.eligibility-item p {
+    margin: 4px 0 0;
+    font-size: 13px;
+}
+
+.eligible,
+.not-eligible {
+    padding: 7px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.eligible {
+    background: #dcfce7;
+    color: #15803d;
+}
+
+.not-eligible {
+    background: #fee2e2;
+    color: #dc2626;
+}
+
+
+/* APPLICATION TRACKING */
+
+.tracking-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    margin-top: 22px;
+}
+
+.tracking-card {
+    text-align: center;
+    padding: 20px;
+    background: #f8fafc;
+    border: 1px solid #e5e7eb;
+    border-radius: 14px;
+}
+
+.tracking-card > span {
+    font-size: 24px;
+}
+
+.tracking-card h3 {
+    font-size: 28px;
+    margin: 8px 0 2px;
+    color: #2563eb;
+}
+
+.tracking-card p {
+    margin: 0;
+    font-size: 13px;
+}
+
+
+/* APPLICATION LIST */
+
+.application-list {
+    margin-top: 20px;
+}
+
+.application-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 17px;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    margin-bottom: 10px;
+}
+
+.application-item h3 {
+    margin: 0 0 4px;
+}
+
+.application-item p {
+    margin: 0 0 4px;
+}
+
+.status-badge {
+    background: #dbeafe;
+    color: #1d4ed8;
+    padding: 7px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.no-applications,
+.loading-card,
+.empty-card,
+.error-card {
+    text-align: center;
+    padding: 35px 20px;
+    background: #f8fafc;
+    border: 1px dashed #cbd5e1;
+    border-radius: 14px;
+}
+
+.empty-icon,
+.error-icon,
+.loading-icon {
+    font-size: 35px;
+    margin-bottom: 10px;
+}
+
+
+/* AI ADVISOR */
+
+.advisor-title {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+}
+
+.advisor-button {
+    border: none;
+    border-radius: 10px;
+    padding: 12px 18px;
+    background: #7c3aed;
+    color: white;
+    font-weight: 700;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.advisor-button:hover {
+    background: #6d28d9;
+}
+
+.advisor-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.advisor-result {
+    margin-top: 20px;
+}
+
+.advisor-placeholder {
+    text-align: center;
+    padding: 25px;
+    background: #faf5ff;
+    border-radius: 12px;
+}
+
+.advisor-placeholder span {
+    font-size: 30px;
+}
+
+
+/* BOTTOM NAVIGATION */
+
+.roadmap-action {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 25px;
+}
+
+.roadmap-action .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 11px 17px;
+    border-radius: 10px;
+    background: #2563eb;
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 13px;
+    transition: 0.2s;
+}
+
+.roadmap-action .btn:hover {
+    background: #1d4ed8;
+    transform: translateY(-1px);
+}
+
+
+/* MOBILE */
+
+@media (max-width: 900px) {
+
+    .placement-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .readiness-breakdown {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .tracking-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+@media (max-width: 600px) {
+
+    .placement-readiness,
+    .placement-section,
+    .placement-feature-card,
+    .application-tracking,
+    .placement-advisor {
+        padding: 18px;
+    }
+
+    .placement-readiness-header,
+    .placement-header,
+    .feature-header,
+    .advisor-header {
+        flex-direction: column;
+    }
+
+    .placement-info {
+        grid-template-columns: 1fr;
+    }
+
+    .readiness-breakdown,
+    .tracking-grid,
+    .placement-countdown {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .advisor-button {
+        width: 100%;
+    }
+
+    .application-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}

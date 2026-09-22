@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SkillBridge - Settings</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="layout">
+
+    <!-- ================= SIDEBAR ================= -->
+
+    <aside class="sidebar">
+
+        <div class="logo">
+
+            <div class="logo-icon">🎓</div>
+
+            <div>
+                <h2>SkillBridge</h2>
+                <p>Academia–Industry Portal</p>
+            </div>
+
+        </div>
+
+
+        <div class="menu">
+
+            <a href="{{ url_for('dashboard') }}"
+               class="menu-item">
+                🏠 Dashboard
+            </a>
+
+            <a href="{{ url_for('profile') }}"
+               class="menu-item">
+                👤 My Profile
+            </a>
+
+            <a href="{{ url_for('skill_mapping') }}"
+               class="menu-item">
+                🔗 Skill Mapping
+            </a>
+
+            <a href="{{ url_for('roadmap') }}"
+               class="menu-item">
+                🗺️ Roadmap
+            </a>
+
+            <a href="{{ url_for('internship') }}"
+               class="menu-item">
+                💼 Internships
+            </a>
+
+            <a href="{{ url_for('placements') }}"
+               class="menu-item">
+                🎯 Placements
+            </a>
+
+            <a href="{{ url_for('companies') }}"
+               class="menu-item">
+                🏢 Companies
+            </a>
+
+            <a href="{{ url_for('learning_resources') }}"
+               class="menu-item">
+                📚 Learning Resources
+            </a>
+
+            <a href="{{ url_for('assessments') }}"
+               class="menu-item">
+                📊 Assessments
+            </a>
+
+            <a href="{{ url_for('report') }}"
+               class="menu-item">
+                📈 Reports
+            </a>
+
+            <!-- SETTINGS -->
+            <a href="{{ url_for('settings') }}"
+               class="menu-item active">
+                ⚙️ Settings
+            </a>
+
+        </div>
+
+
+        <div class="sidebar-bottom">
+
+            <div class="stairs">
+                🚶‍♀️
+            </div>
+
+            <p>
+                Bridging Skills<br>
+                with Opportunities
+            </p>
+
+        </div>
+
+    </aside>
+
+
+    <!-- ================= MAIN ================= -->
+
+    <main class="main">
+
+        <header class="header">
+
+            <div>
+
+                <h1>
+                    ⚙️ Settings
+                </h1>
+
+                <p>
+                    Manage your SkillBridge account and preferences.
+                </p>
+
+            </div>
+
+        </header>
+
+
+        <!-- ================= ACCOUNT ================= -->
+
+        <section class="panel settings-card">
+
+            <div class="panel-header">
+
+                <h2>
+                    👤 Account Settings
+                </h2>
+
+            </div>
+
+
+            <div class="settings-row">
+
+                <div>
+                    <strong>Name</strong>
+
+                    <p>
+                        {{ user_name }}
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="settings-row">
+
+                <div>
+                    <strong>Email</strong>
+
+                    <p>
+                        {{ user_email }}
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= PREFERENCES ================= -->
+
+        <section class="panel settings-card">
+
+            <div class="panel-header">
+
+                <h2>
+                    🔔 Preferences
+                </h2>
+
+            </div>
+
+
+            <!-- Learning -->
+
+            <div class="setting-option">
+
+                <div>
+
+                    <strong>
+                        Learning Reminders
+                    </strong>
+
+                    <p>
+                        Receive reminders about your learning progress.
+                    </p>
+
+                </div>
+
+
+                <label class="switch">
+
+                    <input
+                        type="checkbox"
+                        id="learningReminder"
+                        checked>
+
+                    <span class="slider"></span>
+
+                </label>
+
+            </div>
+
+
+            <!-- Placement -->
+
+            <div class="setting-option">
+
+                <div>
+
+                    <strong>
+                        Placement Notifications
+                    </strong>
+
+                    <p>
+                        Get notifications about placement opportunities.
+                    </p>
+
+                </div>
+
+
+                <label class="switch">
+
+                    <input
+                        type="checkbox"
+                        id="placementNotification"
+                        checked>
+
+                    <span class="slider"></span>
+
+                </label>
+
+            </div>
+
+
+            <!-- Assessment -->
+
+            <div class="setting-option">
+
+                <div>
+
+                    <strong>
+                        Assessment Reminders
+                    </strong>
+
+                    <p>
+                        Receive reminders to complete assessments.
+                    </p>
+
+                </div>
+
+
+                <label class="switch">
+
+                    <input
+                        type="checkbox"
+                        id="assessmentReminder"
+                        checked>
+
+                    <span class="slider"></span>
+
+                </label>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= APPEARANCE ================= -->
+
+        <section class="panel settings-card">
+
+            <div class="panel-header">
+
+                <h2>
+                    🎨 Appearance
+                </h2>
+
+            </div>
+
+
+            <div class="setting-option">
+
+                <div>
+
+                    <strong>
+                        Dark Mode
+                    </strong>
+
+                    <p>
+                        Change the appearance of the SkillBridge platform.
+                    </p>
+
+                </div>
+
+
+                <label class="switch">
+
+                    <input
+                        type="checkbox"
+                        id="darkMode">
+
+                    <span class="slider"></span>
+
+                </label>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= ACCOUNT ACTION ================= -->
+
+        <section class="panel settings-card">
+
+            <div class="panel-header">
+
+                <h2>
+                    🔐 Account Actions
+                </h2>
+
+            </div>
+
+
+            <a href="{{ url_for('logout') }}"
+               class="settings-logout-btn">
+
+                Logout
+
+            </a>
+
+        </section>
+
+
+        <!-- ================= NAVIGATION BUTTONS ================= -->
+
+        <div class="roadmap-action">
+
+            <a href="{{ url_for('dashboard') }}"
+               class="btn">
+
+                ← Dashboard
+
+            </a>
+
+
+            <a href="{{ url_for('profile') }}"
+               class="btn">
+
+                Profile
+
+            </a>
+
+
+            <a href="{{ url_for('report') }}"
+               class="btn">
+
+                Report
+
+            </a>
+
+        </div>
+
+
+        <footer>
+
+            SkillBridge |
+            Academia–Industry Collaboration
+
+        </footer>
+
+    </main>
+
+</div>
+
+
+<!-- ================= SETTINGS JAVASCRIPT ================= -->
+
+<script src="{{ url_for('static', filename='settings.js') }}"></script>
+
+
+</body>
+
+</html>

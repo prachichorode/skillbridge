@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>My Profile - SkillBridge</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<div class="layout">
+
+    <!-- ================= SIDEBAR ================= -->
+
+    <aside class="sidebar">
+
+        <div class="logo">
+
+            <div class="logo-icon">🎓</div>
+
+            <div>
+
+                <h2>SkillBridge</h2>
+
+                <p>Academia–Industry Portal</p>
+
+            </div>
+
+        </div>
+
+
+        <div class="menu">
+
+            <a href="/" class="menu-item">
+                🏠 Dashboard
+            </a>
+
+            <a href="/profile"
+               class="menu-item active">
+                👤 My Profile
+            </a>
+
+            <a href="/skill-mapping" class="menu-item">
+    🔗 Skill Mapping
+</a>
+
+<a href="/roadmap" class="menu-item">
+    🗺️ Roadmap
+</a>
+
+<a href="/internship" class="menu-item">
+    💼 Internships
+</a>
+            <a href="#" class="menu-item">
+                🎯 Placements
+            </a>
+
+            <a href="#" class="menu-item">
+                🏢 Companies
+            </a>
+
+            <a href="#" class="menu-item">
+                📚 Learning Resources
+            </a>
+
+            <a href="#" class="menu-item">
+                📊 Assessments
+            </a>
+
+            <a href="#" class="menu-item">
+                📈 Reports
+            </a>
+
+            <a href="#" class="menu-item">
+                ⚙️ Settings
+            </a>
+
+        </div>
+
+
+        <div class="sidebar-bottom">
+
+            <div class="stairs">
+                🚶‍♀️
+            </div>
+
+            <p>
+                Bridging Skills<br>
+                with Opportunities
+            </p>
+
+        </div>
+
+    </aside>
+
+
+    <!-- ================= MAIN ================= -->
+
+    <main class="main">
+
+        <header class="header">
+
+            <div>
+
+                <h1>
+                    My Profile 👤
+                </h1>
+
+                <p>
+                    View your career profile and skill information.
+                </p>
+
+            </div>
+
+        </header>
+
+
+        {% if student %}
+
+        <!-- ================= PROFILE CARD ================= -->
+
+        <section class="panel profile-card">
+
+            <div class="profile-big">
+
+                <div class="profile-avatar">
+                    👩
+                </div>
+
+                <div>
+
+                    <h2>
+                        {{ student["name"] }}
+                    </h2>
+
+                    <p>
+                        Student
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="profile-info">
+
+                <div class="info-box">
+
+                    <span>
+                        Student Name
+                    </span>
+
+                    <strong>
+                        {{ student["name"] }}
+                    </strong>
+
+                </div>
+
+
+                <div class="info-box">
+
+                    <span>
+                        Target Career
+                    </span>
+
+                    <strong>
+                        {{ student["target_field"] }}
+                    </strong>
+
+                </div>
+
+
+                <div class="info-box">
+
+                    <span>
+                        Placement Readiness
+                    </span>
+
+                    <strong>
+                        {{ readiness }}%
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= SKILLS ================= -->
+
+        <section class="two-column">
+
+            <div class="panel">
+
+                <div class="panel-header">
+
+                    <h2>
+                        💻 Current Skills
+                    </h2>
+
+                </div>
+
+                <div class="profile-skills">
+
+                    {% for skill in student["skills"].split(",") %}
+
+                    {% if skill.strip() %}
+
+                    <span class="skill-tag">
+                        {{ skill.strip() }}
+                    </span>
+
+                    {% endif %}
+
+                    {% endfor %}
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= MATCHED ================= -->
+
+            <div class="panel">
+
+                <div class="panel-header">
+
+                    <h2>
+                        ✅ Matched Skills
+                    </h2>
+
+                </div>
+
+                <ul class="profile-list">
+
+                    {% for skill in matched %}
+
+                    <li>
+                        ✓ {{ skill }}
+                    </li>
+
+                    {% endfor %}
+
+                    {% if not matched %}
+
+                    <li>
+                        No matched skills yet.
+                    </li>
+
+                    {% endif %}
+
+                </ul>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= MISSING SKILLS ================= -->
+
+        <section class="panel">
+
+            <div class="panel-header">
+
+                <h2>
+                    ⚠️ Missing Skills
+                </h2>
+
+                <span>
+                    Skills to improve
+                </span>
+
+            </div>
+
+
+            <div class="profile-skills">
+
+                {% for skill in missing %}
+
+                <span class="missing-tag">
+                    {{ skill }}
+                </span>
+
+                {% endfor %}
+
+                {% if not missing %}
+
+                <span class="skill-tag">
+                    🎉 No major skill gaps
+                </span>
+
+                {% endif %}
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= CAREER SUMMARY ================= -->
+
+        <section class="panel">
+
+            <div class="panel-header">
+
+                <h2>
+                    🎯 Career Summary
+                </h2>
+
+            </div>
+
+            <p class="profile-description">
+
+                You are currently preparing for a career as a
+                <strong>
+                    {{ student["target_field"] }}
+                </strong>.
+
+                Your current skills have been compared with
+                the required skills for this career.
+
+                Focus on the missing skills to improve your
+                placement readiness.
+
+            </p>
+
+        </section>
+
+
+        {% else %}
+
+        <!-- ================= NO PROFILE ================= -->
+
+        <section class="panel no-profile">
+
+            <h2>
+                👤 No Profile Found
+            </h2>
+
+            <p>
+                Please go to the Dashboard and complete your
+                Career & Skill Assessment first.
+            </p>
+
+            <a href="/" class="analyze-btn">
+                Go to Dashboard
+            </a>
+
+        </section>
+
+        {% endif %}
+
+
+        <footer>
+
+            SkillBridge |
+            Academia–Industry Collaboration
+
+        </footer>
+
+    </main>
+
+</div>
+
+</body>
+
+</html>

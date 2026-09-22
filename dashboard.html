@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>SkillBridge - Student Dashboard</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+
+<body>
+
+<div class="layout">
+
+
+    <!-- =====================================================
+         SIDEBAR
+    ====================================================== -->
+
+    <aside class="sidebar">
+
+        <div class="logo">
+
+            <div class="logo-icon">
+                🎓
+            </div>
+
+            <div>
+
+                <h2>SkillBridge</h2>
+
+                <p>
+                    Academia–Industry Portal
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="menu">
+
+            <a href="{{ url_for('dashboard') }}"
+               class="menu-item active">
+                🏠 Dashboard
+            </a>
+
+
+            <a href="{{ url_for('profile') }}"
+               class="menu-item">
+                👤 My Profile
+            </a>
+
+
+            <a href="{{ url_for('skill_mapping') }}"
+               class="menu-item">
+                🔗 Skill Mapping
+            </a>
+
+
+            <a href="/roadmap"
+               class="menu-item">
+                🗺️ Roadmap
+            </a>
+
+
+            <a href="/internship"
+               class="menu-item">
+                💼 Internships
+            </a>
+
+
+            <a href="/placements"
+               class="menu-item">
+                🎯 Placements
+            </a>
+
+
+            <a href="/companies"
+               class="menu-item">
+                🏢 Companies
+            </a>
+
+
+            <a href="/learning-resources"
+               class="menu-item">
+                📚 Learning Resources
+            </a>
+
+
+            <a href="/assessments"
+               class="menu-item">
+                📊 Assessments
+            </a>
+
+
+            
+<a href="{{ url_for('report') }}"
+   class="menu-item">
+    📄 Report
+</a>
+            <a href="/settings"
+               class="menu-item">
+                ⚙️ Settings
+            </a>
+
+        </div>
+
+
+        <div class="sidebar-bottom">
+
+            <div class="stairs">
+                🚶‍♀️
+            </div>
+
+            <p>
+                Bridging Skills<br>
+                with Opportunities
+            </p>
+
+        </div>
+
+    </aside>
+
+
+
+    <!-- =====================================================
+         MAIN CONTENT
+    ====================================================== -->
+
+    <main class="main">
+
+
+        <!-- HEADER -->
+
+        <header class="header">
+
+
+            <!-- USER GREETING -->
+
+            <div>
+
+                <h1>
+
+                    Hello,
+
+                    <span id="hello">
+                        {{ session["name"] }}
+                    </span>
+
+                    ! 👋
+
+                </h1>
+
+
+                <p>
+                    Your skills. Your roadmap. A better tomorrow.
+                </p>
+
+            </div>
+
+
+
+            <!-- USER PROFILE -->
+
+            <div class="profile">
+
+                🔔
+
+                <div class="profile-photo">
+                    👩
+                </div>
+
+                <div>
+
+                    <strong>
+                        {{ session["name"] }}
+                    </strong>
+
+                    <small>
+                        {{ session["email"] }}
+                    </small>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+
+        <!-- =================================================
+             CAREER & SKILL ASSESSMENT
+        ================================================== -->
+
+        <section class="assessment-box">
+
+
+            <div class="section-title">
+
+                <h2>
+                    🎯 Career & Skill Assessment
+                </h2>
+
+                <p>
+                    Tell us your current skills and desired career field.
+                </p>
+
+            </div>
+
+
+
+            <!-- INPUT GRID -->
+
+            <div class="input-grid">
+
+
+                <!-- STUDENT NAME -->
+
+                <div class="input-group">
+
+                    <label>
+                        Student Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="name"
+                        value="{{ session['name'] }}"
+                        placeholder="Enter your name">
+
+                </div>
+
+
+
+                <!-- TARGET CAREER FIELD -->
+
+                <div class="input-group">
+
+                    <label>
+                        Target Career Field
+                    </label>
+
+                    <select
+                        id="field"
+                        onchange="showRequiredSkills()">
+
+                        {% for field in fields %}
+
+                        <option value="{{ field }}">
+                            {{ field }}
+                        </option>
+
+                        {% endfor %}
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- CURRENT SKILLS -->
+
+            <div class="input-group">
+
+                <label>
+                    Current Skills
+                </label>
+
+                <input
+                    type="text"
+                    id="skills"
+                    value="HTML, CSS, Python"
+                    placeholder="Enter your skills">
+
+            </div>
+
+
+
+            <!-- ANALYZE BUTTON -->
+
+            <button
+                type="button"
+                class="analyze-btn"
+                onclick="analyzeStudent()">
+
+                🔍 Analyze My Skills
+
+            </button>
+
+
+
+            <!-- REQUIRED SKILLS -->
+
+            <div id="requiredSkills">
+
+                <b>
+                    📌 Required Skills:
+                </b>
+
+                Select a career field
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =================================================
+             SUMMARY CARDS
+        ================================================== -->
+
+        <section class="cards">
+
+
+            <!-- TARGET CAREER -->
+
+            <div class="card blue">
+
+                <div class="card-icon">
+                    🎯
+                </div>
+
+                <div>
+
+                    <span>
+                        Target Career
+                    </span>
+
+                    <h3 id="target">
+                        -
+                    </h3>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- MATCHED SKILLS -->
+
+            <div class="card purple">
+
+                <div class="card-icon">
+                    💼
+                </div>
+
+                <div>
+
+                    <span>
+                        Skills Matched
+                    </span>
+
+                    <h3 id="matchedCount">
+                        0
+                    </h3>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- MISSING SKILLS -->
+
+            <div class="card pink">
+
+                <div class="card-icon">
+                    ⚠️
+                </div>
+
+                <div>
+
+                    <span>
+                        Missing Skills
+                    </span>
+
+                    <h3 id="missingCount">
+                        0
+                    </h3>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- READINESS -->
+
+            <div class="card yellow">
+
+                <div class="card-icon">
+                    📊
+                </div>
+
+                <div>
+
+                    <span>
+                        Placement Readiness
+                    </span>
+
+                    <h3 id="readiness">
+                        0%
+                    </h3>
+
+                </div>
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =================================================
+             TWO COLUMN SECTION
+        ================================================== -->
+
+        <section class="two-column">
+
+
+            <!-- SKILL GAP ANALYSIS -->
+
+            <div class="panel">
+
+                <div class="panel-header">
+
+                    <h2>
+                        Skill Gap Analysis
+                    </h2>
+
+                    <span>
+                        AI Analysis
+                    </span>
+
+                </div>
+
+
+
+                <div class="skill-columns">
+
+
+                    <!-- YOUR SKILLS -->
+
+                    <div class="skill-box">
+
+                        <h3 class="success">
+                            ✓ Your Skills
+                        </h3>
+
+                        <ul id="matched">
+                        </ul>
+
+                    </div>
+
+
+
+                    <!-- MISSING SKILLS -->
+
+                    <div class="skill-box">
+
+                        <h3 class="danger">
+                            ⚠ Missing Skills
+                        </h3>
+
+                        <ul id="missing">
+                        </ul>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- RECOMMENDATION -->
+
+                <div class="recommendation">
+
+                    💡
+
+                    <div>
+
+                        <strong>
+                            Recommended for you
+                        </strong>
+
+                        <p>
+                            Complete the missing skills in your roadmap
+                            to improve your placement readiness.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- PERSONALIZED ROADMAP -->
+
+            <div class="panel">
+
+                <div class="panel-header">
+
+                    <h2>
+                        🗺️ Personalized Roadmap
+                    </h2>
+
+                </div>
+
+
+                <ol
+                    id="roadmap"
+                    class="roadmap">
+                </ol>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =================================================
+             INTERNSHIPS & JOBS
+        ================================================== -->
+
+        <section class="panel opportunities-panel">
+
+
+            <div class="panel-header">
+
+                <h2>
+                    💼 Recommended Internships & Jobs
+                </h2>
+
+                <span>
+                    Based on your career field
+                </span>
+
+            </div>
+
+
+            <div id="jobs">
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =================================================
+             COLLEGE SKILL GAP REPORT
+        ================================================== -->
+
+        <section class="panel college-panel">
+
+
+            <div class="panel-header">
+
+
+                <div>
+
+                    <h2>
+                        🏫 College Skill-Gap Report
+                    </h2>
+
+                    <p>
+                        Helps colleges identify common missing skills
+                        and arrange training programs.
+                    </p>
+
+                </div>
+
+
+
+                <button
+                    type="button"
+                    class="refresh-btn"
+                    onclick="loadCollegeGaps()">
+
+                    🔄 Refresh Report
+
+                </button>
+
+            </div>
+
+
+            <div id="collegeGaps">
+            </div>
+
+
+        </section>
+
+
+
+        <!-- FOOTER -->
+
+        <footer>
+
+            SkillBridge | Academia–Industry Collaboration
+
+        </footer>
+
+
+    </main>
+
+
+</div>
+
+
+
+<!-- =====================================================
+     JAVASCRIPT
+====================================================== -->
+
+<script src="{{ url_for('static', filename='app.js') }}"></script>
+<script src="{{ url_for('static', filename='placements.js') }}"></script>
+
+</body>
+</html>
+
+
+</body>
+
+</html>

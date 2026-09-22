@@ -1,0 +1,1009 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>
+        {{ internship.company }} - Internship
+    </title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+    <style>
+
+        /* ================================
+           INTERNSHIP DETAIL PAGE
+        ================================= */
+
+        .internship-details {
+            background: #ffffff;
+            padding: 32px;
+            border-radius: 18px;
+            border: 1px solid #e5e7eb;
+            box-shadow: 0 6px 20px rgba(15, 23, 42, 0.07);
+            margin-bottom: 25px;
+        }
+
+
+        .company-title {
+            color: #2563eb;
+            font-size: 36px;
+            margin: 0 0 8px 0;
+        }
+
+
+        .role-title {
+            color: #172033;
+            font-size: 26px;
+            margin: 0 0 10px 0;
+        }
+
+
+        .internship-description {
+            color: #64748b;
+            font-size: 16px;
+            line-height: 1.7;
+            margin-bottom: 25px;
+        }
+
+
+        /* ================================
+           DETAIL GRID
+        ================================= */
+
+        .detail-grid {
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 16px;
+
+            margin-top: 25px;
+
+            margin-bottom: 30px;
+        }
+
+
+        .detail-item {
+
+            background: #f8fafc;
+
+            border: 1px solid #e2e8f0;
+
+            border-radius: 12px;
+
+            padding: 20px;
+
+            min-height: 75px;
+        }
+
+
+        .detail-item strong {
+
+            display: block;
+
+            color: #172033;
+
+            font-size: 17px;
+
+            margin-bottom: 8px;
+        }
+
+
+        .detail-item span {
+
+            display: block;
+
+            color: #64748b;
+
+            font-size: 16px;
+
+            line-height: 1.5;
+        }
+
+
+        /* ================================
+           INFORMATION SECTIONS
+        ================================= */
+
+        .info-section {
+
+            margin-top: 28px;
+
+            padding-top: 5px;
+        }
+
+
+        .info-section h3 {
+
+            color: #172033;
+
+            font-size: 21px;
+
+            margin-bottom: 12px;
+        }
+
+
+        .info-section ul {
+
+            padding-left: 25px;
+
+            margin-top: 0;
+
+            color: #64748b;
+
+            line-height: 1.9;
+
+            font-size: 16px;
+        }
+
+
+        .info-section li {
+
+            margin-bottom: 5px;
+        }
+
+
+        /* ================================
+           APPLICATION BOX
+        ================================= */
+
+        .application-box {
+
+            background: #ffffff;
+
+            padding: 32px;
+
+            border-radius: 18px;
+
+            border: 1px solid #e5e7eb;
+
+            box-shadow: 0 6px 20px rgba(15, 23, 42, 0.07);
+
+            margin-bottom: 40px;
+        }
+
+
+        .application-box h2 {
+
+            color: #172033;
+
+            font-size: 26px;
+
+            margin-top: 0;
+
+            margin-bottom: 8px;
+        }
+
+
+        .application-box > p {
+
+            color: #64748b;
+
+            font-size: 16px;
+
+            margin-bottom: 25px;
+        }
+
+
+        /* ================================
+           FORM
+        ================================= */
+
+        .form-group {
+
+            margin-bottom: 20px;
+        }
+
+
+        .form-group label {
+
+            display: block;
+
+            font-weight: 600;
+
+            color: #172033;
+
+            margin-bottom: 8px;
+        }
+
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+
+            width: 100%;
+
+            box-sizing: border-box;
+
+            padding: 13px 14px;
+
+            border: 1px solid #d1d5db;
+
+            border-radius: 9px;
+
+            font-size: 15px;
+
+            font-family: Arial, sans-serif;
+
+            outline: none;
+
+            background: #ffffff;
+        }
+
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+
+            border-color: #2563eb;
+
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.10);
+        }
+
+
+        .form-group textarea {
+
+            min-height: 120px;
+
+            resize: vertical;
+        }
+
+
+        .form-row {
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 18px;
+        }
+
+
+        /* ================================
+           RESUME
+        ================================= */
+
+        .resume-box {
+
+            background: #eff6ff;
+
+            border: 1px solid #bfdbfe;
+
+            padding: 15px;
+
+            border-radius: 10px;
+
+            margin-bottom: 12px;
+
+            color: #374151;
+
+            line-height: 1.6;
+        }
+
+
+        /* ================================
+           BUTTON
+        ================================= */
+
+        .card-button {
+
+            background: #2563eb;
+
+            color: white;
+
+            border: none;
+
+            padding: 13px 22px;
+
+            border-radius: 9px;
+
+            font-size: 15px;
+
+            font-weight: 600;
+
+            cursor: pointer;
+        }
+
+
+        .card-button:hover {
+
+            background: #1d4ed8;
+        }
+
+
+        /* ================================
+           SUCCESS / ERROR
+        ================================= */
+
+        .success-message {
+
+            background: #dcfce7;
+
+            color: #166534;
+
+            padding: 16px;
+
+            border-radius: 10px;
+
+            margin-bottom: 20px;
+
+            font-weight: 600;
+        }
+
+
+        .error-message {
+
+            background: #fee2e2;
+
+            color: #b91c1c;
+
+            padding: 16px;
+
+            border-radius: 10px;
+
+            margin-bottom: 20px;
+
+            font-weight: 600;
+        }
+
+
+        /* ================================
+           BACK BUTTON
+        ================================= */
+
+        .back-button {
+
+            display: inline-block;
+
+            margin-bottom: 20px;
+
+            text-decoration: none;
+
+            color: #2563eb;
+
+            font-weight: 600;
+
+            font-size: 16px;
+        }
+
+
+        .back-button:hover {
+
+            text-decoration: underline;
+        }
+
+
+        /* ================================
+           MOBILE
+        ================================= */
+
+        @media (max-width: 800px) {
+
+            .detail-grid {
+
+                grid-template-columns: 1fr;
+            }
+
+
+            .form-row {
+
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+<div class="dashboard-container">
+
+
+    <!-- ==================================================
+         SIDEBAR
+    =================================================== -->
+
+    <aside class="sidebar">
+
+        <h2>SkillBridge</h2>
+
+        <p class="portal-text">
+            Academia – Industry Portal
+        </p>
+
+
+        <nav>
+
+            <a href="{{ url_for('dashboard') }}">
+                🏠 Dashboard
+            </a>
+
+
+            <a href="{{ url_for('skill_mapping') }}">
+                🎯 Career & Skills
+            </a>
+
+
+            <a href="{{ url_for('internship') }}"
+               class="active">
+
+                💼 Internship
+
+            </a>
+
+
+            <a href="{{ url_for('placements') }}">
+                📊 Placement
+            </a>
+
+
+            <a href="{{ url_for('register') }}">
+                🏢 Industry Connect
+            </a>
+
+        </nav>
+
+
+        <a href="{{ url_for('logout') }}"
+           class="logout">
+
+            🚪 Logout
+
+        </a>
+
+    </aside>
+
+
+
+    <!-- ==================================================
+         MAIN CONTENT
+    =================================================== -->
+
+    <main class="main-content">
+
+
+        <!-- BACK -->
+
+        <a href="{{ url_for('internship') }}"
+           class="back-button">
+
+            ← Back to Internships
+
+        </a>
+
+
+
+        <!-- ==================================================
+             INTERNSHIP INFORMATION
+        =================================================== -->
+
+        <section class="internship-details">
+
+
+            <!-- COMPANY -->
+
+            <h1 class="company-title">
+
+                {{ internship.company }}
+
+            </h1>
+
+
+            <!-- ROLE -->
+
+            <h2 class="role-title">
+
+                {{ internship.role }}
+
+            </h2>
+
+
+            <!-- DESCRIPTION -->
+
+            <p class="internship-description">
+
+                Software development internship opportunity
+                for students interested in building practical
+                software applications and improving their
+                programming skills.
+
+            </p>
+
+
+
+            <!-- ==================================================
+                 DETAILS
+            =================================================== -->
+
+            <div class="detail-grid">
+
+
+                <!-- REQUIRED SKILLS -->
+
+                <div class="detail-item">
+
+                    <strong>
+                        💻 Required Skills
+                    </strong>
+
+                    <span>
+
+                        {{ internship.skills }}
+
+                    </span>
+
+                </div>
+
+
+
+                <!-- LOCATION -->
+
+                <div class="detail-item">
+
+                    <strong>
+                        📍 Location
+                    </strong>
+
+                    <span>
+
+                        {{ details.location }}
+
+                    </span>
+
+                </div>
+
+
+
+                <!-- DURATION -->
+
+                <div class="detail-item">
+
+                    <strong>
+                        ⏳ Duration
+                    </strong>
+
+                    <span>
+
+                        {{ details.duration }}
+
+                    </span>
+
+                </div>
+
+
+
+                <!-- STIPEND -->
+
+                <div class="detail-item">
+
+                    <strong>
+                        💰 Stipend
+                    </strong>
+
+                    <span>
+
+                        {{ details.stipend }}
+
+                    </span>
+
+                </div>
+
+
+
+                <!-- ELIGIBILITY -->
+
+                <div class="detail-item">
+
+                    <strong>
+                        🎓 Eligibility
+                    </strong>
+
+                    <span>
+
+                        {{ details.eligibility }}
+
+                    </span>
+
+                </div>
+
+
+
+                <!-- DEADLINE -->
+
+                <div class="detail-item">
+
+                    <strong>
+                        📅 Application Deadline
+                    </strong>
+
+                    <span>
+
+                        {{ details.deadline }}
+
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ==================================================
+                 RESPONSIBILITIES
+            =================================================== -->
+
+            <div class="info-section">
+
+                <h3>
+
+                    📋 Internship Responsibilities
+
+                </h3>
+
+
+                <ul>
+
+                    {% for item in details.responsibilities %}
+
+                    <li>
+
+                        {{ item }}
+
+                    </li>
+
+                    {% endfor %}
+
+                </ul>
+
+            </div>
+
+
+
+            <!-- ==================================================
+                 WHAT YOU WILL LEARN
+            =================================================== -->
+
+            <div class="info-section">
+
+                <h3>
+
+                    🚀 What You'll Learn
+
+                </h3>
+
+
+                <ul>
+
+                    {% for item in details.learning %}
+
+                    <li>
+
+                        {{ item }}
+
+                    </li>
+
+                    {% endfor %}
+
+                </ul>
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- ==================================================
+             APPLICATION
+        =================================================== -->
+
+        <section class="application-box">
+
+
+            <h2>
+
+                📝 Internship Application
+
+            </h2>
+
+
+            <p>
+
+                Apply for
+                <strong>{{ internship.role }}</strong>
+                at
+                <strong>{{ internship.company }}</strong>.
+
+            </p>
+
+
+
+            <!-- SUCCESS -->
+
+            {% if success %}
+
+            <div class="success-message">
+
+                ✅ Application submitted successfully!
+
+                <br><br>
+
+                Your application for
+                <strong>
+                    {{ internship.company }}
+                </strong>
+                has been recorded in SkillBridge.
+
+            </div>
+
+            {% endif %}
+
+
+
+            <!-- ERROR -->
+
+            {% if error %}
+
+            <div class="error-message">
+
+                ⚠️ {{ error }}
+
+            </div>
+
+            {% endif %}
+
+
+
+            {% if not success %}
+
+
+            <!-- APPLICATION FORM -->
+
+            <form method="POST"
+
+                  action="{{ url_for(
+                      'apply_internship',
+                      company_id=internship.id
+                  ) }}"
+
+                  enctype="multipart/form-data">
+
+
+                <!-- FULL NAME -->
+
+                <div class="form-group">
+
+                    <label>
+                        Full Name *
+                    </label>
+
+                    <input
+                        type="text"
+                        name="full_name"
+                        placeholder="Enter your full name"
+                        value="{{ name }}"
+                        required>
+
+                </div>
+
+
+
+                <!-- EMAIL + PHONE -->
+
+                <div class="form-row">
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Email *
+                        </label>
+
+                        <input
+                            type="email"
+                            name="email"
+                            placeholder="Enter your email"
+                            required>
+
+                    </div>
+
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Phone *
+                        </label>
+
+                        <input
+                            type="tel"
+                            name="phone"
+                            placeholder="Enter your phone number"
+                            required>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- COLLEGE -->
+
+                <div class="form-group">
+
+                    <label>
+                        College Name *
+                    </label>
+
+                    <input
+                        type="text"
+                        name="college"
+                        placeholder="Enter your college name"
+                        required>
+
+                </div>
+
+
+
+                <!-- BRANCH + YEAR -->
+
+                <div class="form-row">
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Branch *
+                        </label>
+
+                        <input
+                            type="text"
+                            name="branch"
+                            placeholder="Example: CSE / AI&DS"
+                            required>
+
+                    </div>
+
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Current Year *
+                        </label>
+
+                        <select
+                            name="year"
+                            required>
+
+                            <option value="">
+                                Select Year
+                            </option>
+
+                            <option value="1st Year">
+                                1st Year
+                            </option>
+
+                            <option value="2nd Year">
+                                2nd Year
+                            </option>
+
+                            <option value="3rd Year">
+                                3rd Year
+                            </option>
+
+                            <option value="4th Year">
+                                4th Year
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- SKILLS -->
+
+                <div class="form-group">
+
+                    <label>
+                        Your Skills *
+                    </label>
+
+                    <input
+                        type="text"
+                        name="skills"
+                        placeholder="Example: HTML, CSS, JavaScript, Python"
+                        required>
+
+                </div>
+
+
+
+                <!-- RESUME -->
+
+                <div class="form-group">
+
+                    <label>
+                        Resume *
+                    </label>
+
+
+                    <div class="resume-box">
+
+                        📄 Upload your latest resume in
+                        <strong>PDF format</strong>.
+
+                        Maximum size: 5 MB.
+
+                    </div>
+
+
+                    <input
+                        type="file"
+                        name="resume"
+                        accept=".pdf"
+                        required>
+
+                </div>
+
+
+
+                <!-- COVER MESSAGE -->
+
+                <div class="form-group">
+
+                    <label>
+                        Cover Message
+                    </label>
+
+
+                    <textarea
+                        name="cover_message"
+                        placeholder="Write a short message about why you are interested in this internship..."></textarea>
+
+                </div>
+
+
+
+                <!-- SUBMIT -->
+
+                <button
+                    type="submit"
+                    class="card-button">
+
+                    Submit Application →
+
+                </button>
+
+
+            </form>
+
+
+            {% endif %}
+
+
+        </section>
+
+
+    </main>
+
+</div>
+
+
+</body>
+
+</html>

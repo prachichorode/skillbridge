@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SkillBridge - Placements</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="app-container">
+
+    <!-- ================= SIDEBAR ================= -->
+
+    <aside class="sidebar">
+
+        <div class="logo">
+            <h2>SkillBridge</h2>
+            <p>Career & Skill Platform</p>
+        </div>
+
+        <nav>
+
+            <a href="/">🏠 Dashboard</a>
+
+            <a href="/profile">👤 My Profile</a>
+
+            <a href="/skill-mapping">🔗 Skill Mapping</a>
+
+            <a href="/roadmap">🗺️ Roadmap</a>
+
+            <a href="/internship">💼 Internships</a>
+
+            <a href="/placements" class="active">
+                🎯 Placements
+            </a>
+
+            <a href="/companies">🏢 Companies</a>
+
+            <a href="/learning-resources">
+                📚 Learning Resources
+            </a>
+
+            <a href="/assessments">
+                📊 Assessments
+            </a>
+
+            <a href="/report">
+                📈 Reports
+            </a>
+
+            <a href="/settings">
+                ⚙️ Settings
+            </a>
+
+        </nav>
+
+    </aside>
+
+
+    <!-- ================= MAIN CONTENT ================= -->
+
+    <main class="main-content">
+
+        <div class="page-header">
+
+            <h1>🎯 Placement Opportunities</h1>
+
+            {% if student %}
+
+            <p>
+                Find placement opportunities based on your
+                skills, career goal and placement readiness.
+            </p>
+
+            <div class="target-career-box">
+
+                <span>🎓 Target Career</span>
+
+                <strong>
+                    {{ student["target_field"] }}
+                </strong>
+
+            </div>
+
+
+            <!-- DATA FOR JAVASCRIPT -->
+
+            <div
+                id="studentData"
+
+                data-target-field="{{ student['target_field'] }}"
+
+                data-readiness="{{ readiness }}"
+
+                data-skills="{{ student['skills'] if student['skills'] else '' }}">
+
+            </div>
+
+            {% else %}
+
+            <div class="empty-card">
+
+                <h3>👤 Student Profile Not Found</h3>
+
+                <p>
+                    Please complete your profile and select
+                    a target career field first.
+                </p>
+
+                <a href="/profile"
+                   class="primary-button">
+
+                    Complete My Profile
+
+                </a>
+
+            </div>
+
+            {% endif %}
+
+        </div>
+
+
+        {% if student %}
+
+
+        <!-- =================================================
+             1. READINESS
+        ================================================= -->
+
+        <section class="placement-readiness">
+
+            <div class="placement-readiness-header">
+
+                <div>
+
+                    <span class="section-label">
+                        YOUR PREPARATION
+                    </span>
+
+                    <h2>
+                        🎯 Placement Readiness Score
+                    </h2>
+
+                    <p>
+                        How prepared you are for placement
+                        opportunities.
+                    </p>
+
+                </div>
+
+                <div class="readiness-number">
+                    {{ readiness }}%
+                </div>
+
+            </div>
+
+
+            <div class="progress-bar">
+
+                <div
+                    class="progress-fill"
+                    id="readinessProgress"
+                    data-readiness="{{ readiness }}">
+                </div>
+
+            </div>
+
+
+            <p class="readiness-text">
+
+                {% if readiness >= 80 %}
+
+                    🟢 Excellent! You are highly prepared
+                    for placement.
+
+                {% elif readiness >= 60 %}
+
+                    🟡 Good progress! Improve your missing
+                    skills and interview preparation.
+
+                {% elif readiness >= 40 %}
+
+                    🟠 You are making progress. Keep
+                    improving your technical skills.
+
+                {% else %}
+
+                    🔴 You need more preparation before
+                    applying actively.
+
+                {% endif %}
+
+            </p>
+
+
+            <div class="readiness-breakdown">
+
+                <div>
+                    <span>💻 Technical Skills</span>
+                    <strong>{{ readiness }}%</strong>
+                </div>
+
+                <div>
+                    <span>📝 Aptitude</span>
+                    <strong>{{ [readiness - 5, 0] | max }}%</strong>
+                </div>
+
+                <div>
+                    <span>🎤 Interview</span>
+                    <strong>{{ [readiness - 10, 0] | max }}%</strong>
+                </div>
+
+                <div>
+                    <span>📄 Resume</span>
+                    <strong>{{ [readiness - 3, 0] | max }}%</strong>
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             2. SMART JOB MATCH
+        ================================================= -->
+
+        <section class="placement-section">
+
+            <div class="placement-header">
+
+                <div>
+
+                    <span class="section-label">
+                        OPPORTUNITIES
+                    </span>
+
+                    <h2>
+                        🤖 Smart Job Match
+                    </h2>
+
+                    <p>
+                        Companies are ranked according to
+                        how well their required skills match
+                        your current skills.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div
+                id="placementContainer"
+                class="placement-grid">
+
+                <div class="loading-card">
+
+                    ⏳ Finding suitable placements...
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             3. SKILL GAP
+        ================================================= -->
+
+        <section class="placement-feature-card">
+
+            <div class="feature-header">
+
+                <span class="feature-icon">
+                    🧩
+                </span>
+
+                <div>
+
+                    <span class="section-label">
+                        SKILL ANALYSIS
+                    </span>
+
+                    <h2>
+                        Skill Gap
+                    </h2>
+
+                    <p>
+                        Skills that are currently missing
+                        for available placement opportunities.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div id="skillGapBox">
+
+                <div class="loading-card">
+                    ⏳ Analyzing your skill gap...
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             4. IMPROVE MY MATCH
+        ================================================= -->
+
+        <section class="placement-feature-card">
+
+            <div class="feature-header">
+
+                <span class="feature-icon">
+                    🚀
+                </span>
+
+                <div>
+
+                    <span class="section-label">
+                        IMPROVEMENT PLAN
+                    </span>
+
+                    <h2>
+                        Improve My Match
+                    </h2>
+
+                    <p>
+                        Find out which skills you should
+                        learn first to improve your job match.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <button
+                type="button"
+                id="improveMatchButton"
+                class="primary-button">
+
+                🚀 Improve My Match
+
+            </button>
+
+
+            <div
+                id="improvementResult"
+                class="improvement-result">
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             5. PLACEMENT DRIVE COUNTDOWN
+        ================================================= -->
+
+        <section class="placement-feature-card">
+
+            <div class="feature-header">
+
+                <span class="feature-icon">
+                    ⏳
+                </span>
+
+                <div>
+
+                    <span class="section-label">
+                        UPCOMING DRIVE
+                    </span>
+
+                    <h2>
+                        Placement Drive Countdown
+                    </h2>
+
+                    <p id="countdownCompany">
+                        Upcoming Placement Drive
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="placement-countdown">
+
+
+                <div class="countdown-box">
+
+                    <strong id="countDays">
+                        --
+                    </strong>
+
+                    <span>Days</span>
+
+                </div>
+
+
+                <div class="countdown-box">
+
+                    <strong id="countHours">
+                        --
+                    </strong>
+
+                    <span>Hours</span>
+
+                </div>
+
+
+                <div class="countdown-box">
+
+                    <strong id="countMinutes">
+                        --
+                    </strong>
+
+                    <span>Minutes</span>
+
+                </div>
+
+
+                <div class="countdown-box">
+
+                    <strong id="countSeconds">
+                        --
+                    </strong>
+
+                    <span>Seconds</span>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             6. ELIGIBILITY CHECKER
+        ================================================= -->
+
+        <section class="placement-feature-card">
+
+            <div class="feature-header">
+
+                <span class="feature-icon">
+                    ✅
+                </span>
+
+                <div>
+
+                    <span class="section-label">
+                        CHECK BEFORE APPLYING
+                    </span>
+
+                    <h2>
+                        Eligibility Checker
+                    </h2>
+
+                    <p>
+                        Check whether your current skills
+                        meet the requirements of available
+                        placement opportunities.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div
+                id="eligibilityContainer"
+                class="eligibility-container">
+
+                <div class="loading-card">
+                    ⏳ Checking eligibility...
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             7. APPLICATION TRACKING
+        ================================================= -->
+
+        <section class="application-tracking">
+
+            <div class="placement-header">
+
+                <div>
+
+                    <span class="section-label">
+                        MY APPLICATIONS
+                    </span>
+
+                    <h2>
+                        📊 Application Tracking
+                    </h2>
+
+                    <p>
+                        Track the placement applications
+                        you have submitted.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="tracking-grid">
+
+                <div class="tracking-card">
+
+                    <span>📤</span>
+
+                    <h3 id="appliedCount">
+                        0
+                    </h3>
+
+                    <p>Applied</p>
+
+                </div>
+
+
+                <div class="tracking-card">
+
+                    <span>🔎</span>
+
+                    <h3 id="shortlistedCount">
+                        0
+                    </h3>
+
+                    <p>Shortlisted</p>
+
+                </div>
+
+
+                <div class="tracking-card">
+
+                    <span>🎤</span>
+
+                    <h3 id="interviewCount">
+                        0
+                    </h3>
+
+                    <p>Interview</p>
+
+                </div>
+
+
+                <div class="tracking-card">
+
+                    <span>🎉</span>
+
+                    <h3 id="selectedCount">
+                        0
+                    </h3>
+
+                    <p>Selected</p>
+
+                </div>
+
+            </div>
+
+
+            <div
+                id="applicationList"
+                class="application-list">
+
+                <div class="no-applications">
+
+                    <h3>
+                        No Applications Yet
+                    </h3>
+
+                    <p>
+                        Apply to a placement opportunity
+                        above and your application will
+                        appear here.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             8. AI ADVISOR
+        ================================================= -->
+
+        <section class="placement-advisor">
+
+            <div class="advisor-header">
+
+                <div class="advisor-title">
+
+                    <span class="feature-icon">
+                        🧠
+                    </span>
+
+                    <div>
+
+                        <span class="section-label">
+                            PERSONALIZED GUIDANCE
+                        </span>
+
+                        <h2>
+                            Placement AI Advisor
+                        </h2>
+
+                        <p>
+                            Get personalized suggestions
+                            based on your readiness and
+                            skill gaps.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    id="advisorButton"
+                    class="advisor-button">
+
+                    🧠 Get My Advice
+
+                </button>
+
+            </div>
+
+
+            <div
+                id="advisorResult"
+                class="advisor-result">
+
+                <div class="advisor-placeholder">
+
+                    <span>💡</span>
+
+                    <p>
+                        Click <strong>Get My Advice</strong>
+                        to receive your personalized
+                        placement preparation plan.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             NAVIGATION
+        ================================================= -->
+
+        <div class="roadmap-action">
+
+            <a href="/internship" class="btn">
+                ← Internships
+            </a>
+
+            <a href="/skill-mapping" class="btn">
+                🔗 Skill Mapping
+            </a>
+
+            <a href="/roadmap" class="btn">
+                🗺️ Roadmap
+            </a>
+
+            <a href="/companies" class="btn">
+                🏢 Companies
+            </a>
+
+            <a href="/" class="btn">
+                🏠 Dashboard
+            </a>
+
+        </div>
+
+
+        {% endif %}
+
+    </main>
+
+</div>
+
+
+<!-- =====================================================
+     PLACEMENT JAVASCRIPT
+====================================================== -->
+
+<script src="{{ url_for('static', filename='placement.js') }}"></script>
+
+
+</body>
+</html>

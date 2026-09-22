@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Career Roadmap | SkillBridge</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="layout">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <div class="logo">
+
+            <div class="logo-icon">
+                🎓
+            </div>
+
+            <div>
+                <h2>SkillBridge</h2>
+                <p>Academia–Industry Portal</p>
+            </div>
+
+        </div>
+
+
+        <div class="menu">
+
+            <a href="/" class="menu-item">
+                🏠 Dashboard
+            </a>
+
+            <a href="/profile" class="menu-item">
+                👤 My Profile
+            </a>
+
+            <a href="/skill-mapping" class="menu-item">
+                🔗 Skill Mapping
+            </a>
+
+            <a href="/roadmap" class="menu-item active">
+                🗺️ Roadmap
+            </a>
+
+            <a href="/internship" class="menu-item">
+                💼 Internships
+            </a>
+
+            <a href="#" class="menu-item">
+                🎯 Placements
+            </a>
+
+            <a href="#" class="menu-item">
+                🏢 Companies
+            </a>
+
+            <a href="#" class="menu-item">
+                📚 Learning Resources
+            </a>
+
+            <a href="#" class="menu-item">
+                📊 Assessments
+            </a>
+
+            <a href="#" class="menu-item">
+                📈 Reports
+            </a>
+
+            <a href="#" class="menu-item">
+                ⚙️ Settings
+            </a>
+
+        </div>
+
+
+        <div class="sidebar-bottom">
+
+            <div class="stairs">
+                🚶‍♀️
+            </div>
+
+            <p>
+                Bridging Skills<br>
+                with Opportunities
+            </p>
+
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+    <main class="main">
+
+        <div class="roadmap-wrapper">
+
+            <!-- HEADER -->
+            <div class="roadmap-top">
+
+                <h1>
+                    🗺️ Career Roadmap
+                </h1>
+
+                {% if student %}
+
+                <p>
+                    Your personalized learning journey
+                    towards your target career.
+                </p>
+
+                {% else %}
+
+                <p>
+                    Complete your profile to generate
+                    your personalized career roadmap.
+                </p>
+
+                {% endif %}
+
+            </div>
+
+
+            {% if student %}
+
+            <!-- CAREER BANNER -->
+            <div class="career-banner">
+
+                <div class="career-content">
+
+                    <div>
+
+                        <span class="career-label">
+                            YOUR TARGET CAREER
+                        </span>
+
+                        <h2>
+                            🎯 {{ student["target_field"] }}
+                        </h2>
+
+                        <p>
+                            Personalized roadmap for
+                            <strong>{{ student["name"] }}</strong>
+                        </p>
+
+                    </div>
+
+                    <div class="career-icon">
+                        🚀
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- PROGRESS -->
+            <div class="roadmap-progress">
+
+                <div class="progress-header">
+
+                    <div>
+                        <h3>
+                            🚀 Your Learning Progress
+                        </h3>
+
+                        <p>
+                            Follow each step to become
+                            career ready.
+                        </p>
+                    </div>
+
+                    <span id="progressText">
+                        0%
+                    </span>
+
+                </div>
+
+
+                <div class="progress-bar">
+
+                    <div class="progress-fill"
+                         id="progressFill">
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ROADMAP -->
+            {% if roadmap %}
+
+            <div class="roadmap-section-title">
+
+                <h2>
+                    Your Career Journey
+                </h2>
+
+                <p>
+                    Follow these steps in order and
+                    build your skills progressively.
+                </p>
+
+            </div>
+
+
+            <div class="roadmap-timeline">
+
+                {% for step in roadmap %}
+
+                <div class="roadmap-step">
+
+                    <div class="step-number">
+
+                        <div class="step-circle">
+                            {{ loop.index }}
+                        </div>
+
+                    </div>
+
+
+                    <div class="step-card">
+
+                        <div class="step-card-header">
+
+                            <div>
+
+                                <span class="step-label">
+                                    STEP {{ loop.index }}
+                                </span>
+
+                                <h3>
+                                    {{ step }}
+                                </h3>
+
+                            </div>
+
+                            <div class="step-icon">
+                                📚
+                            </div>
+
+                        </div>
+
+
+                        <p>
+                            Learn, practice and build
+                            projects related to this skill
+                            to improve your career readiness.
+                        </p>
+
+
+                        <div class="step-footer">
+
+                            <span class="step-status">
+                                📖 Recommended Skill
+                            </span>
+
+                            <span class="step-time">
+                                ⏱️ Learn & Practice
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                {% endfor %}
+
+            </div>
+
+
+            {% else %}
+
+            <!-- EMPTY ROADMAP -->
+            <div class="empty-roadmap">
+
+                <div class="empty-icon">
+                    🗺️
+                </div>
+
+                <h2>
+                    Roadmap Not Available
+                </h2>
+
+                <p>
+                    We don't have a roadmap for this
+                    career yet.
+                </p>
+
+            </div>
+
+            {% endif %}
+
+
+            <!-- ACTIONS -->
+            <div class="roadmap-actions">
+
+                <a href="/skill-mapping"
+                   class="roadmap-btn secondary">
+
+                    ← Skill Mapping
+
+                </a>
+
+
+                <a href="/internship"
+                   class="roadmap-btn primary">
+
+                    💼 View Internships →
+
+                </a>
+
+
+                <a href="/"
+                   class="roadmap-btn secondary">
+
+                    🏠 Dashboard
+
+                </a>
+
+            </div>
+
+
+            {% else %}
+
+            <!-- NO PROFILE -->
+            <div class="empty-roadmap">
+
+                <div class="empty-icon">
+                    👤
+                </div>
+
+                <h2>
+                    No Student Profile Found
+                </h2>
+
+                <p>
+                    Please complete your profile
+                    and skill assessment first.
+                </p>
+
+                <a href="/profile"
+                   class="roadmap-btn primary">
+
+                    Create Profile
+
+                </a>
+
+            </div>
+
+            {% endif %}
+
+        </div>
+
+    </main>
+
+</div>
+
+
+<!-- SEPARATE JAVASCRIPT -->
+<script src="{{ url_for('static', filename='roadmap.js') }}"></script>
+
+</body>
+</html>

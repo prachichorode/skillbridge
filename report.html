@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Student Assessment Report</title>
+
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f7fb;
+            color: #1f2937;
+        }
+
+
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: 40px auto;
+        }
+
+
+        .header {
+            background: white;
+            padding: 30px;
+            border-radius: 16px;
+            margin-bottom: 25px;
+            box-shadow:
+                0 5px 20px rgba(0,0,0,0.06);
+        }
+
+
+        .header h1 {
+            margin: 0 0 10px;
+        }
+
+
+        .header p {
+            color: #6b7280;
+        }
+
+
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 16px;
+            margin-bottom: 22px;
+            box-shadow:
+                0 5px 20px rgba(0,0,0,0.06);
+        }
+
+
+        .student-grid {
+            display: grid;
+            grid-template-columns:
+                repeat(2, 1fr);
+            gap: 20px;
+        }
+
+
+        .info-box {
+            background: #f8fafc;
+            padding: 20px;
+            border-radius: 12px;
+        }
+
+
+        .label {
+            color: #6b7280;
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+
+
+        .value {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+
+        .summary {
+            display: grid;
+            grid-template-columns:
+                repeat(3, 1fr);
+            gap: 20px;
+        }
+
+
+        .summary-box {
+            text-align: center;
+            background: #f8fafc;
+            padding: 25px;
+            border-radius: 14px;
+        }
+
+
+        .number {
+            font-size: 40px;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+
+        .small {
+            color: #6b7280;
+        }
+
+
+        .score-section {
+            text-align: center;
+        }
+
+
+        .score {
+            font-size: 48px;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+
+
+        .percentage {
+            font-size: 30px;
+            font-weight: bold;
+        }
+
+
+        .performance {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 20px;
+            border-radius: 25px;
+            background: #fff3cd;
+            color: #856404;
+            font-weight: bold;
+        }
+
+
+        .readiness-number {
+            text-align: center;
+            font-size: 45px;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+
+
+        .progress {
+            width: 100%;
+            height: 22px;
+            background: #e5e7eb;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+
+        .progress-fill {
+            height: 100%;
+            width: 0%;
+            background: #2563eb;
+            border-radius: 20px;
+            transition: width 0.8s ease;
+        }
+
+
+        .analysis {
+            line-height: 1.7;
+            color: #4b5563;
+        }
+
+
+        .steps li {
+            margin-bottom: 12px;
+        }
+
+
+        .back-btn {
+            display: inline-block;
+            padding: 13px 20px;
+            background: #2563eb;
+            color: white;
+            text-decoration: none;
+            border-radius: 9px;
+        }
+
+
+        .back-btn:hover {
+            background: #1d4ed8;
+        }
+
+
+        @media(max-width: 700px) {
+
+            .student-grid,
+            .summary {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+
+    <!-- HEADER -->
+
+    <div class="header">
+
+        <h1>
+            Student Assessment Report
+        </h1>
+
+        <p>
+            Your complete SkillBridge performance report.
+        </p>
+
+    </div>
+
+
+    <!-- STUDENT INFORMATION -->
+
+    <div class="card">
+
+        <h2>
+            👤 Student Information
+        </h2>
+
+
+        <div class="student-grid">
+
+
+            <div class="info-box">
+
+                <div class="label">
+                    Name
+                </div>
+
+                <div class="value">
+
+                    {% if student %}
+
+                        {{ student["name"] }}
+
+                    {% else %}
+
+                        Student
+
+                    {% endif %}
+
+                </div>
+
+            </div>
+
+
+            <div class="info-box">
+
+                <div class="label">
+                    Career Field
+                </div>
+
+                <div class="value">
+
+                    {% if student %}
+
+                        {{ student["target_field"] }}
+
+                    {% else %}
+
+                        Not selected
+
+                    {% endif %}
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+    <!-- ASSESSMENT SUMMARY -->
+
+    <div class="card">
+
+        <h2>
+            📊 Assessment Summary
+        </h2>
+
+
+        <div class="summary">
+
+
+            <div class="summary-box">
+
+                <div class="number">
+                    {{ score }}
+                </div>
+
+                <div class="small">
+                    Correct Answers
+                </div>
+
+            </div>
+
+
+            <div class="summary-box">
+
+                <div class="number">
+                    {{ total }}
+                </div>
+
+                <div class="small">
+                    Total Questions
+                </div>
+
+            </div>
+
+
+            <div class="summary-box">
+
+                <div class="number">
+                    {{ percentage }}%
+                </div>
+
+                <div class="small">
+                    Score
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+    <!-- SCORE -->
+
+    <div class="card score-section">
+
+        <h2>
+            🏆 Your Assessment Score
+        </h2>
+
+
+        <div class="score">
+
+            {{ score }} / {{ total }}
+
+        </div>
+
+
+        <div class="percentage">
+
+            {{ percentage }}%
+
+        </div>
+
+
+        <div class="performance">
+
+            {{ performance }}
+
+        </div>
+
+    </div>
+
+
+    <!-- CAREER READINESS -->
+
+    <div class="card">
+
+        <h2>
+            🎯 Career Readiness
+        </h2>
+
+
+        <p>
+            Your career readiness is based on
+            your required industry skills and
+            assessment performance.
+        </p>
+
+
+        <div
+            class="readiness-number"
+            id="readinessNumber"
+        >
+
+            {{ readiness }}%
+
+        </div>
+
+
+        <div class="progress">
+
+            <div
+                class="progress-fill"
+                id="reportProgressFill"
+                data-readiness="{{ readiness }}"
+            >
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- PERFORMANCE ANALYSIS -->
+
+    <div class="card">
+
+        <h2>
+            💡 Performance Analysis
+        </h2>
+
+
+        <div class="analysis">
+
+
+            {% if percentage >= 80 %}
+
+                🟢
+                <strong>Excellent!</strong>
+
+                You performed very well.
+                You are well prepared for your
+                selected career field.
+
+            {% elif percentage >= 60 %}
+
+                🟡
+                <strong>Good!</strong>
+
+                You have a good foundation.
+                Continue improving your technical
+                skills and practice regularly.
+
+            {% elif percentage >= 40 %}
+
+                🟠
+                <strong>Average.</strong>
+
+                You need to focus on your weak
+                areas and continue following
+                your learning roadmap.
+
+            {% else %}
+
+                🔴
+                <strong>Needs Improvement.</strong>
+
+                You need more preparation.
+                Follow your learning roadmap,
+                improve your missing skills and
+                practice regularly.
+
+            {% endif %}
+
+
+        </div>
+
+    </div>
+
+
+    <!-- NEXT STEPS -->
+
+    <div class="card">
+
+        <h2>
+            🚀 Recommended Next Steps
+        </h2>
+
+
+        <ul class="steps">
+
+            <li>
+                Review your missing skills.
+            </li>
+
+            <li>
+                Complete recommended learning resources.
+            </li>
+
+            <li>
+                Follow your personalized roadmap.
+            </li>
+
+            <li>
+                Build practical projects.
+            </li>
+
+            <li>
+                Practice aptitude questions regularly.
+            </li>
+
+            <li>
+                Prepare technical and HR interview questions.
+            </li>
+
+            <li>
+                Retake the assessment after preparation.
+            </li>
+
+        </ul>
+
+    </div>
+
+
+    <a
+        href="{{ url_for('dashboard') }}"
+        class="back-btn"
+    >
+        ← Back to Dashboard
+    </a>
+
+
+</div>
+
+
+<script>
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function () {
+
+        const progress =
+            document.getElementById(
+                "reportProgressFill"
+            );
+
+
+        if (!progress) {
+            return;
+        }
+
+
+        let readiness =
+            Number(
+                progress.dataset.readiness
+            );
+
+
+        if (isNaN(readiness)) {
+            readiness = 0;
+        }
+
+
+        readiness =
+            Math.max(
+                0,
+                Math.min(
+                    100,
+                    readiness
+                )
+            );
+
+
+        progress.style.width =
+            readiness + "%";
+
+    }
+);
+
+</script>
+
+
+</body>
+
+</html>

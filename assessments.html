@@ -1,0 +1,571 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SkillBridge Assessment</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f7fb;
+            color: #1f2937;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 900px;
+            margin: 40px auto;
+        }
+
+        .header {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 25px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+        }
+
+        .header h1 {
+            margin-top: 0;
+        }
+
+        .header p {
+            color: #6b7280;
+        }
+
+        .question-card {
+            background: white;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+        }
+
+        .question {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 18px;
+        }
+
+        .option {
+            display: block;
+            padding: 13px;
+            margin: 10px 0;
+            background: #f8fafc;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .option:hover {
+            background: #eef2ff;
+        }
+
+        .option input {
+            margin-right: 10px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 10px;
+            background: #2563eb;
+            color: white;
+            font-size: 17px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .submit-btn:hover {
+            background: #1d4ed8;
+        }
+
+        .warning {
+            display: none;
+            background: #fee2e2;
+            color: #991b1b;
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .back-btn {
+            display: inline-block;
+            margin-top: 20px;
+            text-decoration: none;
+            color: #2563eb;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="header">
+
+        <h1>📝 SkillBridge Assessment</h1>
+
+        {% if student %}
+
+            <p>
+                Student:
+                <strong>{{ student["name"] }}</strong>
+            </p>
+
+            <p>
+                Career Field:
+                <strong>{{ student["target_field"] }}</strong>
+            </p>
+
+        {% else %}
+
+            <p>
+                Please complete your profile before taking the assessment.
+            </p>
+
+        {% endif %}
+
+    </div>
+
+
+    {% if student %}
+
+    <div id="warning" class="warning">
+        Please answer all 10 questions before submitting.
+    </div>
+
+
+    <form
+        id="assessmentForm"
+        action="{{ url_for('submit_assessment') }}"
+        method="POST"
+    >
+
+        <!-- QUESTION 1 -->
+
+        <div class="question-card">
+
+            <div class="question">
+                1. Which language is commonly used for Data Analysis?
+            </div>
+
+            <label class="option">
+                <input type="radio" name="q1" value="Python">
+                Python
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q1" value="HTML">
+                HTML
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q1" value="CSS">
+                CSS
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q1" value="XML">
+                XML
+            </label>
+
+        </div>
+
+
+        <!-- QUESTION 2 -->
+
+        <div class="question-card">
+
+            <div class="question">
+                2. Which language is mainly used to query databases?
+            </div>
+
+            <label class="option">
+                <input type="radio" name="q2" value="SQL">
+                SQL
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q2" value="HTML">
+                HTML
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q2" value="CSS">
+                CSS
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q2" value="Java">
+                Java
+            </label>
+
+        </div>
+
+
+        <!-- QUESTION 3 -->
+
+        <div class="question-card">
+
+            <div class="question">
+                3. Which tool is commonly used for Business Intelligence?
+            </div>
+
+            <label class="option">
+                <input type="radio" name="q3" value="Power BI">
+                Power BI
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q3" value="Notepad">
+                Notepad
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q3" value="Paint">
+                Paint
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q3" value="Calculator">
+                Calculator
+            </label>
+
+        </div>
+
+
+        <!-- QUESTION 4 -->
+
+        <div class="question-card">
+
+            <div class="question">
+                4. Which Python library is commonly used for data manipulation?
+            </div>
+
+            <label class="option">
+                <input type="radio" name="q4" value="Pandas">
+                Pandas
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q4" value="Flask">
+                Flask
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q4" value="Tkinter">
+                Tkinter
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q4" value="Requests">
+                Requests
+            </label>
+
+        </div>
+
+
+        <!-- QUESTION 5 -->
+
+        <div class="question-card">
+
+            <div class="question">
+                5. What does DSA stand for?
+            </div>
+
+            <label class="option">
+                <input type="radio" name="q5" value="Data Structures and Algorithms">
+                Data Structures and Algorithms
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q5" value="Data Software Application">
+                Data Software Application
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q5" value="Database System Analysis">
+                Database System Analysis
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q5" value="Digital Software Architecture">
+                Digital Software Architecture
+            </label>
+
+        </div>
+
+
+        <!-- QUESTION 6 -->
+
+        <div class="question-card">
+
+            <div class="question">
+                6. Which technology is used to create the structure of a webpage?
+            </div>
+
+            <label class="option">
+                <input type="radio" name="q6" value="HTML">
+                HTML
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q6" value="Python">
+                Python
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q6" value="SQL">
+                SQL
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q6" value="Power BI">
+                Power BI
+            </label>
+
+        </div>
+
+
+        <!-- QUESTION 7 -->
+
+        <div class="question-card">
+
+            <div class="question">
+                7. Which technology is mainly used to style webpages?
+            </div>
+
+            <label class="option">
+                <input type="radio" name="q7" value="CSS">
+                CSS
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q7" value="SQL">
+                SQL
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q7" value="Python">
+                Python
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q7" value="Git">
+                Git
+            </label>
+
+        </div>
+
+
+        <!-- QUESTION 8 -->
+
+        <div class="question-card">
+
+            <div class="question">
+                8. Which tool is commonly used for version control?
+            </div>
+
+            <label class="option">
+                <input type="radio" name="q8" value="Git">
+                Git
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q8" value="Excel">
+                Excel
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q8" value="Power BI">
+                Power BI
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q8" value="NumPy">
+                NumPy
+            </label>
+
+        </div>
+
+
+        <!-- QUESTION 9 -->
+
+        <div class="question-card">
+
+            <div class="question">
+                9. Which library is mainly used for numerical computing in Python?
+            </div>
+
+            <label class="option">
+                <input type="radio" name="q9" value="NumPy">
+                NumPy
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q9" value="Flask">
+                Flask
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q9" value="HTML">
+                HTML
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q9" value="Git">
+                Git
+            </label>
+
+        </div>
+
+
+        <!-- QUESTION 10 -->
+
+        <div class="question-card">
+
+            <div class="question">
+                10. Machine Learning is a part of which field?
+            </div>
+
+            <label class="option">
+                <input type="radio" name="q10" value="Artificial Intelligence">
+                Artificial Intelligence
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q10" value="Web Design">
+                Web Design
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q10" value="Database Management">
+                Database Management
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q10" value="Networking">
+                Networking
+            </label>
+
+        </div>
+
+
+        <button
+            type="submit"
+            class="submit-btn"
+        >
+            Submit Assessment
+        </button>
+
+    </form>
+
+    {% endif %}
+
+
+    <a
+        href="{{ url_for('dashboard') }}"
+        class="back-btn"
+    >
+        ← Back to Dashboard
+    </a>
+
+</div>
+
+
+<script>
+
+document
+.getElementById("assessmentForm")
+?.addEventListener("submit", function(event) {
+
+    const answers = {
+
+        q1: "Python",
+
+        q2: "SQL",
+
+        q3: "Power BI",
+
+        q4: "Pandas",
+
+        q5: "Data Structures and Algorithms",
+
+        q6: "HTML",
+
+        q7: "CSS",
+
+        q8: "Git",
+
+        q9: "NumPy",
+
+        q10: "Artificial Intelligence"
+
+    };
+
+
+    let score = 0;
+
+    let answered = 0;
+
+
+    for (const question in answers) {
+
+        const selected =
+            document.querySelector(
+                'input[name="' + question + '"]:checked'
+            );
+
+
+        if (selected) {
+
+            answered++;
+
+            if (selected.value === answers[question]) {
+
+                score++;
+
+            }
+
+        }
+
+    }
+
+
+    if (answered < 10) {
+
+        event.preventDefault();
+
+        const warning =
+            document.getElementById("warning");
+
+        warning.style.display = "block";
+
+        warning.innerText =
+            "Please answer all 10 questions before submitting.";
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+
+        return;
+
+    }
+
+});
+
+</script>
+
+</body>
+</html>
+```
