@@ -34,7 +34,7 @@ app.secret_key = "skillbridge-secret-key"
 
 DB = "skillbridge.db"
 
-UPLOAD_FOLDER = "uploads"
+UPLOAD_FOLDER = "/tmp/uploads"
 
 app.config["UPLOAD_FOLDER"] = UPLOAD_FOLDER
 
