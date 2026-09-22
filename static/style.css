@@ -8773,7 +8773,6 @@ body.dark-mode .setting-option p {
     }
 
 }
-
 @media (max-width: 600px) {
 
     .placement-readiness,
@@ -8809,5 +8808,4 @@ body.dark-mode .setting-option p {
         flex-direction: column;
         align-items: flex-start;
     }
-
 }
